@@ -1,0 +1,13 @@
+[project]
+name = "so-arm-workbench"
+version = "0.1.0"
+description = "SO-101 leader/follower physics, wrist vision, and tool experiments"
+requires-python = ">=3.12,<3.14"
+dependencies = ["mujoco==3.17.0", "viser==1.1.1", "scipy==1.18.1", "pillow==13.0.0", "trimesh==5.2.0"]
+
+[dependency-groups]
+dev = ["pytest==9.2.0"]
+
+[tool.pytest.ini_options]
+pythonpath = ["Simulation/Workbench"]
+testpaths = ["Simulation/Workbench/tests"]

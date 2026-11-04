@@ -1,3 +1,9 @@
+> **This fork: SO-101 camera and tool workbench.** Run a leader/follower physics
+> simulation, inspect wrist vision and tool-load concepts, and prepare stock
+> parts for a Bambu Lab A1 mini. Start with [WORKBENCH.md](WORKBENCH.md) and
+> [BUILD_PLAN.md](BUILD_PLAN.md). Custom tool adapters and cooking tasks remain
+> design work; the stock upstream documentation follows below.
+
 <div align="center">
 
    <h1>Standard Open SO-100 & SO-101 Arms</h1>

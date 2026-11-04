@@ -1,0 +1,486 @@
+{
+  "printer": "Bambu Lab A1 mini",
+  "bed_mm": [
+    180,
+    180,
+    180
+  ],
+  "margin_mm": 5.0,
+  "part_gap_mm": 6.0,
+  "roles": {
+    "leader": {
+      "source": "STL/SO101/Leader/BambuLabA1mini_Leader_SO101.stl",
+      "source_sha256": "13b55b80edb1b2fb8ded9f43b01414f5988b52b7a1e480bc140f55aad03f4105",
+      "source_extents_mm": [
+        382.2595157623291,
+        372.2278289794922,
+        87.0
+      ],
+      "solid_count": 12,
+      "plates": [
+        {
+          "file": "Build/A1mini/leader/leader_plate_01.stl",
+          "sha256": "f084cbb8686bd086721d10812aafddcfa2305cf981e4e3e50158ebde0387724a",
+          "extents_mm": [
+            165.55077934265137,
+            138.33778381347656,
+            32.0
+          ],
+          "solids": [
+            {
+              "source_solid": 7,
+              "footprint_mm": [
+                5.0,
+                5.0,
+                142.14629936218262,
+                67.30000305175781
+              ],
+              "part_candidates_by_triangle_count": [
+                "Upper_arm_SO101 (solid 1)"
+              ],
+              "rotation_z_degrees": 0,
+              "height_mm": 24.499996185302734,
+              "triangles": 8038,
+              "volume_mm3": 117328.15002229063
+            },
+            {
+              "source_solid": 8,
+              "footprint_mm": [
+                5.0,
+                78.30000305175781,
+                130.69980239868164,
+                64.39999771118164
+              ],
+              "part_candidates_by_triangle_count": [
+                "Under_arm_SO101 (solid 1)"
+              ],
+              "rotation_z_degrees": 0,
+              "height_mm": 23.9999942779541,
+              "triangles": 10508,
+              "volume_mm3": 92894.96263585861
+            },
+            {
+              "source_solid": 12,
+              "footprint_mm": [
+                141.69980239868164,
+                78.30000305175781,
+                28.850976943969727,
+                65.03778076171875
+              ],
+              "part_candidates_by_triangle_count": [
+                "Trigger_SO101 (solid 1)"
+              ],
+              "rotation_z_degrees": 0,
+              "height_mm": 32.0,
+              "triangles": 8960,
+              "volume_mm3": 11164.262216666588
+            }
+          ]
+        },
+        {
+          "file": "Build/A1mini/leader/leader_plate_02.stl",
+          "sha256": "d2286820c5f8ba763a297e1ea866d20223dd0c758266a4a411d20d0d088194d6",
+          "extents_mm": [
+            159.7750015258789,
+            162.20001220703125,
+            87.0
+          ],
+          "solids": [
+            {
+              "source_solid": 2,
+              "footprint_mm": [
+                5.0,
+                5.0,
+                110.92500305175781,
+                72.0
+              ],
+              "part_candidates_by_triangle_count": [
+                "Base_SO101 (solid 1)"
+              ],
+              "rotation_z_degrees": 0,
+              "height_mm": 87.0,
+              "triangles": 9558,
+              "volume_mm3": 122689.78039420885
+            },
+            {
+              "source_solid": 11,
+              "footprint_mm": [
+                5.0,
+                83.0,
+                88.12460327148438,
+                60.064903259277344
+              ],
+              "part_candidates_by_triangle_count": [
+                "Handle_SO101 (solid 1)"
+              ],
+              "rotation_z_degrees": 90,
+              "height_mm": 25.0,
+              "triangles": 11220,
+              "volume_mm3": 69626.398993243
+            },
+            {
+              "source_solid": 5,
+              "footprint_mm": [
+                99.12460327148438,
+                83.0,
+                59.80000305175781,
+                84.20001220703125
+              ],
+              "part_candidates_by_triangle_count": [
+                "Rotation_Pitch_SO101 (solid 1)"
+              ],
+              "rotation_z_degrees": 90,
+              "height_mm": 46.0,
+              "triangles": 6696,
+              "volume_mm3": 68787.20977219974
+            },
+            {
+              "source_solid": 10,
+              "footprint_mm": [
+                121.92500305175781,
+                5.0,
+                42.849998474121094,
+                67.44253540039062
+              ],
+              "part_candidates_by_triangle_count": [
+                "Wrist_Roll_SO101 (solid 1)"
+              ],
+              "rotation_z_degrees": 0,
+              "height_mm": 60.1223258972168,
+              "triangles": 6158,
+              "volume_mm3": 39815.47124558125
+            }
+          ]
+        },
+        {
+          "file": "Build/A1mini/leader/leader_plate_03.stl",
+          "sha256": "e3fa8b4eb86e1ad2b8f5134b2b7d373419701c28c1e7e868d34cfe194678aa13",
+          "extents_mm": [
+            164.0276851654053,
+            126.55961608886719,
+            62.29999923706055
+          ],
+          "solids": [
+            {
+              "source_solid": 3,
+              "footprint_mm": [
+                5.0,
+                5.0,
+                80.19998550415039,
+                47.641082763671875
+              ],
+              "part_candidates_by_triangle_count": [
+                "Base_motor_holder_SO101 (solid 1)"
+              ],
+              "rotation_z_degrees": 90,
+              "height_mm": 31.40000343322754,
+              "triangles": 6816,
+              "volume_mm3": 23709.010853256263
+            },
+            {
+              "source_solid": 9,
+              "footprint_mm": [
+                91.19998550415039,
+                5.0,
+                77.82769966125488,
+                35.65960693359375
+              ],
+              "part_candidates_by_triangle_count": [
+                "Wrist_Roll_Pitch_SO101 (solid 1)"
+              ],
+              "rotation_z_degrees": 90,
+              "height_mm": 62.29999923706055,
+              "triangles": 17036,
+              "volume_mm3": 32299.359459827047
+            },
+            {
+              "source_solid": 6,
+              "footprint_mm": [
+                91.19998550415039,
+                46.65960693359375,
+                50.9999942779541,
+                41.99998474121094
+              ],
+              "part_candidates_by_triangle_count": [
+                "WaveShare_Mounting_Plate_SO101 (solid 1)"
+              ],
+              "rotation_z_degrees": 0,
+              "height_mm": 7.600006103515625,
+              "triangles": 752,
+              "volume_mm3": 9093.441818454414
+            },
+            {
+              "source_solid": 1,
+              "footprint_mm": [
+                5.0,
+                58.641082763671875,
+                55.080434799194336,
+                38.097076416015625
+              ],
+              "part_candidates_by_triangle_count": [
+                "Motor_holder_SO101_Base (solid 1)"
+              ],
+              "rotation_z_degrees": 90,
+              "height_mm": 28.0,
+              "triangles": 5854,
+              "volume_mm3": 13307.188044416282
+            },
+            {
+              "source_solid": 4,
+              "footprint_mm": [
+                66.08043479919434,
+                94.65959167480469,
+                56.39097213745117,
+                36.9000244140625
+              ],
+              "part_candidates_by_triangle_count": [
+                "Motor_holder_SO101_Wrist (solid 1)"
+              ],
+              "rotation_z_degrees": 90,
+              "height_mm": 28.00001335144043,
+              "triangles": 8010,
+              "volume_mm3": 13871.624011892845
+            }
+          ]
+        }
+      ]
+    },
+    "follower": {
+      "source": "STL/SO101/Follower/BambuLabA1mini_Follower_SO101.stl",
+      "source_sha256": "3b207908055805f4c0dece331ba55035aff6d7bc1641c9f70a988717fe9705b6",
+      "source_extents_mm": [
+        372.19122886657715,
+        369.2864990234375,
+        87.0
+      ],
+      "solid_count": 12,
+      "plates": [
+        {
+          "file": "Build/A1mini/follower/follower_plate_01.stl",
+          "sha256": "dbe2f8ab5fcbc825ba0a46062c5c6ef016787cac3fef874773144903c50e3373",
+          "extents_mm": [
+            143.2275390625,
+            145.2904510498047,
+            24.5
+          ],
+          "solids": [
+            {
+              "source_solid": 8,
+              "footprint_mm": [
+                5.0,
+                5.0,
+                135.08657836914062,
+                71.9904556274414
+              ],
+              "part_candidates_by_triangle_count": [
+                "Under_arm_SO101 (solid 1)"
+              ],
+              "rotation_z_degrees": 0,
+              "height_mm": 24.0,
+              "triangles": 10508,
+              "volume_mm3": 92895.03282703458
+            },
+            {
+              "source_solid": 3,
+              "footprint_mm": [
+                5.0,
+                82.9904556274414,
+                142.1462860107422,
+                67.29999542236328
+              ],
+              "part_candidates_by_triangle_count": [
+                "Upper_arm_SO101 (solid 1)"
+              ],
+              "rotation_z_degrees": 0,
+              "height_mm": 24.5,
+              "triangles": 8038,
+              "volume_mm3": 117328.18101087988
+            },
+            {
+              "source_solid": 7,
+              "footprint_mm": [
+                146.08657836914062,
+                5.0,
+                2.140960693359375,
+                40.832733154296875
+              ],
+              "part_candidates_by_triangle_count": [
+                "Moving_Jaw_SO101 (solid 1)"
+              ],
+              "rotation_z_degrees": 0,
+              "height_mm": 1.4999314546585083,
+              "triangles": 382,
+              "volume_mm3": 75.97801768888439
+            }
+          ]
+        },
+        {
+          "file": "Build/A1mini/follower/follower_plate_02.stl",
+          "sha256": "eb95807b09d76247491bdb91d8a497c47651025db4cf357784ea378008d3aede",
+          "extents_mm": [
+            168.92500686645508,
+            163.4765739440918,
+            87.0
+          ],
+          "solids": [
+            {
+              "source_solid": 11,
+              "footprint_mm": [
+                5.0,
+                5.0,
+                110.92500877380371,
+                72.00000381469727
+              ],
+              "part_candidates_by_triangle_count": [
+                "Base_SO101 (solid 1)"
+              ],
+              "rotation_z_degrees": 0,
+              "height_mm": 87.0,
+              "triangles": 9558,
+              "volume_mm3": 122689.74813354807
+            },
+            {
+              "source_solid": 9,
+              "footprint_mm": [
+                5.0,
+                83.00000381469727,
+                90.95553588867188,
+                85.47657012939453
+              ],
+              "part_candidates_by_triangle_count": [
+                "Rotation_Pitch_SO101 (solid 1)"
+              ],
+              "rotation_z_degrees": 90,
+              "height_mm": 72.12930297851562,
+              "triangles": 6696,
+              "volume_mm3": 68787.18068485156
+            },
+            {
+              "source_solid": 2,
+              "footprint_mm": [
+                121.92500877380371,
+                5.0,
+                51.99999809265137,
+                105.42529678344727
+              ],
+              "part_candidates_by_triangle_count": [
+                "Wrist_Roll_Follower_SO101 (solid 1)"
+              ],
+              "rotation_z_degrees": 90,
+              "height_mm": 65.19999694824219,
+              "triangles": 12056,
+              "volume_mm3": 56618.42742883102
+            },
+            {
+              "source_solid": 12,
+              "footprint_mm": [
+                101.95553588867188,
+                116.42529678344727,
+                51.000003814697266,
+                42.0
+              ],
+              "part_candidates_by_triangle_count": [
+                "WaveShare_Mounting_Plate_SO101 (solid 1)"
+              ],
+              "rotation_z_degrees": 90,
+              "height_mm": 7.5999908447265625,
+              "triangles": 752,
+              "volume_mm3": 9093.449556080452
+            }
+          ]
+        },
+        {
+          "file": "Build/A1mini/follower/follower_plate_03.stl",
+          "sha256": "ddcac76ed261c4abeca6eaf65d2b19c0833dfee97a91578a2e26d406234abebd",
+          "extents_mm": [
+            146.67502403259277,
+            137.70616722106934,
+            62.300010681152344
+          ],
+          "solids": [
+            {
+              "source_solid": 6,
+              "footprint_mm": [
+                5.0,
+                5.0,
+                93.03393363952637,
+                48.229469299316406
+              ],
+              "part_candidates_by_triangle_count": [
+                "Moving_Jaw_SO101 (solid 2)"
+              ],
+              "rotation_z_degrees": 0,
+              "height_mm": 19.99950408935547,
+              "triangles": 10878,
+              "volume_mm3": 20768.91780927788
+            },
+            {
+              "source_solid": 10,
+              "footprint_mm": [
+                104.03393363952637,
+                5.0,
+                47.641090393066406,
+                80.19999885559082
+              ],
+              "part_candidates_by_triangle_count": [
+                "Base_motor_holder_SO101 (solid 1)"
+              ],
+              "rotation_z_degrees": 90,
+              "height_mm": 31.400001525878906,
+              "triangles": 6816,
+              "volume_mm3": 23709.052526989322
+            },
+            {
+              "source_solid": 1,
+              "footprint_mm": [
+                5.0,
+                59.229469299316406,
+                75.95738983154297,
+                40.58418083190918
+              ],
+              "part_candidates_by_triangle_count": [
+                "Wrist_Roll_Pitch_SO101 (solid 1)"
+              ],
+              "rotation_z_degrees": 90,
+              "height_mm": 62.300010681152344,
+              "triangles": 17036,
+              "volume_mm3": 32299.35442742586
+            },
+            {
+              "source_solid": 4,
+              "footprint_mm": [
+                86.95738983154297,
+                91.19999885559082,
+                55.0203857421875,
+                38.82993459701538
+              ],
+              "part_candidates_by_triangle_count": [
+                "Motor_holder_SO101_Base (solid 1)"
+              ],
+              "rotation_z_degrees": 0,
+              "height_mm": 28.0,
+              "triangles": 5854,
+              "volume_mm3": 13307.185075914284
+            },
+            {
+              "source_solid": 5,
+              "footprint_mm": [
+                5.0,
+                105.81365013122559,
+                56.58296012878418,
+                36.89251708984375
+              ],
+              "part_candidates_by_triangle_count": [
+                "Motor_holder_SO101_Wrist (solid 1)"
+              ],
+              "rotation_z_degrees": 90,
+              "height_mm": 28.0,
+              "triangles": 8010,
+              "volume_mm3": 13871.615969702369
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
