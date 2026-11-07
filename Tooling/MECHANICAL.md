@@ -34,21 +34,25 @@ envelope of every screw, wire and spring.
 
 ## Dock and release mechanism
 
-The four stations are arranged on a reachable arc rather than an arbitrary
-straight rail. Each pose includes orientation. Their coordinates and joint
-angles are in the manifest. A 150 mm axial pre-approach keeps the full tool
-ahead of the receiver from sweeping through the supports while the wrist aligns.
-That distance replaced an earlier 35 mm approach that caused jaw/rack contact.
+Use the **revision 2** rack files. The original dock uprights intersected the
+rendered tool heads and must not be used. The revised stations sit on a wider
+arc, with the ears rotated across the station and the uprights outside the tool
+path. The rack poses and joint angles are in the manifest. The arm aligns 150 mm
+from the seating plane and follows successive poses along the dock axis rather
+than taking a single joint-space shortcut through the approach and withdrawal.
 
-Two ears on each module meet two support ledges on their front/outward faces.
-A separate retaining gate slides behind the ears and prevents axial withdrawal
-until the wrist is locked. The ledges are outside the
-moving tools' modeled envelope, at X=±55 mm. The physical stand must restrain
-the tool against axial insertion/extraction forces as well as gravity. The
-current simulation represents this capture with a weld. The gate has a 20 mm
-opening stroke, transverse to insertion. The controller closes it before wrist
-unlock and opens it after verifying the wrist lock. Ledge friction alone
-is not an accepted substitute for a tested stand capture.
+Two front ledges and the rear retaining gate surround the module ears at X=±55
+mm. At the nominal parked pose the front ledges are 2.5 mm from the ear faces
+and the closed gate is 2.0 mm behind them. These are prototype geometry gaps,
+not a physical locating tolerance. The gate slides 20 mm along the guides, with
+5 mm nominal transverse clearance to the ears when fully open. It closes
+before wrist release and finishes opening before withdrawal.
+
+The simulation uses a weld to hold the parked tool at the nominal pose.
+The printed rack alone does not establish that pose or its repeatability.
+On the bench, establish how the tool seats under gravity, how a compliant
+locator or shims take up the slack without binding, and how it reacts to
+insertion and pullout forces. Recheck clearance with those parts installed.
 
 The rack releases the arm's pin; release and gate servos stay off the wrist. The
 initial bench arrangement uses two actuators per station, one per function. The

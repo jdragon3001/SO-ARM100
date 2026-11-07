@@ -41,151 +41,189 @@
   "release_crank_radius_mm": 12,
   "release_angle_degrees": 17,
   "release_calculated_stroke_mm": 7.0169209133456825,
-  "rack_gate_travel_mm": 20,
+  "rack_revision": 2,
+  "rack_gate_travel_mm": 20.0,
+  "rack_ledge_face_mm": 8.5,
   "docks": {
     "gripper": {
       "position_m": [
-        0.24967526504084836,
-        0.1961747566102504,
-        0.21265001393050226
+        0.18971074503010418,
+        0.24530516748417677,
+        0.2126500139305024
       ],
       "rotation": [
         [
-          0.4458219388620582,
-          0.6607276416229407,
-          0.6038888825145408
+          -0.8367187744887076,
+          0.33662839900918945,
+          0.4319525591990681
         ],
         [
-          0.34882206530465354,
-          -0.7495505799763748,
-          0.5625807451501296
+          0.5461582012252939,
+          0.455099280810944,
+          0.7032750982650474
         ],
         [
-          0.8243579110955812,
-          -0.04016107135605085,
-          -0.5646424733950351
+          0.04016107135605074,
+          0.8243579110955815,
+          -0.5646424733950349
         ]
       ],
       "pedestal_origin_m": [
-        0.24967526504084836,
-        0.1961747566102504,
+        0.18971074503010418,
+        0.24530516748417677,
         0
       ],
       "dock_q_rad": [
-        -0.75,
+        -1.02,
         0.3,
         -0.6,
         0.9,
-        0.0
-      ]
+        1.5707963267948966
+      ],
+      "nominal_intersection_mm3": {
+        "module_dock": 0.0,
+        "gate_dock_at_0_mm_open": 0,
+        "gate_module_at_0_mm_open": 0,
+        "gate_dock_at_10_mm_open": 0,
+        "gate_module_at_10_mm_open": 0,
+        "gate_dock_at_20_mm_open": 0,
+        "gate_module_at_20_mm_open": 0
+      }
     },
     "soft_gripper": {
       "position_m": [
-        0.317915969321439,
-        0.07107748058635513,
-        0.21265001393050212
+        0.3103981136989513,
+        0.09587317667707762,
+        0.21265001393050215
       ],
       "rotation": [
         [
-          0.5584797657892124,
-          0.22048936593097784,
-          0.7996779293661794
+          -0.307189225368189,
+          0.5479163124360921,
+          0.778089001582805
         ],
         [
-          0.0923817385534364,
-          -0.9745622236978446,
-          0.2041912988424212
+          0.9508006458586499,
+          0.14220319609827398,
+          0.2752387742564802
         ],
         [
-          0.8243579110955807,
-          -0.04016107135605075,
-          -0.5646424733950353
+          0.04016107135605079,
+          0.8243579110955812,
+          -0.5646424733950357
         ]
       ],
       "pedestal_origin_m": [
-        0.317915969321439,
-        0.07107748058635513,
+        0.3103981136989513,
+        0.09587317667707762,
         0
       ],
       "dock_q_rad": [
-        -0.25,
+        -0.34,
         0.3,
         -0.6,
         0.9,
-        0.0
-      ]
+        1.5707963267948966
+      ],
+      "nominal_intersection_mm3": {
+        "module_dock": 0.0,
+        "gate_dock_at_0_mm_open": 0,
+        "gate_module_at_0_mm_open": 0,
+        "gate_dock_at_10_mm_open": 0,
+        "gate_module_at_10_mm_open": 0,
+        "gate_dock_at_20_mm_open": 0,
+        "gate_module_at_20_mm_open": 0
+      }
     },
     "spatula": {
       "position_m": [
-        0.3178279924735285,
-        -0.0714220437966542,
-        0.21265001393050204
+        0.3102795256889866,
+        -0.09620843818927834,
+        0.21265001393050206
       ],
       "rotation": [
         [
-          0.5344022683884069,
-          -0.27373239637635743,
-          0.7996779293661798
+          0.3589948522076391,
+          0.5154611544086403,
+          0.7780890015828053
         ],
         [
-          -0.1866768597214306,
-          -0.9609670460122917,
-          -0.2041912988424197
+          0.932475085155603,
+          -0.23395262920053178,
+          -0.27523877425647886
         ],
         [
-          0.8243579110955808,
-          -0.04016107135605028,
+          0.04016107135605035,
+          0.824357911095581,
           -0.5646424733950359
         ]
       ],
       "pedestal_origin_m": [
-        0.3178279924735285,
-        -0.0714220437966542,
+        0.3102795256889866,
+        -0.09620843818927834,
         0
       ],
       "dock_q_rad": [
-        0.25,
+        0.34,
         0.3,
         -0.6,
         0.9,
-        0.0
-      ]
+        1.5707963267948966
+      ],
+      "nominal_intersection_mm3": {
+        "module_dock": 0.0,
+        "gate_dock_at_0_mm_open": 0,
+        "gate_module_at_0_mm_open": 0,
+        "gate_dock_at_10_mm_open": 0,
+        "gate_module_at_10_mm_open": 0,
+        "gate_dock_at_20_mm_open": 0,
+        "gate_module_at_20_mm_open": 0
+      }
     },
     "stirrer": {
       "position_m": [
-        0.2494328742977851,
-        -0.19643496312516107,
+        0.18940773541750022,
+        -0.24549129436958136,
         0.21265001393050195
       ],
       "rotation": [
         [
-          0.3794844577554368,
-          -0.7009349212996875,
-          0.6038888825145415
+          0.8654784318655523,
+          0.25370075005194526,
+          0.4319525591990686
         ],
         [
-          -0.4200304521534023,
-          -0.7120936205655362,
-          -0.562580745150128
+          0.4993337284052408,
+          -0.5060335599910452,
+          -0.7032750982650462
         ],
         [
-          0.8243579110955807,
-          -0.04016107135604985,
-          -0.5646424733950358
+          0.040161071356049655,
+          0.8243579110955808,
+          -0.5646424733950365
         ]
       ],
       "pedestal_origin_m": [
-        0.2494328742977851,
-        -0.19643496312516107,
+        0.18940773541750022,
+        -0.24549129436958136,
         0
       ],
       "dock_q_rad": [
-        0.75,
+        1.02,
         0.3,
         -0.6,
         0.9,
-        0.0
-      ]
+        1.5707963267948966
+      ],
+      "nominal_intersection_mm3": {
+        "module_dock": 0.0,
+        "gate_dock_at_0_mm_open": 0,
+        "gate_module_at_0_mm_open": 0,
+        "gate_dock_at_10_mm_open": 0,
+        "gate_module_at_10_mm_open": 0,
+        "gate_dock_at_20_mm_open": 0,
+        "gate_module_at_20_mm_open": 0
+      }
     }
   },
   "parts": {
@@ -819,25 +857,25 @@
       "print_stl": "Build/Tooling/print/dock_gripper.stl",
       "material": "PLA/PETG fit prototype",
       "prototype": true,
-      "volume_mm3": 133847.66748211754,
+      "volume_mm3": 146047.82792420028,
       "bounds_mm": [
         [
-          -47.7984950784487,
-          -38.0,
+          -79.32502237459822,
+          -61.150323538949195,
           0.0
         ],
         [
-          40.947853092445406,
-          45.53890503576041,
-          270.5448376332745
+          79.32502237459822,
+          61.15032353894918,
+          224.75336365174823
         ]
       ],
       "printable_component": false,
       "bed_fit": false,
       "solids": 1,
       "watertight": true,
-      "sha256": "e7bd1628ca96d7ecefd892c9504568898e7f7689aa588215400acd621dd74da1",
-      "estimated_print_g": 91.28410922280418
+      "sha256": "25bed13ebd2cfb8c98e961033f2e6b1460e20ac132f4f75541983213e3e39c78",
+      "estimated_print_g": 99.6046186443046
     },
     "dock_gripper_lower_1": {
       "step": "Build/Tooling/parts/dock_gripper_lower_1.step",
@@ -845,16 +883,16 @@
       "print_stl": "Build/Tooling/print/dock_gripper_lower_1.stl",
       "material": "PLA/PETG fit prototype",
       "prototype": true,
-      "volume_mm3": 89398.7940949217,
+      "volume_mm3": 94118.93324469161,
       "bounds_mm": [
         [
-          -38.0,
-          -38.0,
+          -79.32502237459822,
+          -61.150323538949195,
           0.0
         ],
         [
-          38.0,
-          43.0,
+          79.32502237459822,
+          61.15032353894918,
           120.0
         ]
       ],
@@ -862,8 +900,8 @@
       "bed_fit": true,
       "solids": 1,
       "watertight": true,
-      "sha256": "c03362cc28a0ee65a3c9c24a4fd3e1da7d923073259ccb9e44ce27e477635bd9",
-      "estimated_print_g": 60.9699775727366
+      "sha256": "012b5b9ebec44cac2600fac1d3cd64021280ebe4c697a4bedd80f516e554f6ec",
+      "estimated_print_g": 64.18911247287967
     },
     "dock_gripper_upper_1": {
       "step": "Build/Tooling/parts/dock_gripper_upper_1.step",
@@ -871,25 +909,25 @@
       "print_stl": "Build/Tooling/print/dock_gripper_upper_1.stl",
       "material": "PLA/PETG fit prototype",
       "prototype": true,
-      "volume_mm3": 12300.324447521683,
+      "volume_mm3": 25352.854751665716,
       "bounds_mm": [
         [
-          -47.7984950784487,
-          -31.295772775537884,
+          40.131185539549,
+          -56.008660055056154,
           120.0
         ],
         [
-          -8.092560182381051,
-          3.095349250738444,
-          178.21675159056932
+          76.82840263938681,
+          -11.012012645050543,
+          219.13081366190113
         ]
       ],
       "printable_component": true,
       "bed_fit": true,
       "solids": 1,
       "watertight": true,
-      "sha256": "6aebfa41cf01814e90314e9b0db8ee8e847908ff1586464eaddcab03b8922da3",
-      "estimated_print_g": 8.388821273209789
+      "sha256": "fd51599caca53248643f7868ccadb90eb51e9eea3e484e55e6aabb804c0074aa",
+      "estimated_print_g": 17.29064694063602
     },
     "dock_gripper_upper_2": {
       "step": "Build/Tooling/parts/dock_gripper_upper_2.step",
@@ -897,25 +935,25 @@
       "print_stl": "Build/Tooling/print/dock_gripper_upper_2.stl",
       "material": "PLA/PETG fit prototype",
       "prototype": true,
-      "volume_mm3": 32148.54893967429,
+      "volume_mm3": 26576.039927842994,
       "bounds_mm": [
         [
-          2.133562074101869,
-          11.873887225784014,
+          -73.61050111541358,
+          20.45348811648504,
           120.0
         ],
         [
-          40.947853092445406,
-          45.53890503576041,
-          270.5448376332745
+          -30.196276677970417,
+          59.3195149612641,
+          224.75336365174823
         ]
       ],
       "printable_component": true,
       "bed_fit": true,
       "solids": 1,
       "watertight": true,
-      "sha256": "60d96dc4f71309fc7469414e62b951d780131d2c1f652b29652f8957e27c73cc",
-      "estimated_print_g": 21.92531037685787
+      "sha256": "b545ec3dc548fd95d408812e0021f53e9c2b552e92bf8c12011d7afa497938bc",
+      "estimated_print_g": 18.124859230788925
     },
     "dock_soft_gripper": {
       "step": "Build/Tooling/parts/dock_soft_gripper.step",
@@ -923,25 +961,25 @@
       "print_stl": "Build/Tooling/print/dock_soft_gripper.stl",
       "material": "PLA/PETG fit prototype",
       "prototype": true,
-      "volume_mm3": 133759.39598664767,
+      "volume_mm3": 146047.82792420042,
       "bounds_mm": [
         [
-          -46.17050776890843,
-          -38.0,
+          -43.76543821044252,
+          -84.0236315476157,
           0.0
         ],
         [
-          45.841389631477504,
-          43.0,
-          270.5448376332743
+          43.76543821044252,
+          84.02363154761571,
+          224.75336365174803
         ]
       ],
       "printable_component": false,
       "bed_fit": false,
       "solids": 1,
       "watertight": true,
-      "sha256": "39324a2e22af1b1f742cabfab32a80cb403da9e306fcf9a1f4359711b808cba1",
-      "estimated_print_g": 91.22390806289371
+      "sha256": "c2c53c97d4bd8daac8157950e43f6e4ef6259e42d3f4e62502ef80785c27f0f8",
+      "estimated_print_g": 99.6046186443047
     },
     "dock_soft_gripper_lower_1": {
       "step": "Build/Tooling/parts/dock_soft_gripper_lower_1.step",
@@ -949,16 +987,16 @@
       "print_stl": "Build/Tooling/print/dock_soft_gripper_lower_1.stl",
       "material": "PLA/PETG fit prototype",
       "prototype": true,
-      "volume_mm3": 89398.79409492172,
+      "volume_mm3": 94118.93324469164,
       "bounds_mm": [
         [
-          -38.0,
-          -38.0,
+          -43.76543821044252,
+          -84.0236315476157,
           0.0
         ],
         [
-          41.51445469460374,
-          43.0,
+          43.76543821044252,
+          84.02363154761571,
           120.0
         ]
       ],
@@ -966,8 +1004,8 @@
       "bed_fit": true,
       "solids": 1,
       "watertight": true,
-      "sha256": "f727de53fc9a28caab6b6d87f57d28d06b019ca7d15f57db3c9117d4557e06b0",
-      "estimated_print_g": 60.96997757273661
+      "sha256": "14a01b852b6b44283ef5b29b92545b7fa5dedb98e3ac91313bd0fe28ce9f22a3",
+      "estimated_print_g": 64.1891124728797
     },
     "dock_soft_gripper_upper_1": {
       "step": "Build/Tooling/parts/dock_soft_gripper_upper_1.step",
@@ -975,25 +1013,25 @@
       "print_stl": "Build/Tooling/print/dock_soft_gripper_upper_1.stl",
       "material": "PLA/PETG fit prototype",
       "prototype": true,
-      "volume_mm3": 32102.93338643798,
+      "volume_mm3": 26576.03992784295,
       "bounds_mm": [
         [
-          16.37922599948344,
-          -5.060713217056829,
+          -40.25546123314861,
+          46.41372542531429,
           120.0
         ],
         [
-          45.841389631477504,
-          30.461657139448022,
-          270.5448376332743
+          2.5642871420746225,
+          82.0008391577466,
+          224.75336365174803
         ]
       ],
       "printable_component": true,
       "bed_fit": true,
       "solids": 1,
       "watertight": true,
-      "sha256": "a6d81f6642be5f3f77c04790bfce3d86b777d1b5cfa7cf026ce2abd9d8aaa0d5",
-      "estimated_print_g": 21.89420056955071
+      "sha256": "7d7587808d7120737876c7a7838c080be21d0930b44ceb0276ef8b61deb31b53",
+      "estimated_print_g": 18.124859230788893
     },
     "dock_soft_gripper_upper_2": {
       "step": "Build/Tooling/parts/dock_soft_gripper_upper_2.step",
@@ -1001,25 +1039,25 @@
       "print_stl": "Build/Tooling/print/dock_soft_gripper_upper_2.stl",
       "material": "PLA/PETG fit prototype",
       "prototype": true,
-      "volume_mm3": 12257.668505287933,
+      "volume_mm3": 25352.85475166566,
       "bounds_mm": [
         [
-          -46.17050776890843,
-          -15.222704457934826,
+          2.7510303183978495,
+          -77.2357216032256,
           120.0
         ],
         [
-          -16.38486643897967,
-          18.88975462840862,
-          178.2167515905692
+          42.088764935889536,
+          -40.08323361741525,
+          219.13081366190087
         ]
       ],
       "printable_component": true,
       "bed_fit": true,
       "solids": 1,
       "watertight": true,
-      "sha256": "56f9112445a3d041fa516e0d41b3fd60afd08461a0c5d1b50ee03e4d86a1a362",
-      "estimated_print_g": 8.359729920606371
+      "sha256": "6b5e0fc1f3c408dbcced22be1507b8f5a2cb369280ed2ca57fcff08fca6807c4",
+      "estimated_print_g": 17.290646940635984
     },
     "dock_spatula": {
       "step": "Build/Tooling/parts/dock_spatula.step",
@@ -1027,25 +1065,25 @@
       "print_stl": "Build/Tooling/print/dock_spatula.stl",
       "material": "PLA/PETG fit prototype",
       "prototype": true,
-      "volume_mm3": 133748.33777826102,
+      "volume_mm3": 146047.82792420074,
       "bounds_mm": [
         [
-          -41.45034179607805,
-          -38.0,
+          -47.65929266642771,
+          -83.53074764383118,
           0.0
         ],
         [
-          49.02877185556449,
-          43.0,
-          270.5448376332742
+          47.65929266642771,
+          83.53074764383119,
+          224.75336365174786
         ]
       ],
       "printable_component": false,
       "bed_fit": false,
       "solids": 1,
       "watertight": true,
-      "sha256": "3396f66cf8156ed31af0ac5f734afbdfada113496beba85e525f3c620b2fc90f",
-      "estimated_print_g": 91.21636636477403
+      "sha256": "901e0abbb9921452c5b1be33aaec2437fc473cf26e3c8f3bb6e2698159471b0d",
+      "estimated_print_g": 99.6046186443049
     },
     "dock_spatula_lower_1": {
       "step": "Build/Tooling/parts/dock_spatula_lower_1.step",
@@ -1053,25 +1091,25 @@
       "print_stl": "Build/Tooling/print/dock_spatula_lower_1.stl",
       "material": "PLA/PETG fit prototype",
       "prototype": true,
-      "volume_mm3": 89398.7940949217,
+      "volume_mm3": 94118.93324469158,
       "bounds_mm": [
         [
-          -38.0,
-          -38.0,
+          -47.65929266642771,
+          -83.53074764383118,
           0.0
         ],
         [
-          40.19019233755944,
-          43.0,
-          120.0
+          47.65929266642771,
+          83.53074764383119,
+          120.00000000000001
         ]
       ],
       "printable_component": true,
       "bed_fit": true,
       "solids": 1,
       "watertight": true,
-      "sha256": "0161c5b17701c22eec78cf66b3e94198f2cb913fd070b05c387e2efd5d4526e7",
-      "estimated_print_g": 60.9699775727366
+      "sha256": "fc22e8bab3fdc5c1c6d14e21c12ed68f8a3a744e12fb3f414bbc09a3dac26416",
+      "estimated_print_g": 64.18911247287966
     },
     "dock_spatula_upper_1": {
       "step": "Build/Tooling/parts/dock_spatula_upper_1.step",
@@ -1079,25 +1117,25 @@
       "print_stl": "Build/Tooling/print/dock_spatula_upper_1.stl",
       "material": "PLA/PETG fit prototype",
       "prototype": true,
-      "volume_mm3": 12250.501665608277,
+      "volume_mm3": 25352.85475166565,
       "bounds_mm": [
         [
-          -41.45034179607805,
-          -3.652061227930736,
+          -43.559813291411544,
+          -81.00133262912904,
           120.0
         ],
         [
-          -14.643473228841806,
-          35.46138573323024,
-          178.21675159056912
+          -0.2793896845209769,
+          -44.524854747443165,
+          219.13081366190085
         ]
       ],
       "printable_component": true,
       "bed_fit": true,
       "solids": 1,
       "watertight": true,
-      "sha256": "923c10b153cde88aef188530ed0ce2d07f934b56df422aa0caf225a1216a5bf0",
-      "estimated_print_g": 8.354842135944846
+      "sha256": "bb8cc02aca558e25173eb2233cf42c986c96f50d1ef7f669842393e62e8967e7",
+      "estimated_print_g": 17.290646940635973
     },
     "dock_spatula_upper_2": {
       "step": "Build/Tooling/parts/dock_spatula_upper_2.step",
@@ -1105,25 +1143,25 @@
       "print_stl": "Build/Tooling/print/dock_spatula_upper_2.stl",
       "material": "PLA/PETG fit prototype",
       "prototype": true,
-      "volume_mm3": 32099.04201773161,
+      "volume_mm3": 26576.03992784291,
       "bounds_mm": [
         [
-          23.8773601909507,
-          -24.18651579728812,
+          6.6994660176580005,
+          38.19436293954414,
           120.0
         ],
         [
-          49.02877185556449,
-          14.55357744443,
-          270.5448376332742
+          46.0684028441478,
+          77.63209293528804,
+          224.75336365174786
         ]
       ],
       "printable_component": true,
       "bed_fit": true,
       "solids": 1,
       "watertight": true,
-      "sha256": "9f08fbc94e735e134060f93ad9fa7b2db34dfc44adaef35582c2d02c6bf9632a",
-      "estimated_print_g": 21.89154665609296
+      "sha256": "b37d30bb92d16fb0b69e1036ae593807609d76f714e801fc578380a5c2e7b93c",
+      "estimated_print_g": 18.124859230788864
     },
     "dock_stirrer": {
       "step": "Build/Tooling/parts/dock_stirrer.step",
@@ -1131,25 +1169,25 @@
       "print_stl": "Build/Tooling/print/dock_stirrer.stl",
       "material": "PLA/PETG fit prototype",
       "prototype": true,
-      "volume_mm3": 133418.7431017008,
+      "volume_mm3": 146047.82792420045,
       "bounds_mm": [
         [
-          -38.0,
-          -39.500725311233154,
+          -80.77140397309746,
+          -57.86888268151696,
           0.0
         ],
         [
-          46.82688176914165,
-          47.055617133879295,
-          270.5448376332741
+          80.77140397309748,
+          57.86888268151696,
+          224.75336365174775
         ]
       ],
       "printable_component": false,
       "bed_fit": false,
       "solids": 1,
       "watertight": true,
-      "sha256": "e99cdfc7731b93b799d3a745adfb5477bb20ba3fb041972bfe6bb49eb70989a6",
-      "estimated_print_g": 90.99158279535995
+      "sha256": "774c40316c723e815886d2759ccdb12e06961a5035ded8b3678be5a9c305bfbc",
+      "estimated_print_g": 99.60461864430471
     },
     "dock_stirrer_lower_1": {
       "step": "Build/Tooling/parts/dock_stirrer_lower_1.step",
@@ -1157,16 +1195,16 @@
       "print_stl": "Build/Tooling/print/dock_stirrer_lower_1.stl",
       "material": "PLA/PETG fit prototype",
       "prototype": true,
-      "volume_mm3": 88985.79576327158,
+      "volume_mm3": 94118.93324469154,
       "bounds_mm": [
         [
-          -38.0,
-          -38.0,
+          -80.77140397309746,
+          -57.86888268151696,
           0.0
         ],
         [
-          38.0,
-          43.0,
+          80.77140397309748,
+          57.86888268151696,
           120.0
         ]
       ],
@@ -1174,8 +1212,8 @@
       "bed_fit": true,
       "solids": 1,
       "watertight": true,
-      "sha256": "0cdd0c9de595e8b1f4c49aad5bcc6bf7a075c667c689bb4ea99f94355be7c157",
-      "estimated_print_g": 60.68831271055123
+      "sha256": "9b408d1d03338e6fe0a5bb53cbd31e7ab1df084db830b4486639b54a4c6a96a4",
+      "estimated_print_g": 64.18911247287963
     },
     "dock_stirrer_upper_1": {
       "step": "Build/Tooling/parts/dock_stirrer_upper_1.step",
@@ -1183,25 +1221,25 @@
       "print_stl": "Build/Tooling/print/dock_stirrer_upper_1.stl",
       "material": "PLA/PETG fit prototype",
       "prototype": true,
-      "volume_mm3": 12273.68611624992,
+      "volume_mm3": 25352.854751665633,
       "bounds_mm": [
         [
-          -33.196367498288474,
-          6.702624425641135,
+          -74.17914592138746,
+          -55.83237619977869,
           120.0
         ],
         [
-          0.7012892054454452,
-          47.055617133879295,
-          178.216751590569
+          -32.48894437058861,
+          -16.46350341198965,
+          219.1308136619008
         ]
       ],
       "printable_component": true,
       "bed_fit": true,
       "solids": 1,
       "watertight": true,
-      "sha256": "86ab37a8fd4d0b7f75b3d26cfe1a046d82a0bef580d6c341b5628643aabaf2cc",
-      "estimated_print_g": 8.370653931282448
+      "sha256": "555f946fb9c1ca8035fdabd63eb708f8870d4bf0d7aa4d36d0777534bee1de00",
+      "estimated_print_g": 17.290646940635963
     },
     "dock_stirrer_upper_2": {
       "step": "Build/Tooling/parts/dock_stirrer_upper_2.step",
@@ -1209,25 +1247,25 @@
       "print_stl": "Build/Tooling/print/dock_stirrer_upper_2.stl",
       "material": "PLA/PETG fit prototype",
       "prototype": true,
-      "volume_mm3": 32159.261222179706,
+      "volume_mm3": 26576.03992784289,
       "bounds_mm": [
         [
-          14.128303133051663,
-          -39.500725311233154,
+          42.4238532321672,
+          8.204160878706885,
           120.0
         ],
         [
-          46.82688176914165,
-          0.012206492698198623,
-          270.5448376332741
+          78.70755403458713,
+          53.443218564744065,
+          224.75336365174775
         ]
       ],
       "printable_component": true,
       "bed_fit": true,
       "solids": 1,
       "watertight": true,
-      "sha256": "f2877c296f48c0802708cd55f804a64e8c072c912f142fc5cb8f4b7a02f55948",
-      "estimated_print_g": 21.93261615352656
+      "sha256": "327fa5e643838c4e67d230424200c9e22c0a586778e24c4e805e11b9fd2d1087",
+      "estimated_print_g": 18.12485923078885
     },
     "dock_release_fork": {
       "step": "Build/Tooling/parts/dock_release_fork.step",
@@ -1261,25 +1299,25 @@
       "print_stl": "Build/Tooling/print/dock_retaining_gate.stl",
       "material": "PLA/PETG fit prototype",
       "prototype": true,
-      "volume_mm3": 4685.706937801625,
+      "volume_mm3": 5916.9069378016275,
       "bounds_mm": [
         [
-          -61.0,
+          -67.0,
           -32.0,
-          -3.0
+          -4.7
         ],
         [
-          61.0,
+          67.0,
           8.0,
-          -0.2999999999999998
+          -2.0
         ]
       ],
       "printable_component": true,
       "bed_fit": true,
       "solids": 1,
       "watertight": true,
-      "sha256": "06f0093f63ac4ff4184f4587114e53bd5c63e28fb5dab39e97741c8d7d46c6fa",
-      "estimated_print_g": 3.1956521315807085
+      "sha256": "c78f4bf50db0705594c2be12d5b77b99cafeab8eb539aef68d230705133a4299",
+      "estimated_print_g": 4.03533053158071
     },
     "dock_servo_cradle": {
       "step": "Build/Tooling/parts/dock_servo_cradle.step",

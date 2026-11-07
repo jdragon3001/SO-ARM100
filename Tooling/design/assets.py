@@ -171,7 +171,7 @@ def build(root, initial_tool, camera=True, fovy=70, payload_g=0):
                 ledge,
                 f"rack_ledge_{key}_{side}",
                 (0.007, 0.011, 0.002),
-                (side * EAR_X / 1000, 0, 0.008),
+                (side * EAR_X / 1000, 0, (RACK_FRONT + 2) / 1000),
             )
         gate = E.SubElement(
             dock,

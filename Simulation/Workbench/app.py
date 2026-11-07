@@ -245,7 +245,7 @@ class Workbench:
                 self.action(self.pause_button, "pause")
             with gui.add_folder("Reach a point"):
                 gui.add_markdown(
-                    "Drag the 3D axis handle at the follower's tip. Solve checks a sampled straight joint path. Tool orientation is free."
+                    "Drag the 3D axis handle at the follower's tip. Solve targets a position with free orientation. Rack geometry is checked as the arm moves."
                 )
                 self.action(gui.add_button("Solve target + move"), "ik")
                 self.action(gui.add_button("Target to current tip"), "target_tip")
@@ -291,7 +291,7 @@ class Workbench:
             )
             self.action(gui.add_button("Apply setup + reset"), "setup")
             gui.add_markdown(
-                "**ATC-02 automatic tool-change prototype.** These modules replace the complete gripper. The rack and arm exchange support through ideal weld constraints; lock, ID and power sensors are synthetic. The digital cycle does not validate a physical latch or connector.\n\nTool power is switched off before coupling separation. Motor limits, camera optics and printed mass are estimates."
+                "**ATC-02 automatic tool-change prototype.** These modules replace the complete gripper. The rack and arm exchange support through ideal weld constraints; lock, ID and power sensors are synthetic. Rack geometry is checked at each physics step; interference stops motion at the offending pose. The digital cycle does not validate a physical latch or connector.\n\nTool power is switched off before coupling separation. Motor limits, camera optics and printed mass are estimates."
             )
             self.rgb = gui.add_image(
                 np.zeros((240, 320, 3), dtype=np.uint8), label="Wrist RGB · simulated"
@@ -301,7 +301,7 @@ class Workbench:
                 label="Overhead RGB · simulated",
             )
             self.vision_status = gui.add_markdown("Camera initializing…")
-            self.proxy = gui.add_checkbox("Show collision proxies", initial_value=False)
+            self.proxy = gui.add_checkbox("Show physics proxies", initial_value=False)
         with tabs.add_tab("Record"):
             gui.add_markdown(
                 "Record synchronized simulated camera frames, leader commands, actual follower joints, torque and contacts.\n\nThis is a local experiment format. Training and LeRobot dataset export are future work; simulated demonstrations alone don't validate cooking."
@@ -557,13 +557,16 @@ class Workbench:
             f"Lock: {s['locked']} · tool rail: {s['rail_v']:.2f} V · power: {self.sim.power_enabled}\n\n"
             f"{self.sim.error}\n\nFeedback is simulated; hardware has not been qualified."
         )
+        rack_hit = state["rack_intersection"]
         hits = state["contacts"]
         tracking = np.max(np.abs(np.rad2deg(self.sim.target - self.sim.q)))
         peak = max(state["stall_fraction"])
         condition = (
             "CONTACT" if hits else ("TORQUE SATURATED" if peak > 0.95 else "RUNNING")
         )
-        if self.paused:
+        if rack_hit:
+            condition = "RACK INTERFERENCE · RESET REQUIRED"
+        elif self.paused:
             condition = "PAUSED"
         self.status.content = f"**{condition}** · {state['time_s']:.1f} s · worst joint error {tracking:.1f}°\n\n{self.message}"
         rows = "\n".join(
@@ -576,7 +579,10 @@ class Workbench:
         self.telemetry.content = (
             "| Joint | Actual | Nm | Ceiling |\n|---|---:|---:|---:|\n"
             + rows
-            + f"\n\nTCP: {', '.join(f'{v * 1000:.0f}' for v in state['tcp_m'])} mm\n\nRobot contacts: {contact}\n\nTorque % is relative to the assumed stall ceiling, not a continuous-duty rating."
+            + f"\n\nTCP: {', '.join(f'{v * 1000:.0f}' for v in state['tcp_m'])} mm"
+            f"\n\nProxy contacts: {contact}\n\nRack geometry: "
+            + (" / ".join(rack_hit["parts"]) if rack_hit else "clear at sampled poses")
+            + "\n\nTorque % is relative to the assumed stall ceiling, not a continuous-duty rating."
         )
 
     def run(self):
@@ -631,7 +637,7 @@ class Workbench:
                         )
                     self.update_status()
                     last_capture = now
-                elif self.paused:
+                elif self.paused or self.sim.rack_intersection:
                     self.update_status()
                 time.sleep(max(0.0, 0.02 - (time.monotonic() - started)))
         finally:

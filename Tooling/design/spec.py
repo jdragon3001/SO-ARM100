@@ -16,8 +16,11 @@ CLEARANCE = 0.25  # per side, start with coupons
 PIN_DIAMETER = 3.0
 PIN_TRAVEL = 7.0
 EAR_X = 55.0
-DOCK_PANS = [-0.75, -0.25, 0.25, 0.75]
-DOCK_Q = [np.array([p, 0.3, -0.6, 0.9, 0.0]) for p in DOCK_PANS]
+RACK_FRONT = 8.5  # axial position of ledge face; 2.5 mm ahead of the ear
+RACK_GATE_TRAVEL = 20.0
+DOCK_PANS = [-1.02, -0.34, 0.34, 1.02]
+# Put rack ears across the station, rather than one above the other.
+DOCK_Q = [np.array([p, 0.3, -0.6, 0.9, np.pi / 2]) for p in DOCK_PANS]
 HOME = np.array([-1.25, -0.6, 0.0, 0.8, 0.0])
 TRANSIT = np.array([0.0, -1.0, -0.5, 0.2, 0.0])
 ARM_JOINTS = ("shoulder_pan", "shoulder_lift", "elbow_flex", "wrist_flex", "wrist_roll")

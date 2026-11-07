@@ -108,6 +108,11 @@ def add(name, shape, material="PLA/PETG fit prototype", printable=True):
     return shape
 
 
+def intersection_volume(a, b):
+    intersection = a & b
+    return intersection.volume if intersection is not None else 0.0
+
+
 def main():
     # Verify the copied wrist screw pattern against actual cylindrical STEP faces.
     source = ROOT / "STEP/SO101/Follower_Specific/Wrist_Roll_Follower_SO101.step"
@@ -304,6 +309,7 @@ def main():
         add(f"socket_coupon_{int(clearance * 100):02d}", coupon)
 
     dock_manifest = {}
+    dock_solids = {}
     for key, (p, r) in dock_poses().items():
         # Independent pedestal per station. World-up printing, unique yaw.
         # Fork ledges support the module ears. Rack actuator mounts are on base.
@@ -312,35 +318,39 @@ def main():
             tuple(p * 1000 - np.r_[centre_xy, 0]),
             tuple(Rotation.from_matrix(r).as_euler("XYZ", degrees=True)),
         )
-        dock = box(76, 76, 6)
-        for x, y in ((-29, -29), (-29, 29), (29, -29), (29, 29)):
-            dock -= cylinder(2.2, 8, x, y, -1)
+        # Outboard uprights leave an open throat for the entire head, including
+        # the blade and fingers. The slotted guides are beyond the tool ears.
+        yaw = np.degrees(np.arctan2(r[1, 0], r[0, 0]))
+        yaw_frame = b.Rot(0, 0, yaw)
+        dock = box(164, 39, 6)
+        for x in (-75, 75):
+            for y in (-13, 13):
+                dock -= cylinder(2.2, 8, x, y, -1)
+        dock = yaw_frame * dock
         for side in (-1, 1):
-            ear = np.array([side * EAR_X, 0.0, 6.0])
-            world = p * 1000 + r @ ear - np.r_[centre_xy, 0]
-            dock += box(12, 18, max(1, world[2] - 6), world[0], world[1], 6)
-            fork = box(14, 22, 4, side * EAR_X, 0, 6)
-            guide = box(16, 10, 10, side * EAR_X, -18, -6) - box(
-                12.6, 12, 3.3, side * EAR_X, -18, -3.3
-            )
-            guide += box(3, 30, 16, side * (EAR_X + 8.5), -8, -6)
-            fork += guide
-            dock += frame * fork
-        # Actuator-foot mounting area, two M3 slots; exact actuator bracket is a
-        # bench subassembly, kept outside the wrist mass budget.
-        dock += box(30, 30, 7, x=0, y=28, z=6)
-        for x in (-8, 8):
-            dock -= cylinder(1.65, 16, x, 28, -1)
-        # Segment the tall pedestal for the A1 mini. Two bolt-on collars join
-        # each pair of upright segments. Assembly mesh remains one rigid part
-        # for visualization only; it is not a printable single-piece pedestal.
-        for side in (-1, 1):
-            w = p * 1000 + r @ np.array([side * EAR_X, 0.0, 6.0]) - np.r_[centre_xy, 0]
+            post_x = side * 74
+            top = p * 1000 + r @ [post_x, 0, RACK_FRONT + 3]
+            w = top - np.r_[centre_xy, 0]
+            post = box(12, 18, w[2] - 6.0 + 0.2, z=5.8)
             for z in (110, 130):
-                dock -= bore_x(1.7, 24, w[0] - 12, w[1], z)
+                post -= bore_x(1.7, 24, -12, 0, z)
+            dock += b.Pos(w[0], w[1], 0) * yaw_frame * post
+            shelf = box(30, 22, 6, side * 63, 0, RACK_FRONT)
+            sidewall = box(12, 25, RACK_FRONT + 13, side * 70, -7, -8)
+            sidewall -= box(18, 25, 4.8, side * 64, -7, -5.8)
+            # A cap reconnects the outer guide edge above the runner slot.
+            sidewall += box(4, 25, RACK_FRONT + 13, side * 74, -7, -8)
+            dock += frame * (shelf + sidewall)
+        # The servo bracket and linkage are separate bench integration work.
+        pad = box(30, 35, 7, y=10, z=5.8)
+        for x in (-8, 8):
+            pad -= cylinder(1.65, 16, x, 10, -1)
+        dock += yaw_frame * pad
+        # Segment the tall pedestal for the A1 mini.
         add(f"dock_{key}", dock, printable=False)
-        lower = dock & box(200, 200, 120)
-        upper = dock & box(200, 200, 200, z=120)
+        dock_solids[key] = dock, frame
+        lower = dock & box(240, 240, 120)
+        upper = dock & box(240, 240, 200, z=120)
         for label, component in (("lower", lower), ("upper", upper)):
             for i, solid in enumerate(component.solids()):
                 add(f"dock_{key}_{label}_{i + 1}", solid)
@@ -358,13 +368,30 @@ def main():
         + box(3.4, 4, 6, y=-15, z=-1)
     )
     add("dock_release_fork", release_fork)
-    gate = box(2 * EAR_X + 12, 8, 2.7, y=-28, z=-3)
+    gate = box(2 * EAR_X + 12, 8, 2.7, y=-28, z=-4.7)
     for side in (-1, 1):
-        gate += box(12, 28, 2.7, side * EAR_X, -14, -3) + box(
-            12, 16, 2.7, side * EAR_X, 0, -3
-        )
-    gate -= cylinder(1.65, 5, 0, -28, -4)
+        gate += box(18, 38, 2.7, side * 58, -11, -4.7)
+    gate -= cylinder(1.65, 5, 0, -28, -6)
     add("dock_retaining_gate", gate)
+    # Independent STEP solid check: catch nominal overlap (including complete
+    # containment) even when no triangle surfaces cross in a sampled frame.
+    for key, name in zip(
+        KEYS, ("gripper_body", "four_finger_palm", "spatula_holder", "stirrer_housing")
+    ):
+        dock, frame = dock_solids[key]
+        tool = frame * b.import_step(BUILD / "parts" / f"{name}.step")
+        intersections = {"module_dock": intersection_volume(tool, dock)}
+        for opening in (0, RACK_GATE_TRAVEL / 2, RACK_GATE_TRAVEL):
+            gate_at = frame * b.Pos(0, -opening, 0) * gate
+            intersections[f"gate_dock_at_{opening:g}_mm_open"] = intersection_volume(
+                gate_at, dock
+            )
+            intersections[f"gate_module_at_{opening:g}_mm_open"] = (
+                gate_at & tool
+            ).volume
+        if max(intersections.values()) > 1e-5:
+            raise ValueError(f"Nominal rack interference at {key}: {intersections}")
+        dock_manifest[key]["nominal_intersection_mm3"] = intersections
     cradle = b.import_step(ROOT / "STEP/SO101/Motor_holder_SO101_Wrist.step")
     add("dock_servo_cradle", cradle)
     crank = cylinder(16, 3) - cylinder(2.8, 5, z=-1)
@@ -401,7 +428,9 @@ def main():
         "release_crank_radius_mm": 12,
         "release_angle_degrees": 17,
         "release_calculated_stroke_mm": float(24 * np.sin(np.deg2rad(17))),
-        "rack_gate_travel_mm": 20,
+        "rack_revision": 2,
+        "rack_gate_travel_mm": RACK_GATE_TRAVEL,
+        "rack_ledge_face_mm": RACK_FRONT,
         "docks": dock_manifest,
         "parts": parts,
     }

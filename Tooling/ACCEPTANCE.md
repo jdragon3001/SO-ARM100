@@ -24,8 +24,10 @@ servos, horns, steel pin, spring and switches. Establish full constrained
 dimensions and hard stops from those actual parts. The included cradle/crank/fork
 are starting components, not a prevalidated actuator installation.
 
-Verify support in both axial directions: front ledges carry the tool while the
-retaining gate prevents it following the receiver on withdrawal. Confirm that
+Use rack revision 2. Hand-seat a dummy module and measure how the front ledges
+and closed gate restrain it in both axial directions. Confirm that gravity and
+axial play leave it aligned for pickup; establish real locating pads or shims
+and recheck the path if needed. Confirm that
 gate motion does not strike the receiver, camera, ears, fingers or wires. Inspect
 the full physical tool envelope, including a powered-off/open jaw. Confirm lock
 release cannot occur while the tool is unsupported. Measure pin retraction force

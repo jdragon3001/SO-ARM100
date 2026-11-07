@@ -5,8 +5,9 @@ receiver. Four **complete modules** park in a rack: two-finger gripper,
 four-finger tendon gripper, spatula holder and powered stirrer. The leader stays
 stock. A camera bracket remains on the arm-side receiver.
 
-**Status: digital prototype and printable fit-test CAD.** The simulation completes
-automatic changes. Actual spring-pin retention, blind mating, tool actuation,
+**Status: digital prototype and printable fit-test CAD.** Use rack revision 2;
+it supersedes the original dock and gate files. The simulation completes
+automatic changes with an independent check of rendered rack interference. Actual spring-pin retention, blind mating, tool actuation,
 contact force, firmware and repeated physical docking have not been qualified.
 Do not interpret a completed digital cycle as a working physical tool changer.
 
@@ -42,8 +43,9 @@ test payload or external force. The planner assumes an empty tool.
 6. Initialize the module at zero command, restore power, open the rack gate,
    withdraw, and return home.
 
-Missing support, a stuck power rail, wrong identity or failed lock prevents the
-next step and ends in a fault. Reset requires deliberate operator action. No
+Missing support, a stuck power rail, wrong identity, a failed lock or rendered
+rack interference ends in a fault. A rack fault preserves the first offending
+pose and names the intersecting parts. Reset requires deliberate operator action. No
 automatic retry or automatic unlock is performed after a fault.
 
 ## What is physically modeled
@@ -56,7 +58,10 @@ fingers driven by one tendon; the stirring shaft has a velocity actuator.
 
 The receiver, tools and rack render from generated CAD. Collision proxies are
 separate from concave CAD meshes so the receiver socket is not accidentally
-filled by a convex collision hull. The guide key, steel pin, rack captures and
+filled by a convex collision hull. An independent FCL surface query checks the
+rendered rack, gate and scene parts at every 2 ms physics step. The check does
+not solve contact forces or guarantee continuous clearance between steps. The
+guide key, steel pin, rack captures and
 electrical contacts are **not contact-mechanism simulations**. Their retention
 is represented by ideal welds. All lock/support/ID/voltage signals are explicitly
 synthetic. TPU hinges approximate motion rather than predicting material strain.

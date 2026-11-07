@@ -70,6 +70,9 @@ dataset exporter in this version.
 The arm includes gravity, inertia, limits, motor torque saturation, joint
 damping and command slew. Modules are separate free bodies. The articulated jaw,
 four-finger tendon proxies and rotating shaft have independent actuators.
+The rendered rack and moving gates are checked against the scene geometry at
+each 2 ms step. An intersection stops motion and reports the parts and phase.
+This is a sampled surface check; MuJoCo proxy contact forces remain separate.
 
 **Coupling and rack retention are ideal weld constraints.** Key/pin/gate contact,
 spring-contact mating force, flexible TPU material, actual lock sensors and

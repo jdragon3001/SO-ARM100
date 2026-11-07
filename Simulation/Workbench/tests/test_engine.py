@@ -38,6 +38,7 @@ def test_all_module_models_settle(tool, camera):
     s.step(1000)
     assert np.max(abs(s.q - HOME)) < 0.01
     assert not s.contacts()
+    assert s.phase == "READY" and not s.rack_intersection
     assert np.max(abs(s.data.actuator_force[:5])) <= s.config.torque_nm + 1e-8
     assert len(s.q) == 5 and s.model.nu == 8
 
@@ -61,16 +62,46 @@ def test_every_directed_tool_change(source, destination):
     s.change_tool(destination)
     finish(s)
     assert s.attached == KEYS[TOOLS.index(destination)]
+    assert s.rack_intersection is None
+    assert s.rack_check_steps == round(s.data.time / s.model.opt.timestep) + 1
     assert not s.contacts()
+
+
+def test_blocked_gate_faults_on_rendered_geometry_before_releasing_tool():
+    s = Simulation()
+    key = "spatula"
+    s.change_tool(key)
+    while s.busy and s.phase != "OPEN_RACK":
+        s.step(1)
+    assert s.phase == "OPEN_RACK", s.error
+    gate = s.model.geom(f"rack_gate_{key}_visual_dock_retaining_gate")
+    # Move only the non-contacting rendered gate into the ears of the parked
+    # spatula. The old MuJoCo contact-only checks could not see this obstruction.
+    assert gate.contype[0] == gate.conaffinity[0] == 0
+    # Bypass MuJoCo's compile-time cached inertial-frame transform.
+    s.model.geom_sameframe[gate.id] = mujoco.mjtSameFrame.mjSAMEFRAME_NONE
+    gate.pos[2] += 0.004
+    s.step(50)
+    assert s.phase == "FAULT" and not s.power_enabled
+    assert s.rack_intersection["phase"] == "OPEN_RACK"
+    assert any("rack_gate_spatula" in n for n in s.rack_intersection["parts"])
+    assert not s.contacts()
+    assert s.rack_captured[key] and s.data.eq_active[s.model.equality(f"park_{key}").id]
+    assert s.data.eq_active[s.model.equality(f"couple_{key}").id]
+    assert s.data.time == s.rack_intersection["time_s"]
+    gate.pos[2] -= 0.004
+    s.reset()
+    assert s.phase == "READY" and not s.rack_intersection
 
 
 def test_full_round_trip_all_four_tools_with_retention_and_power():
     s = Simulation()
     for tool in TOOLS[1:] + TOOLS[:1]:
+        end = s.data.time + 60
         s.change_tool(tool)
         while s.busy:
             s.step(20)
-            assert s.data.time < 130
+            assert s.data.time < end
             for key in KEYS:
                 assert (
                     s.data.eq_active[s.model.equality("couple_" + key).id]

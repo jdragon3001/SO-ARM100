@@ -13,9 +13,20 @@ from scipy.spatial.transform import Rotation
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "Tooling/design"))
-from spec import ARM_JOINTS, BUILD, HOME, MODULES, KEYS, DOCK_Q, TRANSIT, dock_poses
+from spec import (
+    ARM_JOINTS,
+    BUILD,
+    HOME,
+    MODULES,
+    KEYS,
+    DOCK_Q,
+    TRANSIT,
+    RACK_GATE_TRAVEL,
+    dock_poses,
+)
 from assets import build as add_tools
 from interlocks import Sensors, may_unlock, may_depart, may_energize
+from rack_geometry import RackGeometry
 
 MODEL_DIR = ROOT / "Simulation/SO101"
 JOINTS = ARM_JOINTS
@@ -71,7 +82,7 @@ def follower_xml(config):
         pos="0 0 -.004",
         rgba=".15 .19 .24 1",
     )
-    cube = ET.SubElement(world, "body", name="practice_cube", pos=".32 -.20 .014")
+    cube = ET.SubElement(world, "body", name="practice_cube", pos=".08 -.27 .014")
     ET.SubElement(cube, "freejoint", name="cube_free")
     ET.SubElement(
         cube,
@@ -123,6 +134,7 @@ class Simulation:
         self.config = config
         self.model = mujoco.MjModel.from_xml_string(follower_xml(config))
         self.data = mujoco.MjData(self.model)
+        self.rack_geometry = RackGeometry(self.model)
         self.drive_gains = self.model.actuator_gainprm.copy()
         self.drive_bias = self.model.actuator_biasprm.copy()
         self.jids = np.array([self.model.joint(n).id for n in JOINTS])
@@ -138,12 +150,22 @@ class Simulation:
         self.reset()
         for key, q in zip(KEYS, DOCK_Q):
             p, r = self.poses[key]
-            pre = self.solve_receiver(p - r @ [0, 0, 0.174], r, q)
-            if pre["error_m"] > 0.0001 or pre["angle_rad"] > 0.002:
-                raise ValueError(f"Dock alignment failed {key}: {pre}")
+            # Follow the tool axis at the rack. A direct move in joint space
+            # bows away from that axis even when both endpoints are aligned.
+            axis = [q.copy()]
+            for clearance_mm in (10, 25, 55, 95, 150):
+                fit = self.solve_receiver(
+                    p - r[:, 2] * (0.024 + clearance_mm / 1000), r, axis[-1]
+                )
+                if fit["error_m"] > 0.0001 or fit["angle_rad"] > 0.002:
+                    raise ValueError(
+                        f"Dock alignment failed {key} at {clearance_mm} mm: {fit}"
+                    )
+                axis.append(fit["q"])
             self.moves[key] = {
                 "seat": q.copy(),
-                "pre": pre["q"],
+                "pre": axis[-1],
+                "axis": axis,
                 "transit": np.r_[q[0], TRANSIT[1:]],
             }
 
@@ -169,6 +191,7 @@ class Simulation:
         self.attached = LABEL_TO_KEY[self.config.tool]
         self.requested = self.attached
         self.rack_captured = {k: k != self.attached for k in KEYS}
+        self.gate_open = {k: float(k == self.attached) for k in KEYS}
         self.tool_command = 0.0
         self.power_enabled = False
         self.rail_v = 0.0
@@ -178,9 +201,22 @@ class Simulation:
         self.plan = []
         self.elapsed = 0.0
         self.change_log = []
+        self.rack_intersection = None
+        self.rack_check_steps = 0
         self.set_tool_control(0.0)
+        self.update_gate_geometry()
         mujoco.mj_forward(self.model, self.data)
         self.update_tcp()
+        self.check_rack_geometry()
+
+    def update_gate_geometry(self):
+        for key, fraction in self.gate_open.items():
+            p, r = self.poses[key]
+            self.model.body_pos[self.model.body("rack_gate_" + key).id] = [
+                0,
+                0,
+                p[2],
+            ] + r[:, 1] * (-RACK_GATE_TRAVEL / 1000 * fraction)
 
     def update_tcp(self):
         z = 0.024 + (MODULES[self.attached]["tcp_mm"][2] / 1000 if self.attached else 0)
@@ -354,14 +390,18 @@ class Simulation:
         def move(name, q):
             self.plan.append((name, "move", q.copy()))
 
+        def axial(name, station, inward):
+            axis = self.moves[station]["axis"]
+            self.plan.append((name, "axial", axis[-2::-1] if inward else axis[1:]))
+
         if old:
             move("CLEAR_CURRENT", np.r_[self.q[0], TRANSIT[1:]])
             for phase, point in (
                 ("ALIGN_OLD", "transit"),
                 ("APPROACH_OLD", "pre"),
-                ("SEAT_OLD", "seat"),
             ):
                 move(phase, self.moves[old][point])
+            axial("SEAT_OLD", old, inward=True)
             self.plan += [
                 ("CAPTURE_OLD", "capture", old),
                 ("VERIFY_SUPPORT", "support", old),
@@ -369,14 +409,14 @@ class Simulation:
                 ("UNLOCK", "unlock", old),
                 ("PARK_OLD", "detach", old),
             ]
-            move("RETRACT_EMPTY", self.moves[old]["pre"])
+            axial("RETRACT_EMPTY", old, inward=False)
             move("CLEAR_RACK", self.moves[old]["transit"])
         for phase, point in (
             ("ALIGN_NEW", "transit"),
             ("APPROACH_NEW", "pre"),
-            ("SEAT_NEW", "seat"),
         ):
             move(phase, self.moves[key][point])
+        axial("SEAT_NEW", key, inward=True)
         self.plan += [
             ("LOCK", "lock", key),
             ("IDENTIFY", "identify", key),
@@ -384,7 +424,7 @@ class Simulation:
             ("POWER_READY", "enable", key),
             ("OPEN_RACK", "uncapture", key),
         ]
-        move("WITHDRAW_NEW", self.moves[key]["pre"])
+        axial("WITHDRAW_NEW", key, inward=False)
         move("CLEAR_NEW", self.moves[key]["transit"])
         move("RETURN_HOME", HOME)
         self.plan += [("ENABLE_TOOL", "enable", key)]
@@ -413,6 +453,9 @@ class Simulation:
         )
         if self.action == "move":
             self.target = self.argument.copy()
+        elif self.action == "axial":
+            self.waypoint = 0
+            self.target = self.argument[0].copy()
 
     def fail(self, reason):
         self.error = reason
@@ -434,12 +477,16 @@ class Simulation:
             self.fail(f"Timeout in {self.phase}")
             return
         key = self.argument if isinstance(self.argument, str) else self.attached
-        if self.action == "move":
+        if self.action in ("move", "axial"):
             if (
                 np.max(abs(self.q - self.target)) < 0.008
                 and np.max(abs(self.data.qvel[self.vids])) < 0.03
             ):
-                self.advance()
+                if self.action == "axial" and self.waypoint + 1 < len(self.argument):
+                    self.waypoint += 1
+                    self.target = self.argument[self.waypoint].copy()
+                else:
+                    self.advance()
         elif self.action == "stop":
             s = self.sensors(key)
             closed = (
@@ -449,7 +496,7 @@ class Simulation:
             if s.tool_stopped and closed:
                 self.advance()
         elif self.action == "capture":
-            if self.elapsed > 0.3 and self.sensors(key).seated:
+            if self.gate_open[key] == 0 and self.sensors(key).seated:
                 self.rack_captured[key] = True
                 self.data.eq_active[self.model.equality(f"park_{key}").id] = 1
                 self.advance()
@@ -488,7 +535,7 @@ class Simulation:
             if may_depart(self.sensors(key), key):
                 self.advance()
         elif self.action == "uncapture":
-            if self.elapsed > 0.3 and may_depart(self.sensors(key), key):
+            if self.gate_open[key] == 1 and may_depart(self.sensors(key), key):
                 self.rack_captured[key] = False
                 self.data.eq_active[self.model.equality(f"park_{key}").id] = 0
                 self.advance()
@@ -497,27 +544,57 @@ class Simulation:
                 self.power_enabled = True
                 self.advance()
 
+    def check_rack_geometry(self):
+        self.rack_check_steps += 1
+        pair = self.rack_geometry.first_intersection(self.data)
+        if pair:
+            self.rack_intersection = {
+                "parts": pair,
+                "time_s": float(self.data.time),
+                "phase": self.phase,
+            }
+            self.fail(f"Rack interference in {self.phase}: {' / '.join(pair)}")
+            return False
+        return True
+
     def step(self, steps=10):
         dt = self.model.opt.timestep
         for _ in range(steps):
+            if self.rack_intersection:
+                break  # keep the first offending pose available for inspection
             self.model.geom_pos[self.model.geom("locking_pin").id, 0] = 0.0215 + (
                 0 if self.locked else 0.007
             )
-            for key in KEYS:
-                p, r = self.poses[key]
-                self.model.body_pos[self.model.body("rack_gate_" + key).id] = [
-                    0,
-                    0,
-                    p[2],
-                ] + r @ np.array([0, 0 if self.rack_captured[key] else -0.020, 0])
+            if (
+                self.busy
+                and self.action == "capture"
+                and self.sensors(self.argument).seated
+            ):
+                self.gate_open[self.argument] = max(
+                    0.0, self.gate_open[self.argument] - dt / 0.45
+                )
+            elif (
+                self.busy
+                and self.action == "uncapture"
+                and may_depart(self.sensors(self.argument), self.argument)
+            ):
+                self.gate_open[self.argument] = min(
+                    1.0, self.gate_open[self.argument] + dt / 0.45
+                )
+            self.update_gate_geometry()
             self.rail_v += ((6.0 if self.power_enabled else 0) - self.rail_v) * min(
                 1, dt / 0.08
             )
-            self.data.ctrl[:5] += np.clip(
-                self.target - self.data.ctrl[:5],
-                -self.rate_limit * dt,
-                self.rate_limit * dt,
-            )
+            delta = self.target - self.data.ctrl[:5]
+            if self.busy and self.action == "axial":
+                speed = np.deg2rad(15)
+                self.data.ctrl[:5] += delta * min(
+                    1.0, speed * dt / max(np.max(abs(delta)), 1e-12)
+                )
+            else:
+                self.data.ctrl[:5] += np.clip(
+                    delta, -self.rate_limit * dt, self.rate_limit * dt
+                )
             self.data.qfrc_applied[:] = 0
             if self.attached and self.config.tool_force_n and not self.busy:
                 mujoco.mj_applyFT(
@@ -532,9 +609,11 @@ class Simulation:
             self.set_tool_control(self.tool_command)
             mujoco.mj_step(self.model, self.data)
             mujoco.mj_forward(self.model, self.data)
+            if not self.check_rack_geometry():
+                break
+            if self.busy and any(c["penetration_mm"] > 1.5 for c in self.contacts()):
+                self.fail(f"Unexpected proxy contact in {self.phase}")
             self.tick_change(dt)
-        if self.busy and any(c["penetration_mm"] > 1.5 for c in self.contacts()):
-            self.fail("Unexpected contact during change")
         if not np.isfinite(self.data.qpos).all() or any(
             w.number for w in self.data.warning
         ):
@@ -565,6 +644,8 @@ class Simulation:
             ).tolist(),
             "tcp_m": self.tip.tolist(),
             "contacts": self.contacts(),
+            "rack_intersection": self.rack_intersection,
+            "rack_geometry_checks": self.rack_check_steps,
             "config": dataclasses.asdict(self.config),
             "tool": self.attached,
             "requested_tool": self.requested,
@@ -573,6 +654,7 @@ class Simulation:
             "error": self.error,
             "synthetic_sensors": dataclasses.asdict(self.sensors()),
             "rack_captured": dict(self.rack_captured),
+            "rack_gate_open_fraction": dict(self.gate_open),
             "tool_observation": {
                 "gripper_rad": float(self.data.joint("gripper").qpos[0]),
                 "finger_rad": [

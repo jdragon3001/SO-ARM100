@@ -2,42 +2,32 @@
   "revision": "ATC-02",
   "physical_tests_completed": false,
   "coupling": "ideal weld",
+  "rack_geometry": "rendered rack, gates and scene parts checked at every 2 ms step",
+  "collision_scope": "sampled surfaces; no continuous collision or contact forces",
   "sensors": "synthetic",
   "changes": [
     {
       "tool": "Four-finger gripper",
       "result": "READY",
-      "duration_s": 19.44,
+      "duration_s": 30.4,
       "peak_arm_torque_nm": [
-        0.9859512346555448,
+        1.0193588509333722,
         1.6,
         1.6,
-        1.1260300534447083,
-        0.005477670313779805
+        0.9684969080596488,
+        0.8879339129786104
       ],
       "fraction_samples_at_ceiling": [
         0.0,
-        0.02880658436213992,
-        0.00411522633744856,
+        0.003947368421052632,
+        0.002631578947368421,
         0.0,
         0.0
       ],
-      "maximum_reported_contact_mm": 0.6010835265654454,
-      "contact_samples": [
-        {
-          "time_s": 14.600000000001545,
-          "phase": "WITHDRAW_NEW",
-          "contacts": [
-            {
-              "bodies": [
-                "finger_0",
-                "ledge_soft_gripper_1"
-              ],
-              "penetration_mm": 0.6010835265654454
-            }
-          ]
-        }
-      ],
+      "rack_geometry_samples": 15200,
+      "rack_intersection": null,
+      "maximum_sampled_proxy_penetration_mm": 0.0,
+      "contact_samples": [],
       "trace": [
         {
           "time_s": 0.0,
@@ -112,7 +102,7 @@
           }
         },
         {
-          "time_s": 1.8580000000000014,
+          "time_s": 1.416000000000001,
           "phase": "APPROACH_OLD",
           "tool": "gripper",
           "sensors": {
@@ -122,7 +112,7 @@
             "unlocked": false,
             "tool_present": true,
             "tool_id": "gripper",
-            "rail_v": 5.999999999634036,
+            "rail_v": 5.99999990150387,
             "tool_stopped": true,
             "power_good": true,
             "estop": false
@@ -136,7 +126,7 @@
           }
         },
         {
-          "time_s": 4.10599999999977,
+          "time_s": 4.01399999999978,
           "phase": "SEAT_OLD",
           "tool": "gripper",
           "sensors": {
@@ -160,7 +150,7 @@
           }
         },
         {
-          "time_s": 5.237999999999645,
+          "time_s": 7.515999999999394,
           "phase": "CAPTURE_OLD",
           "tool": "gripper",
           "sensors": {
@@ -184,7 +174,7 @@
           }
         },
         {
-          "time_s": 5.537999999999612,
+          "time_s": 7.965999999999345,
           "phase": "VERIFY_SUPPORT",
           "tool": "gripper",
           "sensors": {
@@ -208,7 +198,7 @@
           }
         },
         {
-          "time_s": 5.539999999999612,
+          "time_s": 7.9679999999993445,
           "phase": "DISCHARGE",
           "tool": "gripper",
           "sensors": {
@@ -232,7 +222,7 @@
           }
         },
         {
-          "time_s": 5.73999999999959,
+          "time_s": 8.167999999999397,
           "phase": "UNLOCK",
           "tool": "gripper",
           "sensors": {
@@ -256,7 +246,7 @@
           }
         },
         {
-          "time_s": 6.139999999999546,
+          "time_s": 8.56799999999953,
           "phase": "PARK_OLD",
           "tool": "gripper",
           "sensors": {
@@ -280,7 +270,7 @@
           }
         },
         {
-          "time_s": 6.141999999999546,
+          "time_s": 8.569999999999531,
           "phase": "RETRACT_EMPTY",
           "tool": null,
           "sensors": {
@@ -304,7 +294,7 @@
           }
         },
         {
-          "time_s": 7.243999999999424,
+          "time_s": 12.066000000000699,
           "phase": "CLEAR_RACK",
           "tool": null,
           "sensors": {
@@ -314,7 +304,7 @@
             "unlocked": true,
             "tool_present": false,
             "tool_id": null,
-            "rail_v": 2.636812263286338e-09,
+            "rail_v": 1.8180432098577671e-22,
             "tool_stopped": true,
             "power_good": false,
             "estop": false
@@ -328,7 +318,7 @@
           }
         },
         {
-          "time_s": 9.49199999999984,
+          "time_s": 14.664000000001566,
           "phase": "ALIGN_NEW",
           "tool": null,
           "sensors": {
@@ -338,7 +328,7 @@
             "unlocked": true,
             "tool_present": false,
             "tool_id": null,
-            "rail_v": 1.1541632852924063e-21,
+            "rail_v": 9.475453253350038e-37,
             "tool_stopped": true,
             "power_good": false,
             "estop": false
@@ -352,7 +342,7 @@
           }
         },
         {
-          "time_s": 10.338000000000122,
+          "time_s": 15.804000000001947,
           "phase": "APPROACH_NEW",
           "tool": null,
           "sensors": {
@@ -362,7 +352,7 @@
             "unlocked": true,
             "tool_present": false,
             "tool_id": null,
-            "rail_v": 2.5776247639097208e-26,
+            "rail_v": 5.119540011484888e-43,
             "tool_stopped": true,
             "power_good": false,
             "estop": false
@@ -376,7 +366,7 @@
           }
         },
         {
-          "time_s": 12.586000000000872,
+          "time_s": 18.40200000000068,
           "phase": "SEAT_NEW",
           "tool": null,
           "sensors": {
@@ -386,7 +376,7 @@
             "unlocked": true,
             "tool_present": false,
             "tool_id": null,
-            "rail_v": 1.1282562308995335e-38,
+            "rail_v": 2.668251326175875e-57,
             "tool_stopped": true,
             "power_good": false,
             "estop": false
@@ -400,7 +390,7 @@
           }
         },
         {
-          "time_s": 13.68800000000124,
+          "time_s": 21.897999999998742,
           "phase": "LOCK",
           "tool": null,
           "sensors": {
@@ -410,7 +400,7 @@
             "unlocked": true,
             "tool_present": false,
             "tool_id": null,
-            "rail_v": 9.86168191761668e-45,
+            "rail_v": 1.6080330663258548e-76,
             "tool_stopped": true,
             "power_good": false,
             "estop": false
@@ -424,7 +414,7 @@
           }
         },
         {
-          "time_s": 14.088000000001374,
+          "time_s": 22.29799999999852,
           "phase": "IDENTIFY",
           "tool": "soft_gripper",
           "sensors": {
@@ -434,7 +424,7 @@
             "unlocked": false,
             "tool_present": true,
             "tool_id": "soft_gripper",
-            "rail_v": 6.235540871958878e-47,
+            "rail_v": 1.0167592092606739e-78,
             "tool_stopped": true,
             "power_good": false,
             "estop": false
@@ -448,7 +438,7 @@
           }
         },
         {
-          "time_s": 14.090000000001375,
+          "time_s": 22.29999999999852,
           "phase": "VERIFY_LOCK",
           "tool": "soft_gripper",
           "sensors": {
@@ -458,7 +448,7 @@
             "unlocked": false,
             "tool_present": true,
             "tool_id": "soft_gripper",
-            "rail_v": 6.079652350159906e-47,
+            "rail_v": 9.913402290291571e-79,
             "tool_stopped": true,
             "power_good": false,
             "estop": false
@@ -472,7 +462,7 @@
           }
         },
         {
-          "time_s": 14.092000000001375,
+          "time_s": 22.301999999998518,
           "phase": "POWER_READY",
           "tool": "soft_gripper",
           "sensors": {
@@ -482,7 +472,7 @@
             "unlocked": false,
             "tool_present": true,
             "tool_id": "soft_gripper",
-            "rail_v": 5.927661041405908e-47,
+            "rail_v": 9.665567233034282e-79,
             "tool_stopped": true,
             "power_good": false,
             "estop": false
@@ -496,7 +486,7 @@
           }
         },
         {
-          "time_s": 14.094000000001376,
+          "time_s": 22.303999999998517,
           "phase": "OPEN_RACK",
           "tool": "soft_gripper",
           "sensors": {
@@ -506,7 +496,7 @@
             "unlocked": false,
             "tool_present": true,
             "tool_id": "soft_gripper",
-            "rail_v": 5.77946951537076e-47,
+            "rail_v": 9.423928052208425e-79,
             "tool_stopped": true,
             "power_good": true,
             "estop": false
@@ -520,7 +510,7 @@
           }
         },
         {
-          "time_s": 14.394000000001476,
+          "time_s": 22.753999999998268,
           "phase": "WITHDRAW_NEW",
           "tool": "soft_gripper",
           "sensors": {
@@ -530,7 +520,7 @@
             "unlocked": false,
             "tool_present": true,
             "tool_id": "soft_gripper",
-            "rail_v": 5.865462421971416,
+            "rail_v": 5.979853955795104,
             "tool_stopped": true,
             "power_good": true,
             "estop": false
@@ -544,7 +534,7 @@
           }
         },
         {
-          "time_s": 15.496000000001844,
+          "time_s": 26.255999999996327,
           "phase": "CLEAR_NEW",
           "tool": "soft_gripper",
           "sensors": {
@@ -554,7 +544,7 @@
             "unlocked": false,
             "tool_present": true,
             "tool_id": "soft_gripper",
-            "rail_v": 5.9999998824055405,
+            "rail_v": 5.999999999999982,
             "tool_stopped": true,
             "power_good": true,
             "estop": false
@@ -568,7 +558,7 @@
           }
         },
         {
-          "time_s": 17.744000000001044,
+          "time_s": 28.853999999994887,
           "phase": "RETURN_HOME",
           "tool": "soft_gripper",
           "sensors": {
@@ -592,7 +582,7 @@
           }
         },
         {
-          "time_s": 19.41000000000012,
+          "time_s": 30.371999999994046,
           "phase": "ENABLE_TOOL",
           "tool": "soft_gripper",
           "sensors": {
@@ -620,26 +610,28 @@
     {
       "tool": "Spatula",
       "result": "READY",
-      "duration_s": 21.08,
+      "duration_s": 32.6,
       "peak_arm_torque_nm": [
-        0.8417664969877592,
+        0.8030344665718019,
         1.6,
         1.6,
-        0.9518432150798617,
-        0.00380811456098066
+        0.9531680142944765,
+        0.7935025967452134
       ],
       "fraction_samples_at_ceiling": [
         0.0,
-        0.011385199240986717,
-        0.003795066413662239,
+        0.00245398773006135,
+        0.00245398773006135,
         0.0,
         0.0
       ],
-      "maximum_reported_contact_mm": 0.0,
+      "rack_geometry_samples": 16300,
+      "rack_intersection": null,
+      "maximum_sampled_proxy_penetration_mm": 0.0,
       "contact_samples": [],
       "trace": [
         {
-          "time_s": 19.440000000000104,
+          "time_s": 30.39999999999403,
           "phase": "STOP_TOOL",
           "tool": "soft_gripper",
           "sensors": {
@@ -663,7 +655,7 @@
           }
         },
         {
-          "time_s": 19.442000000000103,
+          "time_s": 30.40199999999403,
           "phase": "CLEAR_CURRENT",
           "tool": "soft_gripper",
           "sensors": {
@@ -687,7 +679,7 @@
           }
         },
         {
-          "time_s": 20.451999999999543,
+          "time_s": 31.41199999999347,
           "phase": "ALIGN_OLD",
           "tool": "soft_gripper",
           "sensors": {
@@ -711,7 +703,7 @@
           }
         },
         {
-          "time_s": 22.11799999999862,
+          "time_s": 32.93199999999428,
           "phase": "APPROACH_OLD",
           "tool": "soft_gripper",
           "sensors": {
@@ -735,7 +727,7 @@
           }
         },
         {
-          "time_s": 24.365999999997374,
+          "time_s": 35.52999999999746,
           "phase": "SEAT_OLD",
           "tool": "soft_gripper",
           "sensors": {
@@ -759,7 +751,7 @@
           }
         },
         {
-          "time_s": 25.497999999996747,
+          "time_s": 39.03200000000174,
           "phase": "CAPTURE_OLD",
           "tool": "soft_gripper",
           "sensors": {
@@ -783,7 +775,7 @@
           }
         },
         {
-          "time_s": 25.79799999999658,
+          "time_s": 39.48200000000229,
           "phase": "VERIFY_SUPPORT",
           "tool": "soft_gripper",
           "sensors": {
@@ -807,7 +799,7 @@
           }
         },
         {
-          "time_s": 25.79999999999658,
+          "time_s": 39.48400000000229,
           "phase": "DISCHARGE",
           "tool": "soft_gripper",
           "sensors": {
@@ -831,7 +823,7 @@
           }
         },
         {
-          "time_s": 25.99999999999647,
+          "time_s": 39.684000000002534,
           "phase": "UNLOCK",
           "tool": "soft_gripper",
           "sensors": {
@@ -855,7 +847,7 @@
           }
         },
         {
-          "time_s": 26.399999999996247,
+          "time_s": 40.08400000000302,
           "phase": "PARK_OLD",
           "tool": "soft_gripper",
           "sensors": {
@@ -879,7 +871,7 @@
           }
         },
         {
-          "time_s": 26.401999999996246,
+          "time_s": 40.086000000003025,
           "phase": "RETRACT_EMPTY",
           "tool": null,
           "sensors": {
@@ -903,7 +895,7 @@
           }
         },
         {
-          "time_s": 27.503999999995635,
+          "time_s": 43.5820000000073,
           "phase": "CLEAR_RACK",
           "tool": null,
           "sensors": {
@@ -913,7 +905,7 @@
             "unlocked": true,
             "tool_present": false,
             "tool_id": null,
-            "rail_v": 2.636812263286338e-09,
+            "rail_v": 1.8180432098577671e-22,
             "tool_stopped": true,
             "power_good": false,
             "estop": false
@@ -927,7 +919,7 @@
           }
         },
         {
-          "time_s": 29.75199999999439,
+          "time_s": 46.18000000001047,
           "phase": "ALIGN_NEW",
           "tool": null,
           "sensors": {
@@ -937,7 +929,7 @@
             "unlocked": true,
             "tool_present": false,
             "tool_id": null,
-            "rail_v": 1.1541632852924063e-21,
+            "rail_v": 9.475453253350038e-37,
             "tool_stopped": true,
             "power_good": false,
             "estop": false
@@ -951,7 +943,7 @@
           }
         },
         {
-          "time_s": 30.59799999999392,
+          "time_s": 47.320000000011866,
           "phase": "APPROACH_NEW",
           "tool": null,
           "sensors": {
@@ -961,7 +953,7 @@
             "unlocked": true,
             "tool_present": false,
             "tool_id": null,
-            "rail_v": 2.5776247639097208e-26,
+            "rail_v": 5.119540011484888e-43,
             "tool_stopped": true,
             "power_good": false,
             "estop": false
@@ -975,7 +967,7 @@
           }
         },
         {
-          "time_s": 32.84599999999418,
+          "time_s": 49.91800000001504,
           "phase": "SEAT_NEW",
           "tool": null,
           "sensors": {
@@ -985,7 +977,7 @@
             "unlocked": true,
             "tool_present": false,
             "tool_id": null,
-            "rail_v": 1.1282562308995335e-38,
+            "rail_v": 2.668251326175875e-57,
             "tool_stopped": true,
             "power_good": false,
             "estop": false
@@ -999,7 +991,7 @@
           }
         },
         {
-          "time_s": 33.947999999995524,
+          "time_s": 53.414000000019314,
           "phase": "LOCK",
           "tool": null,
           "sensors": {
@@ -1009,7 +1001,7 @@
             "unlocked": true,
             "tool_present": false,
             "tool_id": null,
-            "rail_v": 9.86168191761668e-45,
+            "rail_v": 1.6080330663258548e-76,
             "tool_stopped": true,
             "power_good": false,
             "estop": false
@@ -1023,7 +1015,7 @@
           }
         },
         {
-          "time_s": 34.34799999999601,
+          "time_s": 53.8140000000198,
           "phase": "IDENTIFY",
           "tool": "spatula",
           "sensors": {
@@ -1033,7 +1025,7 @@
             "unlocked": false,
             "tool_present": true,
             "tool_id": "spatula",
-            "rail_v": 6.235540871958878e-47,
+            "rail_v": 1.0167592092606739e-78,
             "tool_stopped": true,
             "power_good": false,
             "estop": false
@@ -1047,7 +1039,7 @@
           }
         },
         {
-          "time_s": 34.349999999996015,
+          "time_s": 53.816000000019805,
           "phase": "VERIFY_LOCK",
           "tool": "spatula",
           "sensors": {
@@ -1057,7 +1049,7 @@
             "unlocked": false,
             "tool_present": true,
             "tool_id": "spatula",
-            "rail_v": 6.079652350159906e-47,
+            "rail_v": 9.913402290291571e-79,
             "tool_stopped": true,
             "power_good": false,
             "estop": false
@@ -1071,7 +1063,7 @@
           }
         },
         {
-          "time_s": 34.35199999999602,
+          "time_s": 53.81800000001981,
           "phase": "POWER_READY",
           "tool": "spatula",
           "sensors": {
@@ -1081,7 +1073,7 @@
             "unlocked": false,
             "tool_present": true,
             "tool_id": "spatula",
-            "rail_v": 5.927661041405908e-47,
+            "rail_v": 9.665567233034282e-79,
             "tool_stopped": true,
             "power_good": false,
             "estop": false
@@ -1095,7 +1087,7 @@
           }
         },
         {
-          "time_s": 34.35399999999602,
+          "time_s": 53.82000000001981,
           "phase": "OPEN_RACK",
           "tool": "spatula",
           "sensors": {
@@ -1105,7 +1097,7 @@
             "unlocked": false,
             "tool_present": true,
             "tool_id": "spatula",
-            "rail_v": 5.77946951537076e-47,
+            "rail_v": 9.423928052208425e-79,
             "tool_stopped": true,
             "power_good": true,
             "estop": false
@@ -1119,7 +1111,7 @@
           }
         },
         {
-          "time_s": 34.65399999999639,
+          "time_s": 54.27000000002036,
           "phase": "WITHDRAW_NEW",
           "tool": "spatula",
           "sensors": {
@@ -1129,7 +1121,7 @@
             "unlocked": false,
             "tool_present": true,
             "tool_id": "spatula",
-            "rail_v": 5.865462421971416,
+            "rail_v": 5.979853955795104,
             "tool_stopped": true,
             "power_good": true,
             "estop": false
@@ -1143,7 +1135,7 @@
           }
         },
         {
-          "time_s": 35.755999999997734,
+          "time_s": 57.768000000024635,
           "phase": "CLEAR_NEW",
           "tool": "spatula",
           "sensors": {
@@ -1153,7 +1145,7 @@
             "unlocked": false,
             "tool_present": true,
             "tool_id": "spatula",
-            "rail_v": 5.9999998824055405,
+            "rail_v": 5.999999999999982,
             "tool_stopped": true,
             "power_good": true,
             "estop": false
@@ -1167,7 +1159,7 @@
           }
         },
         {
-          "time_s": 38.00400000000048,
+          "time_s": 60.36600000002781,
           "phase": "RETURN_HOME",
           "tool": "spatula",
           "sensors": {
@@ -1191,7 +1183,7 @@
           }
         },
         {
-          "time_s": 40.486000000003514,
+          "time_s": 62.996000000031025,
           "phase": "ENABLE_TOOL",
           "tool": "spatula",
           "sensors": {
@@ -1219,26 +1211,28 @@
     {
       "tool": "Powered stirrer",
       "result": "READY",
-      "duration_s": 22.68,
+      "duration_s": 34.84,
       "peak_arm_torque_nm": [
-        0.908362555273186,
+        0.625890238777643,
         1.6,
         1.6,
-        1.0914686968775982,
-        0.003926161182697876
+        0.9773923255655461,
+        0.8146297268975131
       ],
       "fraction_samples_at_ceiling": [
         0.0,
-        0.008818342151675485,
-        0.001763668430335097,
+        0.001148105625717566,
+        0.001148105625717566,
         0.0,
         0.0
       ],
-      "maximum_reported_contact_mm": 0.0,
+      "rack_geometry_samples": 17420,
+      "rack_intersection": null,
+      "maximum_sampled_proxy_penetration_mm": 0.0,
       "contact_samples": [],
       "trace": [
         {
-          "time_s": 40.520000000003556,
+          "time_s": 63.00000000003103,
           "phase": "STOP_TOOL",
           "tool": "spatula",
           "sensors": {
@@ -1262,7 +1256,7 @@
           }
         },
         {
-          "time_s": 40.52200000000356,
+          "time_s": 63.00200000003103,
           "phase": "CLEAR_CURRENT",
           "tool": "spatula",
           "sensors": {
@@ -1286,7 +1280,7 @@
           }
         },
         {
-          "time_s": 41.53200000000479,
+          "time_s": 64.01200000003222,
           "phase": "ALIGN_OLD",
           "tool": "spatula",
           "sensors": {
@@ -1310,7 +1304,7 @@
           }
         },
         {
-          "time_s": 44.01800000000783,
+          "time_s": 66.64400000002608,
           "phase": "APPROACH_OLD",
           "tool": "spatula",
           "sensors": {
@@ -1334,7 +1328,7 @@
           }
         },
         {
-          "time_s": 46.26600000001058,
+          "time_s": 69.24200000002003,
           "phase": "SEAT_OLD",
           "tool": "spatula",
           "sensors": {
@@ -1358,7 +1352,7 @@
           }
         },
         {
-          "time_s": 47.37000000001193,
+          "time_s": 72.74400000001187,
           "phase": "CAPTURE_OLD",
           "tool": "spatula",
           "sensors": {
@@ -1382,7 +1376,7 @@
           }
         },
         {
-          "time_s": 47.670000000012294,
+          "time_s": 73.19400000001082,
           "phase": "VERIFY_SUPPORT",
           "tool": "spatula",
           "sensors": {
@@ -1406,7 +1400,7 @@
           }
         },
         {
-          "time_s": 47.6720000000123,
+          "time_s": 73.19600000001081,
           "phase": "DISCHARGE",
           "tool": "spatula",
           "sensors": {
@@ -1430,7 +1424,7 @@
           }
         },
         {
-          "time_s": 47.87200000001254,
+          "time_s": 73.39600000001035,
           "phase": "UNLOCK",
           "tool": "spatula",
           "sensors": {
@@ -1454,7 +1448,7 @@
           }
         },
         {
-          "time_s": 48.27200000001303,
+          "time_s": 73.79600000000941,
           "phase": "PARK_OLD",
           "tool": "spatula",
           "sensors": {
@@ -1478,7 +1472,7 @@
           }
         },
         {
-          "time_s": 48.27400000001303,
+          "time_s": 73.79800000000941,
           "phase": "RETRACT_EMPTY",
           "tool": null,
           "sensors": {
@@ -1502,7 +1496,7 @@
           }
         },
         {
-          "time_s": 49.37600000001438,
+          "time_s": 77.29400000000126,
           "phase": "CLEAR_RACK",
           "tool": null,
           "sensors": {
@@ -1512,7 +1506,7 @@
             "unlocked": true,
             "tool_present": false,
             "tool_id": null,
-            "rail_v": 2.636812263286338e-09,
+            "rail_v": 1.8180432098577671e-22,
             "tool_stopped": true,
             "power_good": false,
             "estop": false
@@ -1526,7 +1520,7 @@
           }
         },
         {
-          "time_s": 51.624000000017126,
+          "time_s": 79.8919999999952,
           "phase": "ALIGN_NEW",
           "tool": null,
           "sensors": {
@@ -1536,7 +1530,7 @@
             "unlocked": true,
             "tool_present": false,
             "tool_id": null,
-            "rail_v": 1.1541632852924063e-21,
+            "rail_v": 9.475453253350038e-37,
             "tool_stopped": true,
             "power_good": false,
             "estop": false
@@ -1550,7 +1544,7 @@
           }
         },
         {
-          "time_s": 52.47000000001816,
+          "time_s": 81.03199999999255,
           "phase": "APPROACH_NEW",
           "tool": null,
           "sensors": {
@@ -1560,7 +1554,7 @@
             "unlocked": true,
             "tool_present": false,
             "tool_id": null,
-            "rail_v": 2.5776247639097208e-26,
+            "rail_v": 5.119540011484888e-43,
             "tool_stopped": true,
             "power_good": false,
             "estop": false
@@ -1574,7 +1568,7 @@
           }
         },
         {
-          "time_s": 54.71800000002091,
+          "time_s": 83.6299999999865,
           "phase": "SEAT_NEW",
           "tool": null,
           "sensors": {
@@ -1584,7 +1578,7 @@
             "unlocked": true,
             "tool_present": false,
             "tool_id": null,
-            "rail_v": 1.1282562308995335e-38,
+            "rail_v": 2.668251326175875e-57,
             "tool_stopped": true,
             "power_good": false,
             "estop": false
@@ -1598,7 +1592,7 @@
           }
         },
         {
-          "time_s": 55.820000000022254,
+          "time_s": 87.12599999997835,
           "phase": "LOCK",
           "tool": null,
           "sensors": {
@@ -1608,7 +1602,7 @@
             "unlocked": true,
             "tool_present": false,
             "tool_id": null,
-            "rail_v": 9.86168191761668e-45,
+            "rail_v": 1.6080330663258548e-76,
             "tool_stopped": true,
             "power_good": false,
             "estop": false
@@ -1622,7 +1616,7 @@
           }
         },
         {
-          "time_s": 56.22000000002274,
+          "time_s": 87.52599999997742,
           "phase": "IDENTIFY",
           "tool": "stirrer",
           "sensors": {
@@ -1632,7 +1626,7 @@
             "unlocked": false,
             "tool_present": true,
             "tool_id": "stirrer",
-            "rail_v": 6.235540871958878e-47,
+            "rail_v": 1.0167592092606739e-78,
             "tool_stopped": true,
             "power_good": false,
             "estop": false
@@ -1646,7 +1640,7 @@
           }
         },
         {
-          "time_s": 56.222000000022746,
+          "time_s": 87.52799999997741,
           "phase": "VERIFY_LOCK",
           "tool": "stirrer",
           "sensors": {
@@ -1656,7 +1650,7 @@
             "unlocked": false,
             "tool_present": true,
             "tool_id": "stirrer",
-            "rail_v": 6.079652350159906e-47,
+            "rail_v": 9.913402290291571e-79,
             "tool_stopped": true,
             "power_good": false,
             "estop": false
@@ -1670,7 +1664,7 @@
           }
         },
         {
-          "time_s": 56.22400000002275,
+          "time_s": 87.5299999999774,
           "phase": "POWER_READY",
           "tool": "stirrer",
           "sensors": {
@@ -1680,7 +1674,7 @@
             "unlocked": false,
             "tool_present": true,
             "tool_id": "stirrer",
-            "rail_v": 5.927661041405908e-47,
+            "rail_v": 9.665567233034282e-79,
             "tool_stopped": true,
             "power_good": false,
             "estop": false
@@ -1694,7 +1688,7 @@
           }
         },
         {
-          "time_s": 56.22600000002275,
+          "time_s": 87.5319999999774,
           "phase": "OPEN_RACK",
           "tool": "stirrer",
           "sensors": {
@@ -1704,7 +1698,7 @@
             "unlocked": false,
             "tool_present": true,
             "tool_id": "stirrer",
-            "rail_v": 5.77946951537076e-47,
+            "rail_v": 9.423928052208425e-79,
             "tool_stopped": true,
             "power_good": true,
             "estop": false
@@ -1718,7 +1712,7 @@
           }
         },
         {
-          "time_s": 56.52600000002312,
+          "time_s": 87.98199999997635,
           "phase": "WITHDRAW_NEW",
           "tool": "stirrer",
           "sensors": {
@@ -1728,7 +1722,7 @@
             "unlocked": false,
             "tool_present": true,
             "tool_id": "stirrer",
-            "rail_v": 5.865462421971416,
+            "rail_v": 5.979853955795104,
             "tool_stopped": true,
             "power_good": true,
             "estop": false
@@ -1742,7 +1736,7 @@
           }
         },
         {
-          "time_s": 57.628000000024464,
+          "time_s": 91.48399999996819,
           "phase": "CLEAR_NEW",
           "tool": "stirrer",
           "sensors": {
@@ -1752,7 +1746,7 @@
             "unlocked": false,
             "tool_present": true,
             "tool_id": "stirrer",
-            "rail_v": 5.9999998824055405,
+            "rail_v": 5.999999999999982,
             "tool_stopped": true,
             "power_good": true,
             "estop": false
@@ -1766,7 +1760,7 @@
           }
         },
         {
-          "time_s": 59.87600000002721,
+          "time_s": 94.08199999996214,
           "phase": "RETURN_HOME",
           "tool": "stirrer",
           "sensors": {
@@ -1790,7 +1784,7 @@
           }
         },
         {
-          "time_s": 63.17800000003125,
+          "time_s": 97.82599999995341,
           "phase": "ENABLE_TOOL",
           "tool": "stirrer",
           "sensors": {
@@ -1818,26 +1812,28 @@
     {
       "tool": "Two-finger gripper",
       "result": "READY",
-      "duration_s": 22.88,
+      "duration_s": 35.44,
       "peak_arm_torque_nm": [
-        0.959423765656652,
+        0.81991232618185,
         1.6,
         1.6,
-        1.1845865494905752,
-        0.0036926227964378046
+        1.0933591802224214,
+        0.8591822359341563
       ],
       "fraction_samples_at_ceiling": [
         0.0,
-        0.015734265734265736,
-        0.0034965034965034965,
+        0.003386004514672686,
+        0.001128668171557562,
         0.0,
         0.0
       ],
-      "maximum_reported_contact_mm": 0.0,
+      "rack_geometry_samples": 17720,
+      "rack_intersection": null,
+      "maximum_sampled_proxy_penetration_mm": 0.0,
       "contact_samples": [],
       "trace": [
         {
-          "time_s": 63.200000000031274,
+          "time_s": 97.83999999995338,
           "phase": "STOP_TOOL",
           "tool": "stirrer",
           "sensors": {
@@ -1861,7 +1857,7 @@
           }
         },
         {
-          "time_s": 63.202000000031276,
+          "time_s": 97.84199999995337,
           "phase": "CLEAR_CURRENT",
           "tool": "stirrer",
           "sensors": {
@@ -1885,7 +1881,7 @@
           }
         },
         {
-          "time_s": 64.21200000003175,
+          "time_s": 98.85199999995102,
           "phase": "ALIGN_OLD",
           "tool": "stirrer",
           "sensors": {
@@ -1909,7 +1905,7 @@
           }
         },
         {
-          "time_s": 67.51600000002405,
+          "time_s": 102.59799999994229,
           "phase": "APPROACH_OLD",
           "tool": "stirrer",
           "sensors": {
@@ -1933,7 +1929,7 @@
           }
         },
         {
-          "time_s": 69.76400000001881,
+          "time_s": 105.19599999993623,
           "phase": "SEAT_OLD",
           "tool": "stirrer",
           "sensors": {
@@ -1957,7 +1953,7 @@
           }
         },
         {
-          "time_s": 70.89600000001617,
+          "time_s": 108.69799999992807,
           "phase": "CAPTURE_OLD",
           "tool": "stirrer",
           "sensors": {
@@ -1981,7 +1977,7 @@
           }
         },
         {
-          "time_s": 71.19600000001547,
+          "time_s": 109.14799999992702,
           "phase": "VERIFY_SUPPORT",
           "tool": "stirrer",
           "sensors": {
@@ -2005,7 +2001,7 @@
           }
         },
         {
-          "time_s": 71.19800000001547,
+          "time_s": 109.14999999992702,
           "phase": "DISCHARGE",
           "tool": "stirrer",
           "sensors": {
@@ -2029,7 +2025,7 @@
           }
         },
         {
-          "time_s": 71.398000000015,
+          "time_s": 109.34999999992655,
           "phase": "UNLOCK",
           "tool": "stirrer",
           "sensors": {
@@ -2053,7 +2049,7 @@
           }
         },
         {
-          "time_s": 71.79800000001407,
+          "time_s": 109.74999999992562,
           "phase": "PARK_OLD",
           "tool": "stirrer",
           "sensors": {
@@ -2077,7 +2073,7 @@
           }
         },
         {
-          "time_s": 71.80000000001407,
+          "time_s": 109.75199999992562,
           "phase": "RETRACT_EMPTY",
           "tool": null,
           "sensors": {
@@ -2101,7 +2097,7 @@
           }
         },
         {
-          "time_s": 72.9020000000115,
+          "time_s": 113.24799999991747,
           "phase": "CLEAR_RACK",
           "tool": null,
           "sensors": {
@@ -2111,7 +2107,7 @@
             "unlocked": true,
             "tool_present": false,
             "tool_id": null,
-            "rail_v": 2.636812263286338e-09,
+            "rail_v": 1.8180432098577671e-22,
             "tool_stopped": true,
             "power_good": false,
             "estop": false
@@ -2125,7 +2121,7 @@
           }
         },
         {
-          "time_s": 75.15000000000626,
+          "time_s": 115.84599999991141,
           "phase": "ALIGN_NEW",
           "tool": null,
           "sensors": {
@@ -2135,7 +2131,7 @@
             "unlocked": true,
             "tool_present": false,
             "tool_id": null,
-            "rail_v": 1.1541632852924063e-21,
+            "rail_v": 9.475453253350038e-37,
             "tool_stopped": true,
             "power_good": false,
             "estop": false
@@ -2149,7 +2145,7 @@
           }
         },
         {
-          "time_s": 77.63200000000047,
+          "time_s": 119.21199999990357,
           "phase": "APPROACH_NEW",
           "tool": null,
           "sensors": {
@@ -2159,7 +2155,7 @@
             "unlocked": true,
             "tool_present": false,
             "tool_id": null,
-            "rail_v": 2.6121333071591737e-35,
+            "rail_v": 2.960521463503836e-55,
             "tool_stopped": true,
             "power_good": false,
             "estop": false
@@ -2173,7 +2169,7 @@
           }
         },
         {
-          "time_s": 79.87999999999523,
+          "time_s": 121.80999999989751,
           "phase": "SEAT_NEW",
           "tool": null,
           "sensors": {
@@ -2183,7 +2179,7 @@
             "unlocked": true,
             "tool_present": false,
             "tool_id": null,
-            "rail_v": 1.1433610201945432e-47,
+            "rail_v": 1.5429931797476243e-69,
             "tool_stopped": true,
             "power_good": false,
             "estop": false
@@ -2197,7 +2193,7 @@
           }
         },
         {
-          "time_s": 80.98199999999267,
+          "time_s": 125.30599999988937,
           "phase": "LOCK",
           "tool": null,
           "sensors": {
@@ -2207,7 +2203,7 @@
             "unlocked": true,
             "tool_present": false,
             "tool_id": null,
-            "rail_v": 9.99370744814824e-54,
+            "rail_v": 9.298914348167778e-89,
             "tool_stopped": true,
             "power_good": false,
             "estop": false
@@ -2221,7 +2217,7 @@
           }
         },
         {
-          "time_s": 81.38199999999173,
+          "time_s": 125.70599999988843,
           "phase": "IDENTIFY",
           "tool": "gripper",
           "sensors": {
@@ -2231,7 +2227,7 @@
             "unlocked": false,
             "tool_present": true,
             "tool_id": "gripper",
-            "rail_v": 6.319020606820432e-56,
+            "rail_v": 5.87970297229565e-91,
             "tool_stopped": true,
             "power_good": false,
             "estop": false
@@ -2245,7 +2241,7 @@
           }
         },
         {
-          "time_s": 81.38399999999173,
+          "time_s": 125.70799999988843,
           "phase": "VERIFY_LOCK",
           "tool": "gripper",
           "sensors": {
@@ -2255,7 +2251,7 @@
             "unlocked": false,
             "tool_present": true,
             "tool_id": "gripper",
-            "rail_v": 6.161045091649921e-56,
+            "rail_v": 5.732710397988258e-91,
             "tool_stopped": true,
             "power_good": false,
             "estop": false
@@ -2269,7 +2265,7 @@
           }
         },
         {
-          "time_s": 81.38599999999172,
+          "time_s": 125.70999999988842,
           "phase": "POWER_READY",
           "tool": "gripper",
           "sensors": {
@@ -2279,7 +2275,7 @@
             "unlocked": false,
             "tool_present": true,
             "tool_id": "gripper",
-            "rail_v": 6.007018964358673e-56,
+            "rail_v": 5.589392638038551e-91,
             "tool_stopped": true,
             "power_good": false,
             "estop": false
@@ -2293,7 +2289,7 @@
           }
         },
         {
-          "time_s": 81.38799999999172,
+          "time_s": 125.71199999988842,
           "phase": "OPEN_RACK",
           "tool": "gripper",
           "sensors": {
@@ -2303,7 +2299,7 @@
             "unlocked": false,
             "tool_present": true,
             "tool_id": "gripper",
-            "rail_v": 5.856843490249706e-56,
+            "rail_v": 5.449657822087588e-91,
             "tool_stopped": true,
             "power_good": true,
             "estop": false
@@ -2317,7 +2313,7 @@
           }
         },
         {
-          "time_s": 81.68799999999102,
+          "time_s": 126.16199999988737,
           "phase": "WITHDRAW_NEW",
           "tool": "gripper",
           "sensors": {
@@ -2327,7 +2323,7 @@
             "unlocked": false,
             "tool_present": true,
             "tool_id": "gripper",
-            "rail_v": 5.865462421971416,
+            "rail_v": 5.979853955795104,
             "tool_stopped": true,
             "power_good": true,
             "estop": false
@@ -2341,7 +2337,7 @@
           }
         },
         {
-          "time_s": 82.79199999998845,
+          "time_s": 129.66399999989102,
           "phase": "CLEAR_NEW",
           "tool": "gripper",
           "sensors": {
@@ -2351,7 +2347,7 @@
             "unlocked": false,
             "tool_present": true,
             "tool_id": "gripper",
-            "rail_v": 5.999999885345402,
+            "rail_v": 5.999999999999982,
             "tool_stopped": true,
             "power_good": true,
             "estop": false
@@ -2365,7 +2361,7 @@
           }
         },
         {
-          "time_s": 85.03999999998321,
+          "time_s": 132.26199999990342,
           "phase": "RETURN_HOME",
           "tool": "gripper",
           "sensors": {
@@ -2389,7 +2385,7 @@
           }
         },
         {
-          "time_s": 86.04999999998086,
+          "time_s": 133.27199999990825,
           "phase": "ENABLE_TOOL",
           "tool": "gripper",
           "sensors": {
