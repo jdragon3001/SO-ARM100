@@ -22,6 +22,10 @@ from spec import (
     DOCK_Q,
     TRANSIT,
     RACK_GATE_TRAVEL,
+    PIN_TIP_X,
+    PIN_LENGTH,
+    PIN_TRAVEL,
+    SNAPSHOT_RESOLUTION,
     dock_poses,
 )
 from assets import build as add_tools
@@ -69,7 +73,8 @@ def follower_xml(config):
         root, "option", timestep=".002", integrator="implicitfast", gravity="0 0 -9.81"
     )
     vis = ET.SubElement(root, "visual")
-    ET.SubElement(vis, "global", offwidth="640", offheight="480")
+    w, h = SNAPSHOT_RESOLUTION
+    ET.SubElement(vis, "global", offwidth=str(w), offheight=str(h))
     ET.SubElement(vis, "headlight", ambient=".5 .5 .5", diffuse=".7 .7 .7")
     world = root.find("worldbody")
     ET.SubElement(world, "light", pos=".2 -.4 1.5", dir="0 0 -1")
@@ -205,9 +210,16 @@ class Simulation:
         self.rack_check_steps = 0
         self.set_tool_control(0.0)
         self.update_gate_geometry()
+        self.update_pin_geometry()
         mujoco.mj_forward(self.model, self.data)
         self.update_tcp()
         self.check_rack_geometry()
+
+    def update_pin_geometry(self):
+        centre_mm = PIN_TIP_X + PIN_LENGTH / 2
+        if not self.locked:
+            centre_mm += PIN_TRAVEL
+        self.model.geom_pos[self.model.geom("locking_pin").id, 0] = centre_mm / 1000
 
     def update_gate_geometry(self):
         for key, fraction in self.gate_open.items():
@@ -562,9 +574,7 @@ class Simulation:
         for _ in range(steps):
             if self.rack_intersection:
                 break  # keep the first offending pose available for inspection
-            self.model.geom_pos[self.model.geom("locking_pin").id, 0] = 0.0215 + (
-                0 if self.locked else 0.007
-            )
+            self.update_pin_geometry()
             if (
                 self.busy
                 and self.action == "capture"

@@ -141,8 +141,8 @@ def main():
             receiver -= cylinder(3.1, 19, x, y, 4)
     # Spring and sliding steel-pin housing. Outer collar needs a removable cover.
     receiver += box(24, 16, 12, x=27, y=0, z=12)
-    receiver -= bore_x(1.7, 36, 6, 0, 20)
-    receiver -= bore_x(3.0, 17, 20, 0, 20)
+    receiver -= bore_x(1.7, 36, 6, 0, PIN_AXIS_Z)
+    receiver -= bore_x(3.0, 17, 20, 0, PIN_AXIS_Z)
     receiver -= box(18, 10, 7, x=29, y=-5, z=17)
     for x in (20, 35):
         for z in (14, 22):
@@ -165,8 +165,53 @@ def main():
     collar = cylinder(2.7, 3) - cylinder(1.45, 5, z=-1)
     collar += box(8, 3, 3, x=0, y=4)
     add("pin_collar", collar)
-    add("test_plug", puck())
-    overlap = (receiver & puck().moved(b.Pos(0, 0, 24))).volume
+    plug = add("test_plug", puck())
+    inspection = BUILD / "inspection"
+    inspection.mkdir(exist_ok=True)
+    for name, part in (("receiver", receiver), ("test_plug", plug)):
+        # Keep the far half and its actual cross-section, including the pin bore.
+        cut = part & box(160, 60, 80, y=-30, z=-30)
+        assert cut.is_valid
+        b.export_stl(
+            cut,
+            inspection / f"{name}_section.stl",
+            tolerance=0.012,
+            angular_tolerance=0.08,
+        )
+
+    def pin_at(travel):
+        return bore_x(PIN_DIAMETER / 2, PIN_LENGTH, PIN_TIP_X + travel, 0, PIN_AXIS_Z)
+
+    path = (0, 1, 2, 4, 6, 8, 9, 12, 24)
+    seated = b.Pos(0, 0, RECEIVER_HEIGHT) * plug
+    stroke = [
+        intersection_volume(pin_at(s), receiver)
+        + intersection_volume(pin_at(s), seated)
+        for s in np.linspace(0, PIN_TRAVEL, 8)
+    ]
+    released_path = [
+        intersection_volume(pin_at(PIN_TRAVEL), b.Pos(0, 0, RECEIVER_HEIGHT + g) * plug)
+        for g in path
+    ]
+    locked_pull = intersection_volume(
+        pin_at(0), b.Pos(0, 0, RECEIVER_HEIGHT + 1) * plug
+    )
+    if max(stroke + released_path) > 1e-5 or locked_pull <= 1e-5:
+        raise ValueError(
+            f"Pin envelope check failed: {stroke=}, {released_path=}, {locked_pull=}"
+        )
+    pin_audit = {
+        "pin_clearance_at_8_stroke_samples_max_mm3": max(stroke),
+        "released_pin_key_interference_at_9_approach_samples_max_mm3": max(
+            released_path
+        ),
+        "locked_pin_intersection_on_1mm_pull_mm3": locked_pull,
+        "evidence": "Rigid, nominal STEP geometry only; no strength, preload, or repeatability claims.",
+    }
+    (inspection / "pin_geometry.json").write_text(
+        json.dumps(pin_audit, indent=2) + "\n"
+    )
+    overlap = intersection_volume(receiver, seated)
     if overlap > 1e-5:
         raise ValueError(f"Receiver/module CAD interference: {overlap} mm3")
 

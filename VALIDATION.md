@@ -53,6 +53,21 @@ reporting threshold was recorded in the round trip. Shoulder/elbow torque
 still reaches the assumed **1.60 Nm stall ceiling** in motion. These results do
 not establish cycle time or acceptable duty cycle on hardware.
 
+## Wrist inspection
+
+The STEP audit samples the 7 mm pin stroke at eight positions and the key's
+approach with the pin retracted at nine positions. Both report zero solid
+overlap. A 1 mm pull from nominal seating with the pin engaged intersects the
+key by 7.42 mm³, establishing geometric capture for this one rigid motion.
+This does not predict pin strength, print wear, play or retention under load.
+See [the pin audit](Build/Tooling/inspection/pin_geometry.json).
+
+The browser inspector was checked with the lock and contact overlay visible
+and with modeled jaw and stirrer motion in a separate state. The 1280×960 wrist
+and overhead snapshots were checked against their reported dimensions and
+camera centers. The electrical overlay is a proposal, separate from the CAD
+and from the actual simulation actuator model.
+
 ## Build and bench limits
 
 The generator exports **46 valid STEP/STL pairs** and **41** printable component

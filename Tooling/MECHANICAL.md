@@ -28,9 +28,14 @@ removable side cover. The printed collar is a fit part and needs positive
 retention on the actual rod. Spring dimensions, preload, friction and pin shear
 loads must be measured before this mechanism carries a tool.
 
-The receiver/module CAD intersection check covers the nominal seated key and
-plate. It does not establish tolerance-stack clearance, strength or the swept
-envelope of every screw, wire and spring.
+The [pin geometry report](../Build/Tooling/inspection/pin_geometry.json) checks
+nominal STEP solids. The pin stroke clears the receiver and the seated key at
+eight sampled positions. With the pin retracted, the key clears it at nine
+sampled approach positions. A 1 mm axial pull with the pin engaged intersects
+the pin, as expected for geometric capture. The pin engages from one side of
+the printed key and does not pull the mating faces tight. These tests establish
+neither retention force nor stiffness. Print and measure the receiver and test
+plug, including play under twist and pull, before attaching a tool.
 
 ## Dock and release mechanism
 

@@ -48,7 +48,7 @@ the dropdown by itself does not teleport a different tool onto the wrist.
 
 ## Vision and recording
 
-Wrist and overhead views are MuJoCo-rendered RGB, 320×240 at nominally 10 Hz of
+Wrist and overhead views are MuJoCo-rendered RGB, 640×480 at nominally 10 Hz of
 simulation time. The wrist camera is an undecided 32 mm module with assumed FOV
 and optical pose; physical calibration remains necessary.
 
@@ -61,9 +61,21 @@ wall-clock performance can be slower than simulation time. Files are never
 uploaded automatically and are ignored by Git.
 
 **Save pose + camera snapshot** captures one synchronized state. **Export 3D
-preview** saves the scene to `Build/workbench-preview.png`. No tool is connected
+preview** saves the scene to `Build/workbench-preview.png` (or an inspector close-up if open). No tool is connected
 to a physical USB/serial adapter. There is no trained policy or native LeRobot
 dataset exporter in this version.
+
+## Inspect the lock and power path
+
+Open **Wrist & power → Open wrist close-up**. The receiver and key are sectioned
+from the STEP solids so the 3 mm steel pin and bore are visible. Scrub the
+coupling step or click **Play lock and release**. With **Power and run** selected,
+switch to **Tool motion** to try the grippers, the stirrer and the passive
+spatula. The preview uses separate simulation state and cannot move the main arm.
+The contact diagram is placed off the parts: the board and its mounting have
+not been designed in place. **Frame live wrist** in **Vision & tools** zooms the
+main simulation instead. **Save HD pose + camera snapshot** writes 1280×960 stills
+with matching camera intrinsics, without changing the recording size.
 
 ## Evidence and limitations
 

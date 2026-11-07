@@ -1,7 +1,10 @@
 # Proposed ATC-02 power and signal interface
 
 **Architecture and bench interface, not a routed PCB or flashable controller.**
-No wiring in this package has been physically energized. Pin names below define
+The workbench shows the contact row apart from the parts. It illustrates
+which contacts would mate; it does not define an installed position, contact
+compression, or a usable wiring harness. No wiring in this package has been
+physically energized. Pin names below define
 our interface; they are not a manufacturer's connector numbering convention.
 
 ## Separate tool and arm systems

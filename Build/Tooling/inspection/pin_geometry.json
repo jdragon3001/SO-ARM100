@@ -1,0 +1,6 @@
+{
+  "pin_clearance_at_8_stroke_samples_max_mm3": 0,
+  "released_pin_key_interference_at_9_approach_samples_max_mm3": 0,
+  "locked_pin_intersection_on_1mm_pull_mm3": 7.424589720170397,
+  "evidence": "Rigid, nominal STEP geometry only; no strength, preload, or repeatability claims."
+}

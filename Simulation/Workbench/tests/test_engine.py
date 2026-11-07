@@ -18,6 +18,7 @@ from engine import (
     leader_model,
     LEADER_JOINTS,
 )
+from spec import LIVE_RESOLUTION, SNAPSHOT_RESOLUTION
 from interlocks import Sensors, may_unlock, may_depart, may_energize, identify_resistor
 
 sys.path.insert(0, str(ROOT / "Tooling/electronics"))
@@ -217,14 +218,12 @@ def test_camera_state_and_rgb_frames_are_valid():
     mujoco.mj_forward(s.model, s.data)
     np.testing.assert_allclose(before, s.data.cam_xpos, atol=1e-12)
     np.testing.assert_allclose(tip, s.tip, atol=1e-12)
-    renderer = mujoco.Renderer(s.model, height=240, width=320)
-    try:
-        for name in ("wrist_rgb", "overhead"):
-            renderer.update_scene(s.data, camera=name)
-            im = renderer.render()
-            assert im.shape == (240, 320, 3) and im.std() > 10
-    finally:
-        renderer.close()
+    for width, height in (LIVE_RESOLUTION, SNAPSHOT_RESOLUTION):
+        with mujoco.Renderer(s.model, height=height, width=width) as renderer:
+            for name in ("wrist_rgb", "overhead"):
+                renderer.update_scene(s.data, camera=name)
+                im = renderer.render()
+                assert im.shape == (height, width, 3) and im.std() > 10
 
 
 def test_snapshot_contains_real_tool_state(tmp_path):

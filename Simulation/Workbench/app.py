@@ -31,6 +31,9 @@ from engine import (
     map_to_leader,
 )
 
+from wrist_inspector import WristInspector
+from spec import LIVE_RESOLUTION, SNAPSHOT_RESOLUTION
+
 RUNS = Path(__file__).parent / "runs"
 FOLLOWER_OFFSET = np.array([0.05, 0.12, 0.0])
 LEADER_OFFSET = np.array([-0.5, -0.30, 0.0])
@@ -43,9 +46,15 @@ def quaternion(matrix):
 
 
 class RobotVisual:
-    def __init__(self, server, model, prefix, offset, leader=False):
+    def __init__(self, server, model, prefix, offset, leader=False, root_body=None):
         self.model, self.offset, self.items = model, offset, []
         for i in range(model.ngeom):
+            if root_body is not None:
+                body = model.geom_bodyid[i]
+                while body and body != root_body:
+                    body = model.body_parentid[body]
+                if body != root_body:
+                    continue
             kind = model.geom_type[i]
             if kind == mujoco.mjtGeom.mjGEOM_PLANE:
                 continue
@@ -115,10 +124,14 @@ class RobotVisual:
                 continue
             self.items.append((i, handle, proxy))
 
-    def update(self, data, show_proxy=False):
+    def update(self, data, show_proxy=False, relative_to=None):
+        origin = np.zeros(3) if relative_to is None else data.xpos[relative_to]
+        basis = (
+            np.eye(3) if relative_to is None else data.xmat[relative_to].reshape(3, 3).T
+        )
         for i, handle, proxy in self.items:
-            handle.position = data.geom_xpos[i] + self.offset
-            handle.wxyz = quaternion(data.geom_xmat[i])
+            handle.position = basis @ (data.geom_xpos[i] - origin) + self.offset
+            handle.wxyz = quaternion(basis @ data.geom_xmat[i].reshape(3, 3))
             if proxy:
                 handle.visible = show_proxy
 
@@ -203,9 +216,17 @@ class Workbench:
 
         @self.server.on_client_connect
         def _(client):
-            client.camera.position = (0.95, -1.15, 0.85)
-            client.camera.look_at = (0.12, -0.04, 0.20)
-            client.camera.up_direction = (0.0, 0.0, 1.0)
+            if self.inspector.active:
+                self.inspector.camera(client)
+            else:
+                self.overview_camera(client)
+
+    @staticmethod
+    def overview_camera(client):
+        client.camera.up_direction = (0.0, 0.0, 1.0)
+        client.camera.fov = np.deg2rad(55)
+        client.camera.position = (0.95, -1.15, 0.85)
+        client.camera.look_at = (0.12, -0.04, 0.20)
 
     def action(self, handle, action):
         handle.on_click(lambda _: self.events.put(action))
@@ -213,7 +234,7 @@ class Workbench:
     def build_gui(self):
         gui = self.server.gui
         gui.add_markdown(
-            "# SO-101 Workbench\n**Move → observe → refine → build**\n\nTeal: hand-operated leader. Yellow: powered follower. Orbit: drag · pan: right-drag · zoom: scroll."
+            "# SO-101 Workbench\nTeal: leader · Yellow: follower. Drag to orbit, scroll to zoom."
         )
         tabs = gui.add_tab_group()
         with tabs.add_tab("Operate"):
@@ -251,6 +272,8 @@ class Workbench:
                 self.action(gui.add_button("Target to current tip"), "target_tip")
             self.status = gui.add_markdown("")
             self.telemetry = gui.add_markdown("")
+        with tabs.add_tab("Wrist & power"):
+            self.inspector = WristInspector(self.server, RobotVisual, self.events.put)
         with tabs.add_tab("Vision & tools"):
             self.tool = gui.add_dropdown("Attachment", TOOLS)
             self.action(
@@ -262,6 +285,8 @@ class Workbench:
                 "stop_change",
             )
             self.changer_status = gui.add_markdown("")
+            self.action(gui.add_button("Frame live wrist"), "frame_wrist")
+            self.action(gui.add_button("Restore full robot view"), "inspect_back")
             self.camera = gui.add_checkbox(
                 "32 × 32 mm wrist camera", initial_value=True
             )
@@ -294,10 +319,11 @@ class Workbench:
                 "**ATC-02 automatic tool-change prototype.** These modules replace the complete gripper. The rack and arm exchange support through ideal weld constraints; lock, ID and power sensors are synthetic. Rack geometry is checked at each physics step; interference stops motion at the offending pose. The digital cycle does not validate a physical latch or connector.\n\nTool power is switched off before coupling separation. Motor limits, camera optics and printed mass are estimates."
             )
             self.rgb = gui.add_image(
-                np.zeros((240, 320, 3), dtype=np.uint8), label="Wrist RGB · simulated"
+                np.zeros((*LIVE_RESOLUTION[::-1], 3), dtype=np.uint8),
+                label="Wrist RGB · simulated",
             )
             self.overhead = gui.add_image(
-                np.zeros((240, 320, 3), dtype=np.uint8),
+                np.zeros((*LIVE_RESOLUTION[::-1], 3), dtype=np.uint8),
                 label="Overhead RGB · simulated",
             )
             self.vision_status = gui.add_markdown("Camera initializing…")
@@ -309,7 +335,7 @@ class Workbench:
             self.record_button = gui.add_button("Start recording")
             self.action(self.record_button, "record")
             self.record_status = gui.add_markdown("No recording yet.")
-            self.action(gui.add_button("Save pose + camera snapshot"), "snapshot")
+            self.action(gui.add_button("Save HD pose + camera snapshot"), "snapshot")
             self.action(gui.add_button("Export 3D preview"), "preview")
             gui.add_markdown(
                 "Files stay on this computer in `Simulation/Workbench/runs/`. Recordings are excluded from Git."
@@ -333,7 +359,7 @@ class Workbench:
                 f"Saved **{self.frame_count} frames** to `{self.record_path}`."
             )
 
-    def metadata(self):
+    def metadata(self, resolution=LIVE_RESOLUTION):
         return {
             "format": "so-arm-workbench/2",
             "simulated": True,
@@ -342,25 +368,51 @@ class Workbench:
             "world_frame": "Follower base origin, +Z up; display offsets excluded",
             "upstream_commit": "a758567c3978dfeefe282ede0500085a48fe8f78",
             "config": dataclasses.asdict(self.sim.config),
-            "capture_rate_hz": 10,
-            "resolution": [320, 240],
+            "capture_rate_hz": 10 if resolution == LIVE_RESOLUTION else None,
+            "resolution": list(resolution),
             "camera_extrinsics_calibrated": False,
             "tool_mount": "ATC-02 ideal coupling, synthetic sensors",
             "created_utc": datetime.now(timezone.utc).isoformat(),
         }
 
-    def camera_state(self, name):
+    def camera_state(self, name, resolution=LIVE_RESOLUTION):
+        w, h = resolution
         i = self.sim.model.camera(name).id
-        fy = 240 / (2 * np.tan(np.deg2rad(self.sim.model.cam_fovy[i]) / 2))
+        fy = h / (2 * np.tan(np.deg2rad(self.sim.model.cam_fovy[i]) / 2))
         return {
             "world_position_m": self.sim.data.cam_xpos[i].tolist(),
             "world_rotation_matrix": self.sim.data.cam_xmat[i].reshape(3, 3).tolist(),
             "convention": "MuJoCo/OpenGL: right +X, up +Y, forward -Z",
-            "intrinsics": [[float(fy), 0, 160], [0, float(fy), 120], [0, 0, 1]],
+            "intrinsics": [[float(fy), 0, w / 2], [0, float(fy), h / 2], [0, 0, 1]],
         }
 
     def handle(self, action):
-        if action == "joints":
+        if action == "inspect_open":
+            self.inspector.open()
+        elif action == "inspect_back":
+            self.inspector.close()
+            for client in self.server.get_clients().values():
+                self.overview_camera(client)
+        elif action == "inspect_view":
+            self.inspector.select_view()
+        elif action == "inspect_stage":
+            self.inspector.select_stage(
+                self.inspector.stage.options.index(self.inspector.stage.value)
+            )
+        elif action == "inspect_play":
+            if not self.inspector.active:
+                self.inspector.open()
+            self.inspector.play_cycle()
+        elif action in ("inspect_tool", "inspect_demand"):
+            self.inspector.refresh()
+        elif action == "frame_wrist":
+            self.inspector.close()
+            focus = self.sim.data.body("receiver").xpos + FOLLOWER_OFFSET
+            for client in self.server.get_clients().values():
+                client.camera.fov = np.deg2rad(48)
+                client.camera.position = focus + np.array([0.18, -0.23, 0.12])
+                client.camera.look_at = focus
+        elif action == "joints":
             self.demo_start = None
             q = np.deg2rad([h.value for h in self.sliders])
             self.sim.command(q)
@@ -468,32 +520,45 @@ class Workbench:
                 self.record_button.label = "Stop + save recording"
         elif action == "snapshot":
             path = RUNS / datetime.now().strftime("snapshot_%Y%m%d_%H%M%S_%f")
-            self.capture(record=False)
+            width, height = SNAPSHOT_RESOLUTION
+            with mujoco.Renderer(
+                self.sim.model, height=height, width=width
+            ) as renderer:
+                images = self.render_images(renderer)
             self.sim.save(path / "state.json")
-            (path / "metadata.json").write_text(json.dumps(self.metadata(), indent=2))
+            (path / "metadata.json").write_text(
+                json.dumps(self.metadata(SNAPSHOT_RESOLUTION), indent=2)
+            )
             (path / "cameras.json").write_text(
                 json.dumps(
-                    {name: self.camera_state(name) for name in self.last_images},
+                    {
+                        name: self.camera_state(name, SNAPSHOT_RESOLUTION)
+                        for name in images
+                    },
                     indent=2,
                 )
             )
-            for name, rgb in self.last_images.items():
+            for name, rgb in images.items():
                 Image.fromarray(rgb).save(path / f"{name}.png")
             self.record_status.content = f"Snapshot saved to `{path}`."
         elif action == "preview":
             clients = self.server.get_clients()
             if clients:
                 camera = next(iter(clients.values())).camera
-                previous_fov = camera.fov
-                try:
-                    camera.fov = np.deg2rad(38.0)
-                    rgb = camera.get_render(700, 1100, timeout=10.0)
-                finally:
-                    camera.fov = previous_fov
-                path = ROOT / "Build/workbench-preview.png"
+                if self.inspector.active:
+                    rgb = camera.get_render(900, 1400, timeout=10.0)
+                    path = ROOT / "Build/Tooling/inspection/wrist-preview.png"
+                else:
+                    previous_fov = camera.fov
+                    try:
+                        camera.fov = np.deg2rad(38.0)
+                        rgb = camera.get_render(700, 1100, timeout=10.0)
+                    finally:
+                        camera.fov = previous_fov
+                    path = ROOT / "Build/workbench-preview.png"
                 path.parent.mkdir(parents=True, exist_ok=True)
                 Image.fromarray(rgb).save(path)
-                self.record_status.content = "Saved `Build/workbench-preview.png`."
+                self.record_status.content = f"Saved `{path.relative_to(ROOT)}`."
 
     def update_scene(self):
         q = map_to_leader(
@@ -514,23 +579,29 @@ class Workbench:
             self.frustum.position = self.sim.data.cam_xpos[i] + FOLLOWER_OFFSET
             self.frustum.wxyz = quaternion(rotation)
 
-    def capture(self, record=True):
-        if self.renderer is None:
-            self.renderer = mujoco.Renderer(self.sim.model, height=240, width=320)
-        self.last_images = {}
+    def render_images(self, renderer):
+        images = {}
         cameras = ["overhead"] + (["wrist_rgb"] if self.sim.config.camera else [])
         options = mujoco.MjvOption()
         options.geomgroup[3] = 0
         options.sitegroup[:] = 0
         for name in cameras:
-            self.renderer.update_scene(self.sim.data, camera=name, scene_option=options)
-            self.last_images[name] = self.renderer.render().copy()
+            renderer.update_scene(self.sim.data, camera=name, scene_option=options)
+            images[name] = renderer.render().copy()
+        return images
+
+    def capture(self):
+        if self.renderer is None:
+            width, height = LIVE_RESOLUTION
+            self.renderer = mujoco.Renderer(self.sim.model, height=height, width=width)
+        self.last_images = self.render_images(self.renderer)
         self.overhead.image = self.last_images["overhead"]
         self.rgb.visible = self.sim.config.camera
         if self.sim.config.camera:
             self.rgb.image = self.last_images["wrist_rgb"]
-        self.vision_status.content = "Live simulated RGB · 320 × 240 · 10 Hz simulation clock. Optical frame/FOV are provisional."
-        if self.recording is not None and record:
+        width, height = LIVE_RESOLUTION
+        self.vision_status.content = f"Live simulated RGB · {width} × {height} · 10 Hz simulation clock. Optical frame/FOV are provisional."
+        if self.recording is not None:
             record = self.sim.state()
             record["frame_index"] = self.frame_count
             record["leader_rad"] = self.leader_data.qpos[self.leader_ids].tolist()
@@ -624,12 +695,14 @@ class Workbench:
                         self.stop_recording()
                         self.message = str(error)
                 self.update_scene()
+                self.inspector.tick(time.monotonic())
                 now = self.sim.data.time
                 if now < last_capture:
                     last_capture = -1.0
                 if now - last_capture >= 0.1 - 1e-8 and self.server.get_clients():
                     try:
-                        self.capture()
+                        if not self.inspector.active or self.recording is not None:
+                            self.capture()
                     except Exception as error:
                         self.stop_recording()
                         self.vision_status.content = (
