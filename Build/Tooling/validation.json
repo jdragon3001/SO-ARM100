@@ -1,0 +1,2418 @@
+{
+  "revision": "ATC-02",
+  "physical_tests_completed": false,
+  "coupling": "ideal weld",
+  "sensors": "synthetic",
+  "changes": [
+    {
+      "tool": "Four-finger gripper",
+      "result": "READY",
+      "duration_s": 19.44,
+      "peak_arm_torque_nm": [
+        0.9859512346555448,
+        1.6,
+        1.6,
+        1.1260300534447083,
+        0.005477670313779805
+      ],
+      "fraction_samples_at_ceiling": [
+        0.0,
+        0.02880658436213992,
+        0.00411522633744856,
+        0.0,
+        0.0
+      ],
+      "maximum_reported_contact_mm": 0.6010835265654454,
+      "contact_samples": [
+        {
+          "time_s": 14.600000000001545,
+          "phase": "WITHDRAW_NEW",
+          "contacts": [
+            {
+              "bodies": [
+                "finger_0",
+                "ledge_soft_gripper_1"
+              ],
+              "penetration_mm": 0.6010835265654454
+            }
+          ]
+        }
+      ],
+      "trace": [
+        {
+          "time_s": 0.0,
+          "phase": "STOP_TOOL",
+          "tool": "gripper",
+          "sensors": {
+            "dock_supported": false,
+            "seated": true,
+            "locked": true,
+            "unlocked": false,
+            "tool_present": true,
+            "tool_id": "gripper",
+            "rail_v": 0.0,
+            "tool_stopped": true,
+            "power_good": true,
+            "estop": false
+          },
+          "power_enabled": true,
+          "rack_captured": {
+            "gripper": false,
+            "soft_gripper": true,
+            "spatula": true,
+            "stirrer": true
+          }
+        },
+        {
+          "time_s": 0.002,
+          "phase": "CLEAR_CURRENT",
+          "tool": "gripper",
+          "sensors": {
+            "dock_supported": false,
+            "seated": true,
+            "locked": true,
+            "unlocked": false,
+            "tool_present": true,
+            "tool_id": "gripper",
+            "rail_v": 0.15000000000000002,
+            "tool_stopped": true,
+            "power_good": true,
+            "estop": false
+          },
+          "power_enabled": true,
+          "rack_captured": {
+            "gripper": false,
+            "soft_gripper": true,
+            "spatula": true,
+            "stirrer": true
+          }
+        },
+        {
+          "time_s": 1.0120000000000007,
+          "phase": "ALIGN_OLD",
+          "tool": "gripper",
+          "sensors": {
+            "dock_supported": false,
+            "seated": true,
+            "locked": true,
+            "unlocked": false,
+            "tool_present": true,
+            "tool_id": "gripper",
+            "rail_v": 5.9999836134776805,
+            "tool_stopped": true,
+            "power_good": true,
+            "estop": false
+          },
+          "power_enabled": true,
+          "rack_captured": {
+            "gripper": false,
+            "soft_gripper": true,
+            "spatula": true,
+            "stirrer": true
+          }
+        },
+        {
+          "time_s": 1.8580000000000014,
+          "phase": "APPROACH_OLD",
+          "tool": "gripper",
+          "sensors": {
+            "dock_supported": false,
+            "seated": true,
+            "locked": true,
+            "unlocked": false,
+            "tool_present": true,
+            "tool_id": "gripper",
+            "rail_v": 5.999999999634036,
+            "tool_stopped": true,
+            "power_good": true,
+            "estop": false
+          },
+          "power_enabled": true,
+          "rack_captured": {
+            "gripper": false,
+            "soft_gripper": true,
+            "spatula": true,
+            "stirrer": true
+          }
+        },
+        {
+          "time_s": 4.10599999999977,
+          "phase": "SEAT_OLD",
+          "tool": "gripper",
+          "sensors": {
+            "dock_supported": false,
+            "seated": true,
+            "locked": true,
+            "unlocked": false,
+            "tool_present": true,
+            "tool_id": "gripper",
+            "rail_v": 5.999999999999982,
+            "tool_stopped": true,
+            "power_good": true,
+            "estop": false
+          },
+          "power_enabled": true,
+          "rack_captured": {
+            "gripper": false,
+            "soft_gripper": true,
+            "spatula": true,
+            "stirrer": true
+          }
+        },
+        {
+          "time_s": 5.237999999999645,
+          "phase": "CAPTURE_OLD",
+          "tool": "gripper",
+          "sensors": {
+            "dock_supported": false,
+            "seated": true,
+            "locked": true,
+            "unlocked": false,
+            "tool_present": true,
+            "tool_id": "gripper",
+            "rail_v": 5.999999999999982,
+            "tool_stopped": true,
+            "power_good": true,
+            "estop": false
+          },
+          "power_enabled": true,
+          "rack_captured": {
+            "gripper": false,
+            "soft_gripper": true,
+            "spatula": true,
+            "stirrer": true
+          }
+        },
+        {
+          "time_s": 5.537999999999612,
+          "phase": "VERIFY_SUPPORT",
+          "tool": "gripper",
+          "sensors": {
+            "dock_supported": true,
+            "seated": true,
+            "locked": true,
+            "unlocked": false,
+            "tool_present": true,
+            "tool_id": "gripper",
+            "rail_v": 5.999999999999982,
+            "tool_stopped": true,
+            "power_good": true,
+            "estop": false
+          },
+          "power_enabled": true,
+          "rack_captured": {
+            "gripper": true,
+            "soft_gripper": true,
+            "spatula": true,
+            "stirrer": true
+          }
+        },
+        {
+          "time_s": 5.539999999999612,
+          "phase": "DISCHARGE",
+          "tool": "gripper",
+          "sensors": {
+            "dock_supported": true,
+            "seated": true,
+            "locked": true,
+            "unlocked": false,
+            "tool_present": true,
+            "tool_id": "gripper",
+            "rail_v": 5.999999999999982,
+            "tool_stopped": true,
+            "power_good": true,
+            "estop": false
+          },
+          "power_enabled": true,
+          "rack_captured": {
+            "gripper": true,
+            "soft_gripper": true,
+            "spatula": true,
+            "stirrer": true
+          }
+        },
+        {
+          "time_s": 5.73999999999959,
+          "phase": "UNLOCK",
+          "tool": "gripper",
+          "sensors": {
+            "dock_supported": true,
+            "seated": true,
+            "locked": true,
+            "unlocked": false,
+            "tool_present": true,
+            "tool_id": "gripper",
+            "rail_v": 0.48933716838050095,
+            "tool_stopped": true,
+            "power_good": false,
+            "estop": false
+          },
+          "power_enabled": false,
+          "rack_captured": {
+            "gripper": true,
+            "soft_gripper": true,
+            "spatula": true,
+            "stirrer": true
+          }
+        },
+        {
+          "time_s": 6.139999999999546,
+          "phase": "PARK_OLD",
+          "tool": "gripper",
+          "sensors": {
+            "dock_supported": true,
+            "seated": true,
+            "locked": false,
+            "unlocked": true,
+            "tool_present": true,
+            "tool_id": "gripper",
+            "rail_v": 0.003094078615691812,
+            "tool_stopped": true,
+            "power_good": false,
+            "estop": false
+          },
+          "power_enabled": false,
+          "rack_captured": {
+            "gripper": true,
+            "soft_gripper": true,
+            "spatula": true,
+            "stirrer": true
+          }
+        },
+        {
+          "time_s": 6.141999999999546,
+          "phase": "RETRACT_EMPTY",
+          "tool": null,
+          "sensors": {
+            "dock_supported": false,
+            "seated": false,
+            "locked": false,
+            "unlocked": true,
+            "tool_present": false,
+            "tool_id": null,
+            "rail_v": 0.0030167266502995164,
+            "tool_stopped": true,
+            "power_good": false,
+            "estop": false
+          },
+          "power_enabled": false,
+          "rack_captured": {
+            "gripper": true,
+            "soft_gripper": true,
+            "spatula": true,
+            "stirrer": true
+          }
+        },
+        {
+          "time_s": 7.243999999999424,
+          "phase": "CLEAR_RACK",
+          "tool": null,
+          "sensors": {
+            "dock_supported": false,
+            "seated": false,
+            "locked": false,
+            "unlocked": true,
+            "tool_present": false,
+            "tool_id": null,
+            "rail_v": 2.636812263286338e-09,
+            "tool_stopped": true,
+            "power_good": false,
+            "estop": false
+          },
+          "power_enabled": false,
+          "rack_captured": {
+            "gripper": true,
+            "soft_gripper": true,
+            "spatula": true,
+            "stirrer": true
+          }
+        },
+        {
+          "time_s": 9.49199999999984,
+          "phase": "ALIGN_NEW",
+          "tool": null,
+          "sensors": {
+            "dock_supported": false,
+            "seated": false,
+            "locked": false,
+            "unlocked": true,
+            "tool_present": false,
+            "tool_id": null,
+            "rail_v": 1.1541632852924063e-21,
+            "tool_stopped": true,
+            "power_good": false,
+            "estop": false
+          },
+          "power_enabled": false,
+          "rack_captured": {
+            "gripper": true,
+            "soft_gripper": true,
+            "spatula": true,
+            "stirrer": true
+          }
+        },
+        {
+          "time_s": 10.338000000000122,
+          "phase": "APPROACH_NEW",
+          "tool": null,
+          "sensors": {
+            "dock_supported": false,
+            "seated": false,
+            "locked": false,
+            "unlocked": true,
+            "tool_present": false,
+            "tool_id": null,
+            "rail_v": 2.5776247639097208e-26,
+            "tool_stopped": true,
+            "power_good": false,
+            "estop": false
+          },
+          "power_enabled": false,
+          "rack_captured": {
+            "gripper": true,
+            "soft_gripper": true,
+            "spatula": true,
+            "stirrer": true
+          }
+        },
+        {
+          "time_s": 12.586000000000872,
+          "phase": "SEAT_NEW",
+          "tool": null,
+          "sensors": {
+            "dock_supported": false,
+            "seated": false,
+            "locked": false,
+            "unlocked": true,
+            "tool_present": false,
+            "tool_id": null,
+            "rail_v": 1.1282562308995335e-38,
+            "tool_stopped": true,
+            "power_good": false,
+            "estop": false
+          },
+          "power_enabled": false,
+          "rack_captured": {
+            "gripper": true,
+            "soft_gripper": true,
+            "spatula": true,
+            "stirrer": true
+          }
+        },
+        {
+          "time_s": 13.68800000000124,
+          "phase": "LOCK",
+          "tool": null,
+          "sensors": {
+            "dock_supported": true,
+            "seated": true,
+            "locked": false,
+            "unlocked": true,
+            "tool_present": false,
+            "tool_id": null,
+            "rail_v": 9.86168191761668e-45,
+            "tool_stopped": true,
+            "power_good": false,
+            "estop": false
+          },
+          "power_enabled": false,
+          "rack_captured": {
+            "gripper": true,
+            "soft_gripper": true,
+            "spatula": true,
+            "stirrer": true
+          }
+        },
+        {
+          "time_s": 14.088000000001374,
+          "phase": "IDENTIFY",
+          "tool": "soft_gripper",
+          "sensors": {
+            "dock_supported": true,
+            "seated": true,
+            "locked": true,
+            "unlocked": false,
+            "tool_present": true,
+            "tool_id": "soft_gripper",
+            "rail_v": 6.235540871958878e-47,
+            "tool_stopped": true,
+            "power_good": false,
+            "estop": false
+          },
+          "power_enabled": false,
+          "rack_captured": {
+            "gripper": true,
+            "soft_gripper": true,
+            "spatula": true,
+            "stirrer": true
+          }
+        },
+        {
+          "time_s": 14.090000000001375,
+          "phase": "VERIFY_LOCK",
+          "tool": "soft_gripper",
+          "sensors": {
+            "dock_supported": true,
+            "seated": true,
+            "locked": true,
+            "unlocked": false,
+            "tool_present": true,
+            "tool_id": "soft_gripper",
+            "rail_v": 6.079652350159906e-47,
+            "tool_stopped": true,
+            "power_good": false,
+            "estop": false
+          },
+          "power_enabled": false,
+          "rack_captured": {
+            "gripper": true,
+            "soft_gripper": true,
+            "spatula": true,
+            "stirrer": true
+          }
+        },
+        {
+          "time_s": 14.092000000001375,
+          "phase": "POWER_READY",
+          "tool": "soft_gripper",
+          "sensors": {
+            "dock_supported": true,
+            "seated": true,
+            "locked": true,
+            "unlocked": false,
+            "tool_present": true,
+            "tool_id": "soft_gripper",
+            "rail_v": 5.927661041405908e-47,
+            "tool_stopped": true,
+            "power_good": false,
+            "estop": false
+          },
+          "power_enabled": false,
+          "rack_captured": {
+            "gripper": true,
+            "soft_gripper": true,
+            "spatula": true,
+            "stirrer": true
+          }
+        },
+        {
+          "time_s": 14.094000000001376,
+          "phase": "OPEN_RACK",
+          "tool": "soft_gripper",
+          "sensors": {
+            "dock_supported": true,
+            "seated": true,
+            "locked": true,
+            "unlocked": false,
+            "tool_present": true,
+            "tool_id": "soft_gripper",
+            "rail_v": 5.77946951537076e-47,
+            "tool_stopped": true,
+            "power_good": true,
+            "estop": false
+          },
+          "power_enabled": true,
+          "rack_captured": {
+            "gripper": true,
+            "soft_gripper": true,
+            "spatula": true,
+            "stirrer": true
+          }
+        },
+        {
+          "time_s": 14.394000000001476,
+          "phase": "WITHDRAW_NEW",
+          "tool": "soft_gripper",
+          "sensors": {
+            "dock_supported": false,
+            "seated": true,
+            "locked": true,
+            "unlocked": false,
+            "tool_present": true,
+            "tool_id": "soft_gripper",
+            "rail_v": 5.865462421971416,
+            "tool_stopped": true,
+            "power_good": true,
+            "estop": false
+          },
+          "power_enabled": true,
+          "rack_captured": {
+            "gripper": true,
+            "soft_gripper": false,
+            "spatula": true,
+            "stirrer": true
+          }
+        },
+        {
+          "time_s": 15.496000000001844,
+          "phase": "CLEAR_NEW",
+          "tool": "soft_gripper",
+          "sensors": {
+            "dock_supported": false,
+            "seated": true,
+            "locked": true,
+            "unlocked": false,
+            "tool_present": true,
+            "tool_id": "soft_gripper",
+            "rail_v": 5.9999998824055405,
+            "tool_stopped": true,
+            "power_good": true,
+            "estop": false
+          },
+          "power_enabled": true,
+          "rack_captured": {
+            "gripper": true,
+            "soft_gripper": false,
+            "spatula": true,
+            "stirrer": true
+          }
+        },
+        {
+          "time_s": 17.744000000001044,
+          "phase": "RETURN_HOME",
+          "tool": "soft_gripper",
+          "sensors": {
+            "dock_supported": false,
+            "seated": true,
+            "locked": true,
+            "unlocked": false,
+            "tool_present": true,
+            "tool_id": "soft_gripper",
+            "rail_v": 5.999999999999982,
+            "tool_stopped": true,
+            "power_good": true,
+            "estop": false
+          },
+          "power_enabled": true,
+          "rack_captured": {
+            "gripper": true,
+            "soft_gripper": false,
+            "spatula": true,
+            "stirrer": true
+          }
+        },
+        {
+          "time_s": 19.41000000000012,
+          "phase": "ENABLE_TOOL",
+          "tool": "soft_gripper",
+          "sensors": {
+            "dock_supported": false,
+            "seated": true,
+            "locked": true,
+            "unlocked": false,
+            "tool_present": true,
+            "tool_id": "soft_gripper",
+            "rail_v": 5.999999999999982,
+            "tool_stopped": true,
+            "power_good": true,
+            "estop": false
+          },
+          "power_enabled": true,
+          "rack_captured": {
+            "gripper": true,
+            "soft_gripper": false,
+            "spatula": true,
+            "stirrer": true
+          }
+        }
+      ]
+    },
+    {
+      "tool": "Spatula",
+      "result": "READY",
+      "duration_s": 21.08,
+      "peak_arm_torque_nm": [
+        0.8417664969877592,
+        1.6,
+        1.6,
+        0.9518432150798617,
+        0.00380811456098066
+      ],
+      "fraction_samples_at_ceiling": [
+        0.0,
+        0.011385199240986717,
+        0.003795066413662239,
+        0.0,
+        0.0
+      ],
+      "maximum_reported_contact_mm": 0.0,
+      "contact_samples": [],
+      "trace": [
+        {
+          "time_s": 19.440000000000104,
+          "phase": "STOP_TOOL",
+          "tool": "soft_gripper",
+          "sensors": {
+            "dock_supported": false,
+            "seated": true,
+            "locked": true,
+            "unlocked": false,
+            "tool_present": true,
+            "tool_id": "soft_gripper",
+            "rail_v": 5.999999999999982,
+            "tool_stopped": true,
+            "power_good": true,
+            "estop": false
+          },
+          "power_enabled": true,
+          "rack_captured": {
+            "gripper": true,
+            "soft_gripper": false,
+            "spatula": true,
+            "stirrer": true
+          }
+        },
+        {
+          "time_s": 19.442000000000103,
+          "phase": "CLEAR_CURRENT",
+          "tool": "soft_gripper",
+          "sensors": {
+            "dock_supported": false,
+            "seated": true,
+            "locked": true,
+            "unlocked": false,
+            "tool_present": true,
+            "tool_id": "soft_gripper",
+            "rail_v": 5.999999999999982,
+            "tool_stopped": true,
+            "power_good": true,
+            "estop": false
+          },
+          "power_enabled": true,
+          "rack_captured": {
+            "gripper": true,
+            "soft_gripper": false,
+            "spatula": true,
+            "stirrer": true
+          }
+        },
+        {
+          "time_s": 20.451999999999543,
+          "phase": "ALIGN_OLD",
+          "tool": "soft_gripper",
+          "sensors": {
+            "dock_supported": false,
+            "seated": true,
+            "locked": true,
+            "unlocked": false,
+            "tool_present": true,
+            "tool_id": "soft_gripper",
+            "rail_v": 5.999999999999982,
+            "tool_stopped": true,
+            "power_good": true,
+            "estop": false
+          },
+          "power_enabled": true,
+          "rack_captured": {
+            "gripper": true,
+            "soft_gripper": false,
+            "spatula": true,
+            "stirrer": true
+          }
+        },
+        {
+          "time_s": 22.11799999999862,
+          "phase": "APPROACH_OLD",
+          "tool": "soft_gripper",
+          "sensors": {
+            "dock_supported": false,
+            "seated": true,
+            "locked": true,
+            "unlocked": false,
+            "tool_present": true,
+            "tool_id": "soft_gripper",
+            "rail_v": 5.999999999999982,
+            "tool_stopped": true,
+            "power_good": true,
+            "estop": false
+          },
+          "power_enabled": true,
+          "rack_captured": {
+            "gripper": true,
+            "soft_gripper": false,
+            "spatula": true,
+            "stirrer": true
+          }
+        },
+        {
+          "time_s": 24.365999999997374,
+          "phase": "SEAT_OLD",
+          "tool": "soft_gripper",
+          "sensors": {
+            "dock_supported": false,
+            "seated": true,
+            "locked": true,
+            "unlocked": false,
+            "tool_present": true,
+            "tool_id": "soft_gripper",
+            "rail_v": 5.999999999999982,
+            "tool_stopped": true,
+            "power_good": true,
+            "estop": false
+          },
+          "power_enabled": true,
+          "rack_captured": {
+            "gripper": true,
+            "soft_gripper": false,
+            "spatula": true,
+            "stirrer": true
+          }
+        },
+        {
+          "time_s": 25.497999999996747,
+          "phase": "CAPTURE_OLD",
+          "tool": "soft_gripper",
+          "sensors": {
+            "dock_supported": false,
+            "seated": true,
+            "locked": true,
+            "unlocked": false,
+            "tool_present": true,
+            "tool_id": "soft_gripper",
+            "rail_v": 5.999999999999982,
+            "tool_stopped": true,
+            "power_good": true,
+            "estop": false
+          },
+          "power_enabled": true,
+          "rack_captured": {
+            "gripper": true,
+            "soft_gripper": false,
+            "spatula": true,
+            "stirrer": true
+          }
+        },
+        {
+          "time_s": 25.79799999999658,
+          "phase": "VERIFY_SUPPORT",
+          "tool": "soft_gripper",
+          "sensors": {
+            "dock_supported": true,
+            "seated": true,
+            "locked": true,
+            "unlocked": false,
+            "tool_present": true,
+            "tool_id": "soft_gripper",
+            "rail_v": 5.999999999999982,
+            "tool_stopped": true,
+            "power_good": true,
+            "estop": false
+          },
+          "power_enabled": true,
+          "rack_captured": {
+            "gripper": true,
+            "soft_gripper": true,
+            "spatula": true,
+            "stirrer": true
+          }
+        },
+        {
+          "time_s": 25.79999999999658,
+          "phase": "DISCHARGE",
+          "tool": "soft_gripper",
+          "sensors": {
+            "dock_supported": true,
+            "seated": true,
+            "locked": true,
+            "unlocked": false,
+            "tool_present": true,
+            "tool_id": "soft_gripper",
+            "rail_v": 5.999999999999982,
+            "tool_stopped": true,
+            "power_good": true,
+            "estop": false
+          },
+          "power_enabled": true,
+          "rack_captured": {
+            "gripper": true,
+            "soft_gripper": true,
+            "spatula": true,
+            "stirrer": true
+          }
+        },
+        {
+          "time_s": 25.99999999999647,
+          "phase": "UNLOCK",
+          "tool": "soft_gripper",
+          "sensors": {
+            "dock_supported": true,
+            "seated": true,
+            "locked": true,
+            "unlocked": false,
+            "tool_present": true,
+            "tool_id": "soft_gripper",
+            "rail_v": 0.48933716838050095,
+            "tool_stopped": true,
+            "power_good": false,
+            "estop": false
+          },
+          "power_enabled": false,
+          "rack_captured": {
+            "gripper": true,
+            "soft_gripper": true,
+            "spatula": true,
+            "stirrer": true
+          }
+        },
+        {
+          "time_s": 26.399999999996247,
+          "phase": "PARK_OLD",
+          "tool": "soft_gripper",
+          "sensors": {
+            "dock_supported": true,
+            "seated": true,
+            "locked": false,
+            "unlocked": true,
+            "tool_present": true,
+            "tool_id": "soft_gripper",
+            "rail_v": 0.003094078615691812,
+            "tool_stopped": true,
+            "power_good": false,
+            "estop": false
+          },
+          "power_enabled": false,
+          "rack_captured": {
+            "gripper": true,
+            "soft_gripper": true,
+            "spatula": true,
+            "stirrer": true
+          }
+        },
+        {
+          "time_s": 26.401999999996246,
+          "phase": "RETRACT_EMPTY",
+          "tool": null,
+          "sensors": {
+            "dock_supported": false,
+            "seated": false,
+            "locked": false,
+            "unlocked": true,
+            "tool_present": false,
+            "tool_id": null,
+            "rail_v": 0.0030167266502995164,
+            "tool_stopped": true,
+            "power_good": false,
+            "estop": false
+          },
+          "power_enabled": false,
+          "rack_captured": {
+            "gripper": true,
+            "soft_gripper": true,
+            "spatula": true,
+            "stirrer": true
+          }
+        },
+        {
+          "time_s": 27.503999999995635,
+          "phase": "CLEAR_RACK",
+          "tool": null,
+          "sensors": {
+            "dock_supported": false,
+            "seated": false,
+            "locked": false,
+            "unlocked": true,
+            "tool_present": false,
+            "tool_id": null,
+            "rail_v": 2.636812263286338e-09,
+            "tool_stopped": true,
+            "power_good": false,
+            "estop": false
+          },
+          "power_enabled": false,
+          "rack_captured": {
+            "gripper": true,
+            "soft_gripper": true,
+            "spatula": true,
+            "stirrer": true
+          }
+        },
+        {
+          "time_s": 29.75199999999439,
+          "phase": "ALIGN_NEW",
+          "tool": null,
+          "sensors": {
+            "dock_supported": false,
+            "seated": false,
+            "locked": false,
+            "unlocked": true,
+            "tool_present": false,
+            "tool_id": null,
+            "rail_v": 1.1541632852924063e-21,
+            "tool_stopped": true,
+            "power_good": false,
+            "estop": false
+          },
+          "power_enabled": false,
+          "rack_captured": {
+            "gripper": true,
+            "soft_gripper": true,
+            "spatula": true,
+            "stirrer": true
+          }
+        },
+        {
+          "time_s": 30.59799999999392,
+          "phase": "APPROACH_NEW",
+          "tool": null,
+          "sensors": {
+            "dock_supported": false,
+            "seated": false,
+            "locked": false,
+            "unlocked": true,
+            "tool_present": false,
+            "tool_id": null,
+            "rail_v": 2.5776247639097208e-26,
+            "tool_stopped": true,
+            "power_good": false,
+            "estop": false
+          },
+          "power_enabled": false,
+          "rack_captured": {
+            "gripper": true,
+            "soft_gripper": true,
+            "spatula": true,
+            "stirrer": true
+          }
+        },
+        {
+          "time_s": 32.84599999999418,
+          "phase": "SEAT_NEW",
+          "tool": null,
+          "sensors": {
+            "dock_supported": false,
+            "seated": false,
+            "locked": false,
+            "unlocked": true,
+            "tool_present": false,
+            "tool_id": null,
+            "rail_v": 1.1282562308995335e-38,
+            "tool_stopped": true,
+            "power_good": false,
+            "estop": false
+          },
+          "power_enabled": false,
+          "rack_captured": {
+            "gripper": true,
+            "soft_gripper": true,
+            "spatula": true,
+            "stirrer": true
+          }
+        },
+        {
+          "time_s": 33.947999999995524,
+          "phase": "LOCK",
+          "tool": null,
+          "sensors": {
+            "dock_supported": true,
+            "seated": true,
+            "locked": false,
+            "unlocked": true,
+            "tool_present": false,
+            "tool_id": null,
+            "rail_v": 9.86168191761668e-45,
+            "tool_stopped": true,
+            "power_good": false,
+            "estop": false
+          },
+          "power_enabled": false,
+          "rack_captured": {
+            "gripper": true,
+            "soft_gripper": true,
+            "spatula": true,
+            "stirrer": true
+          }
+        },
+        {
+          "time_s": 34.34799999999601,
+          "phase": "IDENTIFY",
+          "tool": "spatula",
+          "sensors": {
+            "dock_supported": true,
+            "seated": true,
+            "locked": true,
+            "unlocked": false,
+            "tool_present": true,
+            "tool_id": "spatula",
+            "rail_v": 6.235540871958878e-47,
+            "tool_stopped": true,
+            "power_good": false,
+            "estop": false
+          },
+          "power_enabled": false,
+          "rack_captured": {
+            "gripper": true,
+            "soft_gripper": true,
+            "spatula": true,
+            "stirrer": true
+          }
+        },
+        {
+          "time_s": 34.349999999996015,
+          "phase": "VERIFY_LOCK",
+          "tool": "spatula",
+          "sensors": {
+            "dock_supported": true,
+            "seated": true,
+            "locked": true,
+            "unlocked": false,
+            "tool_present": true,
+            "tool_id": "spatula",
+            "rail_v": 6.079652350159906e-47,
+            "tool_stopped": true,
+            "power_good": false,
+            "estop": false
+          },
+          "power_enabled": false,
+          "rack_captured": {
+            "gripper": true,
+            "soft_gripper": true,
+            "spatula": true,
+            "stirrer": true
+          }
+        },
+        {
+          "time_s": 34.35199999999602,
+          "phase": "POWER_READY",
+          "tool": "spatula",
+          "sensors": {
+            "dock_supported": true,
+            "seated": true,
+            "locked": true,
+            "unlocked": false,
+            "tool_present": true,
+            "tool_id": "spatula",
+            "rail_v": 5.927661041405908e-47,
+            "tool_stopped": true,
+            "power_good": false,
+            "estop": false
+          },
+          "power_enabled": false,
+          "rack_captured": {
+            "gripper": true,
+            "soft_gripper": true,
+            "spatula": true,
+            "stirrer": true
+          }
+        },
+        {
+          "time_s": 34.35399999999602,
+          "phase": "OPEN_RACK",
+          "tool": "spatula",
+          "sensors": {
+            "dock_supported": true,
+            "seated": true,
+            "locked": true,
+            "unlocked": false,
+            "tool_present": true,
+            "tool_id": "spatula",
+            "rail_v": 5.77946951537076e-47,
+            "tool_stopped": true,
+            "power_good": true,
+            "estop": false
+          },
+          "power_enabled": true,
+          "rack_captured": {
+            "gripper": true,
+            "soft_gripper": true,
+            "spatula": true,
+            "stirrer": true
+          }
+        },
+        {
+          "time_s": 34.65399999999639,
+          "phase": "WITHDRAW_NEW",
+          "tool": "spatula",
+          "sensors": {
+            "dock_supported": false,
+            "seated": true,
+            "locked": true,
+            "unlocked": false,
+            "tool_present": true,
+            "tool_id": "spatula",
+            "rail_v": 5.865462421971416,
+            "tool_stopped": true,
+            "power_good": true,
+            "estop": false
+          },
+          "power_enabled": true,
+          "rack_captured": {
+            "gripper": true,
+            "soft_gripper": true,
+            "spatula": false,
+            "stirrer": true
+          }
+        },
+        {
+          "time_s": 35.755999999997734,
+          "phase": "CLEAR_NEW",
+          "tool": "spatula",
+          "sensors": {
+            "dock_supported": false,
+            "seated": true,
+            "locked": true,
+            "unlocked": false,
+            "tool_present": true,
+            "tool_id": "spatula",
+            "rail_v": 5.9999998824055405,
+            "tool_stopped": true,
+            "power_good": true,
+            "estop": false
+          },
+          "power_enabled": true,
+          "rack_captured": {
+            "gripper": true,
+            "soft_gripper": true,
+            "spatula": false,
+            "stirrer": true
+          }
+        },
+        {
+          "time_s": 38.00400000000048,
+          "phase": "RETURN_HOME",
+          "tool": "spatula",
+          "sensors": {
+            "dock_supported": false,
+            "seated": true,
+            "locked": true,
+            "unlocked": false,
+            "tool_present": true,
+            "tool_id": "spatula",
+            "rail_v": 5.999999999999982,
+            "tool_stopped": true,
+            "power_good": true,
+            "estop": false
+          },
+          "power_enabled": true,
+          "rack_captured": {
+            "gripper": true,
+            "soft_gripper": true,
+            "spatula": false,
+            "stirrer": true
+          }
+        },
+        {
+          "time_s": 40.486000000003514,
+          "phase": "ENABLE_TOOL",
+          "tool": "spatula",
+          "sensors": {
+            "dock_supported": false,
+            "seated": true,
+            "locked": true,
+            "unlocked": false,
+            "tool_present": true,
+            "tool_id": "spatula",
+            "rail_v": 5.999999999999982,
+            "tool_stopped": true,
+            "power_good": true,
+            "estop": false
+          },
+          "power_enabled": true,
+          "rack_captured": {
+            "gripper": true,
+            "soft_gripper": true,
+            "spatula": false,
+            "stirrer": true
+          }
+        }
+      ]
+    },
+    {
+      "tool": "Powered stirrer",
+      "result": "READY",
+      "duration_s": 22.68,
+      "peak_arm_torque_nm": [
+        0.908362555273186,
+        1.6,
+        1.6,
+        1.0914686968775982,
+        0.003926161182697876
+      ],
+      "fraction_samples_at_ceiling": [
+        0.0,
+        0.008818342151675485,
+        0.001763668430335097,
+        0.0,
+        0.0
+      ],
+      "maximum_reported_contact_mm": 0.0,
+      "contact_samples": [],
+      "trace": [
+        {
+          "time_s": 40.520000000003556,
+          "phase": "STOP_TOOL",
+          "tool": "spatula",
+          "sensors": {
+            "dock_supported": false,
+            "seated": true,
+            "locked": true,
+            "unlocked": false,
+            "tool_present": true,
+            "tool_id": "spatula",
+            "rail_v": 5.999999999999982,
+            "tool_stopped": true,
+            "power_good": true,
+            "estop": false
+          },
+          "power_enabled": true,
+          "rack_captured": {
+            "gripper": true,
+            "soft_gripper": true,
+            "spatula": false,
+            "stirrer": true
+          }
+        },
+        {
+          "time_s": 40.52200000000356,
+          "phase": "CLEAR_CURRENT",
+          "tool": "spatula",
+          "sensors": {
+            "dock_supported": false,
+            "seated": true,
+            "locked": true,
+            "unlocked": false,
+            "tool_present": true,
+            "tool_id": "spatula",
+            "rail_v": 5.999999999999982,
+            "tool_stopped": true,
+            "power_good": true,
+            "estop": false
+          },
+          "power_enabled": true,
+          "rack_captured": {
+            "gripper": true,
+            "soft_gripper": true,
+            "spatula": false,
+            "stirrer": true
+          }
+        },
+        {
+          "time_s": 41.53200000000479,
+          "phase": "ALIGN_OLD",
+          "tool": "spatula",
+          "sensors": {
+            "dock_supported": false,
+            "seated": true,
+            "locked": true,
+            "unlocked": false,
+            "tool_present": true,
+            "tool_id": "spatula",
+            "rail_v": 5.999999999999982,
+            "tool_stopped": true,
+            "power_good": true,
+            "estop": false
+          },
+          "power_enabled": true,
+          "rack_captured": {
+            "gripper": true,
+            "soft_gripper": true,
+            "spatula": false,
+            "stirrer": true
+          }
+        },
+        {
+          "time_s": 44.01800000000783,
+          "phase": "APPROACH_OLD",
+          "tool": "spatula",
+          "sensors": {
+            "dock_supported": false,
+            "seated": true,
+            "locked": true,
+            "unlocked": false,
+            "tool_present": true,
+            "tool_id": "spatula",
+            "rail_v": 5.999999999999982,
+            "tool_stopped": true,
+            "power_good": true,
+            "estop": false
+          },
+          "power_enabled": true,
+          "rack_captured": {
+            "gripper": true,
+            "soft_gripper": true,
+            "spatula": false,
+            "stirrer": true
+          }
+        },
+        {
+          "time_s": 46.26600000001058,
+          "phase": "SEAT_OLD",
+          "tool": "spatula",
+          "sensors": {
+            "dock_supported": false,
+            "seated": true,
+            "locked": true,
+            "unlocked": false,
+            "tool_present": true,
+            "tool_id": "spatula",
+            "rail_v": 5.999999999999982,
+            "tool_stopped": true,
+            "power_good": true,
+            "estop": false
+          },
+          "power_enabled": true,
+          "rack_captured": {
+            "gripper": true,
+            "soft_gripper": true,
+            "spatula": false,
+            "stirrer": true
+          }
+        },
+        {
+          "time_s": 47.37000000001193,
+          "phase": "CAPTURE_OLD",
+          "tool": "spatula",
+          "sensors": {
+            "dock_supported": false,
+            "seated": true,
+            "locked": true,
+            "unlocked": false,
+            "tool_present": true,
+            "tool_id": "spatula",
+            "rail_v": 5.999999999999982,
+            "tool_stopped": true,
+            "power_good": true,
+            "estop": false
+          },
+          "power_enabled": true,
+          "rack_captured": {
+            "gripper": true,
+            "soft_gripper": true,
+            "spatula": false,
+            "stirrer": true
+          }
+        },
+        {
+          "time_s": 47.670000000012294,
+          "phase": "VERIFY_SUPPORT",
+          "tool": "spatula",
+          "sensors": {
+            "dock_supported": true,
+            "seated": true,
+            "locked": true,
+            "unlocked": false,
+            "tool_present": true,
+            "tool_id": "spatula",
+            "rail_v": 5.999999999999982,
+            "tool_stopped": true,
+            "power_good": true,
+            "estop": false
+          },
+          "power_enabled": true,
+          "rack_captured": {
+            "gripper": true,
+            "soft_gripper": true,
+            "spatula": true,
+            "stirrer": true
+          }
+        },
+        {
+          "time_s": 47.6720000000123,
+          "phase": "DISCHARGE",
+          "tool": "spatula",
+          "sensors": {
+            "dock_supported": true,
+            "seated": true,
+            "locked": true,
+            "unlocked": false,
+            "tool_present": true,
+            "tool_id": "spatula",
+            "rail_v": 5.999999999999982,
+            "tool_stopped": true,
+            "power_good": true,
+            "estop": false
+          },
+          "power_enabled": true,
+          "rack_captured": {
+            "gripper": true,
+            "soft_gripper": true,
+            "spatula": true,
+            "stirrer": true
+          }
+        },
+        {
+          "time_s": 47.87200000001254,
+          "phase": "UNLOCK",
+          "tool": "spatula",
+          "sensors": {
+            "dock_supported": true,
+            "seated": true,
+            "locked": true,
+            "unlocked": false,
+            "tool_present": true,
+            "tool_id": "spatula",
+            "rail_v": 0.48933716838050095,
+            "tool_stopped": true,
+            "power_good": false,
+            "estop": false
+          },
+          "power_enabled": false,
+          "rack_captured": {
+            "gripper": true,
+            "soft_gripper": true,
+            "spatula": true,
+            "stirrer": true
+          }
+        },
+        {
+          "time_s": 48.27200000001303,
+          "phase": "PARK_OLD",
+          "tool": "spatula",
+          "sensors": {
+            "dock_supported": true,
+            "seated": true,
+            "locked": false,
+            "unlocked": true,
+            "tool_present": true,
+            "tool_id": "spatula",
+            "rail_v": 0.003094078615691812,
+            "tool_stopped": true,
+            "power_good": false,
+            "estop": false
+          },
+          "power_enabled": false,
+          "rack_captured": {
+            "gripper": true,
+            "soft_gripper": true,
+            "spatula": true,
+            "stirrer": true
+          }
+        },
+        {
+          "time_s": 48.27400000001303,
+          "phase": "RETRACT_EMPTY",
+          "tool": null,
+          "sensors": {
+            "dock_supported": false,
+            "seated": false,
+            "locked": false,
+            "unlocked": true,
+            "tool_present": false,
+            "tool_id": null,
+            "rail_v": 0.0030167266502995164,
+            "tool_stopped": true,
+            "power_good": false,
+            "estop": false
+          },
+          "power_enabled": false,
+          "rack_captured": {
+            "gripper": true,
+            "soft_gripper": true,
+            "spatula": true,
+            "stirrer": true
+          }
+        },
+        {
+          "time_s": 49.37600000001438,
+          "phase": "CLEAR_RACK",
+          "tool": null,
+          "sensors": {
+            "dock_supported": false,
+            "seated": false,
+            "locked": false,
+            "unlocked": true,
+            "tool_present": false,
+            "tool_id": null,
+            "rail_v": 2.636812263286338e-09,
+            "tool_stopped": true,
+            "power_good": false,
+            "estop": false
+          },
+          "power_enabled": false,
+          "rack_captured": {
+            "gripper": true,
+            "soft_gripper": true,
+            "spatula": true,
+            "stirrer": true
+          }
+        },
+        {
+          "time_s": 51.624000000017126,
+          "phase": "ALIGN_NEW",
+          "tool": null,
+          "sensors": {
+            "dock_supported": false,
+            "seated": false,
+            "locked": false,
+            "unlocked": true,
+            "tool_present": false,
+            "tool_id": null,
+            "rail_v": 1.1541632852924063e-21,
+            "tool_stopped": true,
+            "power_good": false,
+            "estop": false
+          },
+          "power_enabled": false,
+          "rack_captured": {
+            "gripper": true,
+            "soft_gripper": true,
+            "spatula": true,
+            "stirrer": true
+          }
+        },
+        {
+          "time_s": 52.47000000001816,
+          "phase": "APPROACH_NEW",
+          "tool": null,
+          "sensors": {
+            "dock_supported": false,
+            "seated": false,
+            "locked": false,
+            "unlocked": true,
+            "tool_present": false,
+            "tool_id": null,
+            "rail_v": 2.5776247639097208e-26,
+            "tool_stopped": true,
+            "power_good": false,
+            "estop": false
+          },
+          "power_enabled": false,
+          "rack_captured": {
+            "gripper": true,
+            "soft_gripper": true,
+            "spatula": true,
+            "stirrer": true
+          }
+        },
+        {
+          "time_s": 54.71800000002091,
+          "phase": "SEAT_NEW",
+          "tool": null,
+          "sensors": {
+            "dock_supported": false,
+            "seated": false,
+            "locked": false,
+            "unlocked": true,
+            "tool_present": false,
+            "tool_id": null,
+            "rail_v": 1.1282562308995335e-38,
+            "tool_stopped": true,
+            "power_good": false,
+            "estop": false
+          },
+          "power_enabled": false,
+          "rack_captured": {
+            "gripper": true,
+            "soft_gripper": true,
+            "spatula": true,
+            "stirrer": true
+          }
+        },
+        {
+          "time_s": 55.820000000022254,
+          "phase": "LOCK",
+          "tool": null,
+          "sensors": {
+            "dock_supported": true,
+            "seated": true,
+            "locked": false,
+            "unlocked": true,
+            "tool_present": false,
+            "tool_id": null,
+            "rail_v": 9.86168191761668e-45,
+            "tool_stopped": true,
+            "power_good": false,
+            "estop": false
+          },
+          "power_enabled": false,
+          "rack_captured": {
+            "gripper": true,
+            "soft_gripper": true,
+            "spatula": true,
+            "stirrer": true
+          }
+        },
+        {
+          "time_s": 56.22000000002274,
+          "phase": "IDENTIFY",
+          "tool": "stirrer",
+          "sensors": {
+            "dock_supported": true,
+            "seated": true,
+            "locked": true,
+            "unlocked": false,
+            "tool_present": true,
+            "tool_id": "stirrer",
+            "rail_v": 6.235540871958878e-47,
+            "tool_stopped": true,
+            "power_good": false,
+            "estop": false
+          },
+          "power_enabled": false,
+          "rack_captured": {
+            "gripper": true,
+            "soft_gripper": true,
+            "spatula": true,
+            "stirrer": true
+          }
+        },
+        {
+          "time_s": 56.222000000022746,
+          "phase": "VERIFY_LOCK",
+          "tool": "stirrer",
+          "sensors": {
+            "dock_supported": true,
+            "seated": true,
+            "locked": true,
+            "unlocked": false,
+            "tool_present": true,
+            "tool_id": "stirrer",
+            "rail_v": 6.079652350159906e-47,
+            "tool_stopped": true,
+            "power_good": false,
+            "estop": false
+          },
+          "power_enabled": false,
+          "rack_captured": {
+            "gripper": true,
+            "soft_gripper": true,
+            "spatula": true,
+            "stirrer": true
+          }
+        },
+        {
+          "time_s": 56.22400000002275,
+          "phase": "POWER_READY",
+          "tool": "stirrer",
+          "sensors": {
+            "dock_supported": true,
+            "seated": true,
+            "locked": true,
+            "unlocked": false,
+            "tool_present": true,
+            "tool_id": "stirrer",
+            "rail_v": 5.927661041405908e-47,
+            "tool_stopped": true,
+            "power_good": false,
+            "estop": false
+          },
+          "power_enabled": false,
+          "rack_captured": {
+            "gripper": true,
+            "soft_gripper": true,
+            "spatula": true,
+            "stirrer": true
+          }
+        },
+        {
+          "time_s": 56.22600000002275,
+          "phase": "OPEN_RACK",
+          "tool": "stirrer",
+          "sensors": {
+            "dock_supported": true,
+            "seated": true,
+            "locked": true,
+            "unlocked": false,
+            "tool_present": true,
+            "tool_id": "stirrer",
+            "rail_v": 5.77946951537076e-47,
+            "tool_stopped": true,
+            "power_good": true,
+            "estop": false
+          },
+          "power_enabled": true,
+          "rack_captured": {
+            "gripper": true,
+            "soft_gripper": true,
+            "spatula": true,
+            "stirrer": true
+          }
+        },
+        {
+          "time_s": 56.52600000002312,
+          "phase": "WITHDRAW_NEW",
+          "tool": "stirrer",
+          "sensors": {
+            "dock_supported": false,
+            "seated": true,
+            "locked": true,
+            "unlocked": false,
+            "tool_present": true,
+            "tool_id": "stirrer",
+            "rail_v": 5.865462421971416,
+            "tool_stopped": true,
+            "power_good": true,
+            "estop": false
+          },
+          "power_enabled": true,
+          "rack_captured": {
+            "gripper": true,
+            "soft_gripper": true,
+            "spatula": true,
+            "stirrer": false
+          }
+        },
+        {
+          "time_s": 57.628000000024464,
+          "phase": "CLEAR_NEW",
+          "tool": "stirrer",
+          "sensors": {
+            "dock_supported": false,
+            "seated": true,
+            "locked": true,
+            "unlocked": false,
+            "tool_present": true,
+            "tool_id": "stirrer",
+            "rail_v": 5.9999998824055405,
+            "tool_stopped": true,
+            "power_good": true,
+            "estop": false
+          },
+          "power_enabled": true,
+          "rack_captured": {
+            "gripper": true,
+            "soft_gripper": true,
+            "spatula": true,
+            "stirrer": false
+          }
+        },
+        {
+          "time_s": 59.87600000002721,
+          "phase": "RETURN_HOME",
+          "tool": "stirrer",
+          "sensors": {
+            "dock_supported": false,
+            "seated": true,
+            "locked": true,
+            "unlocked": false,
+            "tool_present": true,
+            "tool_id": "stirrer",
+            "rail_v": 5.999999999999982,
+            "tool_stopped": true,
+            "power_good": true,
+            "estop": false
+          },
+          "power_enabled": true,
+          "rack_captured": {
+            "gripper": true,
+            "soft_gripper": true,
+            "spatula": true,
+            "stirrer": false
+          }
+        },
+        {
+          "time_s": 63.17800000003125,
+          "phase": "ENABLE_TOOL",
+          "tool": "stirrer",
+          "sensors": {
+            "dock_supported": false,
+            "seated": true,
+            "locked": true,
+            "unlocked": false,
+            "tool_present": true,
+            "tool_id": "stirrer",
+            "rail_v": 5.999999999999982,
+            "tool_stopped": true,
+            "power_good": true,
+            "estop": false
+          },
+          "power_enabled": true,
+          "rack_captured": {
+            "gripper": true,
+            "soft_gripper": true,
+            "spatula": true,
+            "stirrer": false
+          }
+        }
+      ]
+    },
+    {
+      "tool": "Two-finger gripper",
+      "result": "READY",
+      "duration_s": 22.88,
+      "peak_arm_torque_nm": [
+        0.959423765656652,
+        1.6,
+        1.6,
+        1.1845865494905752,
+        0.0036926227964378046
+      ],
+      "fraction_samples_at_ceiling": [
+        0.0,
+        0.015734265734265736,
+        0.0034965034965034965,
+        0.0,
+        0.0
+      ],
+      "maximum_reported_contact_mm": 0.0,
+      "contact_samples": [],
+      "trace": [
+        {
+          "time_s": 63.200000000031274,
+          "phase": "STOP_TOOL",
+          "tool": "stirrer",
+          "sensors": {
+            "dock_supported": false,
+            "seated": true,
+            "locked": true,
+            "unlocked": false,
+            "tool_present": true,
+            "tool_id": "stirrer",
+            "rail_v": 5.999999999999982,
+            "tool_stopped": true,
+            "power_good": true,
+            "estop": false
+          },
+          "power_enabled": true,
+          "rack_captured": {
+            "gripper": true,
+            "soft_gripper": true,
+            "spatula": true,
+            "stirrer": false
+          }
+        },
+        {
+          "time_s": 63.202000000031276,
+          "phase": "CLEAR_CURRENT",
+          "tool": "stirrer",
+          "sensors": {
+            "dock_supported": false,
+            "seated": true,
+            "locked": true,
+            "unlocked": false,
+            "tool_present": true,
+            "tool_id": "stirrer",
+            "rail_v": 5.999999999999982,
+            "tool_stopped": true,
+            "power_good": true,
+            "estop": false
+          },
+          "power_enabled": true,
+          "rack_captured": {
+            "gripper": true,
+            "soft_gripper": true,
+            "spatula": true,
+            "stirrer": false
+          }
+        },
+        {
+          "time_s": 64.21200000003175,
+          "phase": "ALIGN_OLD",
+          "tool": "stirrer",
+          "sensors": {
+            "dock_supported": false,
+            "seated": true,
+            "locked": true,
+            "unlocked": false,
+            "tool_present": true,
+            "tool_id": "stirrer",
+            "rail_v": 5.999999999999982,
+            "tool_stopped": true,
+            "power_good": true,
+            "estop": false
+          },
+          "power_enabled": true,
+          "rack_captured": {
+            "gripper": true,
+            "soft_gripper": true,
+            "spatula": true,
+            "stirrer": false
+          }
+        },
+        {
+          "time_s": 67.51600000002405,
+          "phase": "APPROACH_OLD",
+          "tool": "stirrer",
+          "sensors": {
+            "dock_supported": false,
+            "seated": true,
+            "locked": true,
+            "unlocked": false,
+            "tool_present": true,
+            "tool_id": "stirrer",
+            "rail_v": 5.999999999999982,
+            "tool_stopped": true,
+            "power_good": true,
+            "estop": false
+          },
+          "power_enabled": true,
+          "rack_captured": {
+            "gripper": true,
+            "soft_gripper": true,
+            "spatula": true,
+            "stirrer": false
+          }
+        },
+        {
+          "time_s": 69.76400000001881,
+          "phase": "SEAT_OLD",
+          "tool": "stirrer",
+          "sensors": {
+            "dock_supported": false,
+            "seated": true,
+            "locked": true,
+            "unlocked": false,
+            "tool_present": true,
+            "tool_id": "stirrer",
+            "rail_v": 5.999999999999982,
+            "tool_stopped": true,
+            "power_good": true,
+            "estop": false
+          },
+          "power_enabled": true,
+          "rack_captured": {
+            "gripper": true,
+            "soft_gripper": true,
+            "spatula": true,
+            "stirrer": false
+          }
+        },
+        {
+          "time_s": 70.89600000001617,
+          "phase": "CAPTURE_OLD",
+          "tool": "stirrer",
+          "sensors": {
+            "dock_supported": false,
+            "seated": true,
+            "locked": true,
+            "unlocked": false,
+            "tool_present": true,
+            "tool_id": "stirrer",
+            "rail_v": 5.999999999999982,
+            "tool_stopped": true,
+            "power_good": true,
+            "estop": false
+          },
+          "power_enabled": true,
+          "rack_captured": {
+            "gripper": true,
+            "soft_gripper": true,
+            "spatula": true,
+            "stirrer": false
+          }
+        },
+        {
+          "time_s": 71.19600000001547,
+          "phase": "VERIFY_SUPPORT",
+          "tool": "stirrer",
+          "sensors": {
+            "dock_supported": true,
+            "seated": true,
+            "locked": true,
+            "unlocked": false,
+            "tool_present": true,
+            "tool_id": "stirrer",
+            "rail_v": 5.999999999999982,
+            "tool_stopped": true,
+            "power_good": true,
+            "estop": false
+          },
+          "power_enabled": true,
+          "rack_captured": {
+            "gripper": true,
+            "soft_gripper": true,
+            "spatula": true,
+            "stirrer": true
+          }
+        },
+        {
+          "time_s": 71.19800000001547,
+          "phase": "DISCHARGE",
+          "tool": "stirrer",
+          "sensors": {
+            "dock_supported": true,
+            "seated": true,
+            "locked": true,
+            "unlocked": false,
+            "tool_present": true,
+            "tool_id": "stirrer",
+            "rail_v": 5.999999999999982,
+            "tool_stopped": true,
+            "power_good": true,
+            "estop": false
+          },
+          "power_enabled": true,
+          "rack_captured": {
+            "gripper": true,
+            "soft_gripper": true,
+            "spatula": true,
+            "stirrer": true
+          }
+        },
+        {
+          "time_s": 71.398000000015,
+          "phase": "UNLOCK",
+          "tool": "stirrer",
+          "sensors": {
+            "dock_supported": true,
+            "seated": true,
+            "locked": true,
+            "unlocked": false,
+            "tool_present": true,
+            "tool_id": "stirrer",
+            "rail_v": 0.48933716838050095,
+            "tool_stopped": true,
+            "power_good": false,
+            "estop": false
+          },
+          "power_enabled": false,
+          "rack_captured": {
+            "gripper": true,
+            "soft_gripper": true,
+            "spatula": true,
+            "stirrer": true
+          }
+        },
+        {
+          "time_s": 71.79800000001407,
+          "phase": "PARK_OLD",
+          "tool": "stirrer",
+          "sensors": {
+            "dock_supported": true,
+            "seated": true,
+            "locked": false,
+            "unlocked": true,
+            "tool_present": true,
+            "tool_id": "stirrer",
+            "rail_v": 0.003094078615691812,
+            "tool_stopped": true,
+            "power_good": false,
+            "estop": false
+          },
+          "power_enabled": false,
+          "rack_captured": {
+            "gripper": true,
+            "soft_gripper": true,
+            "spatula": true,
+            "stirrer": true
+          }
+        },
+        {
+          "time_s": 71.80000000001407,
+          "phase": "RETRACT_EMPTY",
+          "tool": null,
+          "sensors": {
+            "dock_supported": false,
+            "seated": false,
+            "locked": false,
+            "unlocked": true,
+            "tool_present": false,
+            "tool_id": null,
+            "rail_v": 0.0030167266502995164,
+            "tool_stopped": true,
+            "power_good": false,
+            "estop": false
+          },
+          "power_enabled": false,
+          "rack_captured": {
+            "gripper": true,
+            "soft_gripper": true,
+            "spatula": true,
+            "stirrer": true
+          }
+        },
+        {
+          "time_s": 72.9020000000115,
+          "phase": "CLEAR_RACK",
+          "tool": null,
+          "sensors": {
+            "dock_supported": false,
+            "seated": false,
+            "locked": false,
+            "unlocked": true,
+            "tool_present": false,
+            "tool_id": null,
+            "rail_v": 2.636812263286338e-09,
+            "tool_stopped": true,
+            "power_good": false,
+            "estop": false
+          },
+          "power_enabled": false,
+          "rack_captured": {
+            "gripper": true,
+            "soft_gripper": true,
+            "spatula": true,
+            "stirrer": true
+          }
+        },
+        {
+          "time_s": 75.15000000000626,
+          "phase": "ALIGN_NEW",
+          "tool": null,
+          "sensors": {
+            "dock_supported": false,
+            "seated": false,
+            "locked": false,
+            "unlocked": true,
+            "tool_present": false,
+            "tool_id": null,
+            "rail_v": 1.1541632852924063e-21,
+            "tool_stopped": true,
+            "power_good": false,
+            "estop": false
+          },
+          "power_enabled": false,
+          "rack_captured": {
+            "gripper": true,
+            "soft_gripper": true,
+            "spatula": true,
+            "stirrer": true
+          }
+        },
+        {
+          "time_s": 77.63200000000047,
+          "phase": "APPROACH_NEW",
+          "tool": null,
+          "sensors": {
+            "dock_supported": false,
+            "seated": false,
+            "locked": false,
+            "unlocked": true,
+            "tool_present": false,
+            "tool_id": null,
+            "rail_v": 2.6121333071591737e-35,
+            "tool_stopped": true,
+            "power_good": false,
+            "estop": false
+          },
+          "power_enabled": false,
+          "rack_captured": {
+            "gripper": true,
+            "soft_gripper": true,
+            "spatula": true,
+            "stirrer": true
+          }
+        },
+        {
+          "time_s": 79.87999999999523,
+          "phase": "SEAT_NEW",
+          "tool": null,
+          "sensors": {
+            "dock_supported": false,
+            "seated": false,
+            "locked": false,
+            "unlocked": true,
+            "tool_present": false,
+            "tool_id": null,
+            "rail_v": 1.1433610201945432e-47,
+            "tool_stopped": true,
+            "power_good": false,
+            "estop": false
+          },
+          "power_enabled": false,
+          "rack_captured": {
+            "gripper": true,
+            "soft_gripper": true,
+            "spatula": true,
+            "stirrer": true
+          }
+        },
+        {
+          "time_s": 80.98199999999267,
+          "phase": "LOCK",
+          "tool": null,
+          "sensors": {
+            "dock_supported": true,
+            "seated": true,
+            "locked": false,
+            "unlocked": true,
+            "tool_present": false,
+            "tool_id": null,
+            "rail_v": 9.99370744814824e-54,
+            "tool_stopped": true,
+            "power_good": false,
+            "estop": false
+          },
+          "power_enabled": false,
+          "rack_captured": {
+            "gripper": true,
+            "soft_gripper": true,
+            "spatula": true,
+            "stirrer": true
+          }
+        },
+        {
+          "time_s": 81.38199999999173,
+          "phase": "IDENTIFY",
+          "tool": "gripper",
+          "sensors": {
+            "dock_supported": true,
+            "seated": true,
+            "locked": true,
+            "unlocked": false,
+            "tool_present": true,
+            "tool_id": "gripper",
+            "rail_v": 6.319020606820432e-56,
+            "tool_stopped": true,
+            "power_good": false,
+            "estop": false
+          },
+          "power_enabled": false,
+          "rack_captured": {
+            "gripper": true,
+            "soft_gripper": true,
+            "spatula": true,
+            "stirrer": true
+          }
+        },
+        {
+          "time_s": 81.38399999999173,
+          "phase": "VERIFY_LOCK",
+          "tool": "gripper",
+          "sensors": {
+            "dock_supported": true,
+            "seated": true,
+            "locked": true,
+            "unlocked": false,
+            "tool_present": true,
+            "tool_id": "gripper",
+            "rail_v": 6.161045091649921e-56,
+            "tool_stopped": true,
+            "power_good": false,
+            "estop": false
+          },
+          "power_enabled": false,
+          "rack_captured": {
+            "gripper": true,
+            "soft_gripper": true,
+            "spatula": true,
+            "stirrer": true
+          }
+        },
+        {
+          "time_s": 81.38599999999172,
+          "phase": "POWER_READY",
+          "tool": "gripper",
+          "sensors": {
+            "dock_supported": true,
+            "seated": true,
+            "locked": true,
+            "unlocked": false,
+            "tool_present": true,
+            "tool_id": "gripper",
+            "rail_v": 6.007018964358673e-56,
+            "tool_stopped": true,
+            "power_good": false,
+            "estop": false
+          },
+          "power_enabled": false,
+          "rack_captured": {
+            "gripper": true,
+            "soft_gripper": true,
+            "spatula": true,
+            "stirrer": true
+          }
+        },
+        {
+          "time_s": 81.38799999999172,
+          "phase": "OPEN_RACK",
+          "tool": "gripper",
+          "sensors": {
+            "dock_supported": true,
+            "seated": true,
+            "locked": true,
+            "unlocked": false,
+            "tool_present": true,
+            "tool_id": "gripper",
+            "rail_v": 5.856843490249706e-56,
+            "tool_stopped": true,
+            "power_good": true,
+            "estop": false
+          },
+          "power_enabled": true,
+          "rack_captured": {
+            "gripper": true,
+            "soft_gripper": true,
+            "spatula": true,
+            "stirrer": true
+          }
+        },
+        {
+          "time_s": 81.68799999999102,
+          "phase": "WITHDRAW_NEW",
+          "tool": "gripper",
+          "sensors": {
+            "dock_supported": false,
+            "seated": true,
+            "locked": true,
+            "unlocked": false,
+            "tool_present": true,
+            "tool_id": "gripper",
+            "rail_v": 5.865462421971416,
+            "tool_stopped": true,
+            "power_good": true,
+            "estop": false
+          },
+          "power_enabled": true,
+          "rack_captured": {
+            "gripper": false,
+            "soft_gripper": true,
+            "spatula": true,
+            "stirrer": true
+          }
+        },
+        {
+          "time_s": 82.79199999998845,
+          "phase": "CLEAR_NEW",
+          "tool": "gripper",
+          "sensors": {
+            "dock_supported": false,
+            "seated": true,
+            "locked": true,
+            "unlocked": false,
+            "tool_present": true,
+            "tool_id": "gripper",
+            "rail_v": 5.999999885345402,
+            "tool_stopped": true,
+            "power_good": true,
+            "estop": false
+          },
+          "power_enabled": true,
+          "rack_captured": {
+            "gripper": false,
+            "soft_gripper": true,
+            "spatula": true,
+            "stirrer": true
+          }
+        },
+        {
+          "time_s": 85.03999999998321,
+          "phase": "RETURN_HOME",
+          "tool": "gripper",
+          "sensors": {
+            "dock_supported": false,
+            "seated": true,
+            "locked": true,
+            "unlocked": false,
+            "tool_present": true,
+            "tool_id": "gripper",
+            "rail_v": 5.999999999999982,
+            "tool_stopped": true,
+            "power_good": true,
+            "estop": false
+          },
+          "power_enabled": true,
+          "rack_captured": {
+            "gripper": false,
+            "soft_gripper": true,
+            "spatula": true,
+            "stirrer": true
+          }
+        },
+        {
+          "time_s": 86.04999999998086,
+          "phase": "ENABLE_TOOL",
+          "tool": "gripper",
+          "sensors": {
+            "dock_supported": false,
+            "seated": true,
+            "locked": true,
+            "unlocked": false,
+            "tool_present": true,
+            "tool_id": "gripper",
+            "rail_v": 5.999999999999982,
+            "tool_stopped": true,
+            "power_good": true,
+            "estop": false
+          },
+          "power_enabled": true,
+          "rack_captured": {
+            "gripper": false,
+            "soft_gripper": true,
+            "spatula": true,
+            "stirrer": true
+          }
+        }
+      ]
+    }
+  ]
+}

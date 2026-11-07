@@ -1,0 +1,5 @@
+# CAD exports are generated artifacts; review their parametric Python source.
+Build/Tooling/parts/*.step binary
+Build/Tooling/parts/*.stl binary
+Build/Tooling/print/*.stl binary
+Build/Tooling/** linguist-generated=true

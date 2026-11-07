@@ -1,0 +1,34 @@
+assembly,item,quantity,status,notes,source
+receiver,Printed receiver,1,fit prototype,Check horn interface with actual servo before full printing,Build/Tooling/print/receiver.stl
+receiver,Steel sliding pin diameter 3 mm,1,measure length,Nominal moving rod roughly 27 mm with 7 mm release travel; collar attachment must be bench established,Tooling/MECHANICAL.md
+receiver,Compression spring around pin,1,not selected,Measure preload and full-stroke retraction force; match housing and rod,Tooling/ACCEPTANCE.md
+receiver,Pin collar and side cover,1 each,fit prototype,Collar requires positive retention on actual steel rod,Build/Tooling/print/
+receiver,Independent lock and unlock sensors,2,not selected,Do not infer engagement from actuator angle,Tooling/electronics/INTERFACE.md
+receiver,Seated/presence sensor,1,not selected,Independent of passive tool ID,Tooling/electronics/INTERFACE.md
+contacts,Spring contacts,8,candidate footprint only,Select exact part and confirm working travel insertion force and current; carrier is a coupon,https://www.mill-max.com/sites/default/files/external/catalog/2019-04/023M-028M.pdf
+contacts,Metal landing-pad strip,4,PCB not routed,One per module; SVG is an interface drawing rather than Gerbers,Tooling/electronics/contact_layout.svg
+contacts,ID resistors,4,proposed values,1k 2.2k 4.7k 10k type IDs,Tooling/electronics/INTERFACE.md
+camera,32x32 mm USB module,1,not selected,Actual PCB holes lens focus and cable clearance must match bracket,Tooling/MECHANICAL.md
+gripper,STS3215 servo and horns,1,reuse stock motor 6,6 V tool rail; verify local servo-controller interface,https://huggingface.co/docs/lerobot/so101
+four_finger,STS3215 servo and supplied horn,1,reference actuator,Spool fastens to horn rather than printed spline,https://huggingface.co/docs/lerobot/so101
+four_finger,TPU fingers,4,flexure prototypes,Measure material response and tendon routing,Build/Tooling/print/soft_finger_print_four.stl
+four_finger,Primary equalizer,1,fit prototype,Floating tendon differential,Build/Tooling/print/tendon_equalizer_primary.stl
+four_finger,Secondary equalizers,2,fit prototype,Floating tendon differential,Build/Tooling/print/tendon_equalizer_secondary.stl
+four_finger,Tendon and return behavior,as measured,not selected,Diameter fatigue stretch and pretension need bench trials,Tooling/ACCEPTANCE.md
+spatula,Commercial metal blade and tang,1,not selected,Proposed 12x6 mm tang with retention hole; generic utensil not guaranteed to fit,Tooling/MECHANICAL.md
+spatula,M3 retention cross-bolt,1,measure length,Positive pull-out restraint through tang,Tooling/MECHANICAL.md
+spatula,M3 clamp bolts and nuts,4,measure length,Outside tang; check actual stack thickness,Tooling/MECHANICAL.md
+stirrer,Pololu 992 LP 6 V N20 motor,1,reference candidate,Low-load stirring candidate; no encoder; shaft engagement to verify,https://www.pololu.com/product/992
+stirrer,Metal 3-to-4 mm shaft coupling,1,not selected,Confirm 10.6 mm chamber and engagement; printed coupling is only a coupon,Tooling/MECHANICAL.md
+stirrer,Bearing 4x10x4 mm,1,reference envelope,Measure seat and provide axial retention,Tooling/MECHANICAL.md
+stirrer,4 mm metal shaft and removable paddle,1,not selected,Validate retention balance and tool envelope,Tooling/MECHANICAL.md
+stirrer,DRV8833 carrier,1,reference candidate,Enable and test current limiting separately,https://www.pololu.com/product/2130
+active_tools,Small MCU plus 3.3 V regulation and RS485,3,PCB and firmware outstanding,Each active module translates dedicated tool bus to its actuator,https://www.ti.com/product/THVD1450
+base,Regulated 6 V tool supply and protected switch,1,architecture only,Initial bench current limit 1 A; size from measurements,https://www.ti.com/product/TPS25940
+base,Dedicated tool-bus controller,1,firmware outstanding,Independent from arm TTL servo chain,Tooling/electronics/protocol.py
+rack,Segmented dock sets,4,fit prototypes,One lower and two upper pieces per station,Build/Tooling/print/
+rack,Splice collars,8,fit prototypes,Two per station with M3 through-bolts and nuts,Build/Tooling/print/dock_post_splice_print_eight.stl
+rack,Retaining gates,4,fit prototypes,Capture before wrist unlock; open only after wrist lock,Build/Tooling/print/dock_retaining_gate.stl
+rack,Stationary release and gate actuators,8,unoptimized bench arrangement,Two per station; source cradle fits STS3215 class; exact installed linkage not constrained yet,Tooling/MECHANICAL.md
+rack,Gate closed and support sensing,at least 4 each,not selected,Independent confirmation required before support transfer,Tooling/ACCEPTANCE.md
+fasteners,M2 M3 and table mounting hardware,as measured,verify assembly,Lengths depend on printed stack washers inserts nuts and servo horns,Tooling/MECHANICAL.md

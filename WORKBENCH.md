@@ -1,116 +1,90 @@
-# SO-101 camera and interchangeable-tool workbench
+# SO-101 workbench — ATC-02
 
-This fork adds a local simulation workspace for a Bambu Lab A1 mini build. It
-uses the upstream SO-101 models and printable geometry at commit
-`a758567c3978dfeefe282ede0500085a48fe8f78`. Upstream CAD, STLs and robot descriptions
-remain unchanged.
-
-![SO-101 leader and follower in the running workbench](Build/workbench-preview.png)
-
-The **leader** is the arm you move by hand. The **follower** is the powered arm
-that copies it and eventually runs a learned policy. Both are SO-101 designs.
-The older SO-100 assets are retained in this repository, but this workbench runs
-the SO-101 pair.
+This fork now runs a **five-axis arm with four complete interchangeable tool
+modules and an automatic-change rack**. It supersedes the earlier fixed
+spatula/whisk-on-gripper concepts. The leader remains the stock hand-operated
+SO-101 design. Original upstream files are preserved.
 
 ## Start
-
-Install [uv](https://docs.astral.sh/uv/getting-started/installation/) if needed.
-From the repository directory:
 
 ```sh
 uv sync --python 3.12
 uv run python Simulation/Workbench/app.py
 ```
 
-Open **http://127.0.0.1:8080**. On this Mac you can also double-click
-`Start Workbench.command`. The server binds only to this computer. Stop it with
-Ctrl-C in its terminal. The UI bundles its own assets; no hosting account is needed.
+Open http://127.0.0.1:8080. On this Mac, `Start Workbench.command` runs the same
+server. It binds only to this computer. Ctrl-C stops it.
 
-## Try it
+## Automatic changes
 
-1. Click **Run motion demo**. The teal leader shows the input; the yellow
-   follower follows through position actuators with gravity, inertia, command
-   slew, joint limits and torque saturation. The leader itself is a kinematic
-   input, not a model of the human operator's forces.
-2. Move individual joints, or drag the target handle and click **Solve target +
-   move**. IK solves position only, then samples 41 poses along the direct joint
-   path to reject intersections. It is not a motion planner or a guarantee of
-   collision-free motion between samples. Manual sliders intentionally allow
-   contact experiments.
-3. In **Vision & tools**, select the stock gripper, spatula concept or whisk
-   concept and apply. Compare motor load as you increase tip payload or an
-   externally applied downward test force. This force is an idealized applied
-   wrench, not a simulation of food resistance.
-4. Watch the simulated wrist and overhead RGB cameras. Wrist optics are placed
-   just beyond the upstream camera housing, with assumed FOV and zero lens
-   distortion. Calibrate physical intrinsics and extrinsics after camera selection.
-5. **Record → Start recording**, operate the arm, then stop. Use **Save pose +
-   camera snapshot** for individual experiments.
+In **Vision & tools**, choose **Two-finger gripper**, **Four-finger gripper**,
+**Spatula** or **Powered stirrer**, then click **Automatically change to selected
+tool**. **Cycle all four modules** runs a complete round trip. Watch the arm
+return its current module, withdraw empty, pick up the next, and return home.
+The selected tool's empty stand remains visible. The camera stays on the receiver.
 
-The six joints are five arm axes plus a jaw/trigger. There are **not six
-independent arm pose axes**. A long tool needs task-specific orientation planning;
-the position-only reach helper cannot establish spatula angle or whisk alignment.
+The change display shows phase, attached tool, lock, rail voltage and power.
+**Stop change + hold position** ends in a fault and requires reset. Missing
+feedback does not automatically cause retries or release. Tool changes require
+zero added test payload/external force and assume an empty tool.
 
-## Demonstration files
+## Operate a module
 
-Each episode in `Simulation/Workbench/runs/` contains:
+The five joint sliders move the arm. **Tool command %** has a module-specific
+meaning: original gripper travel, four-finger tendon pull, or 0–60 RPM stirring
+target. Enable tool power with its button first. There is no motor in the
+spatula. The leader's trigger represents this tool command; the other five
+leader joints correspond to the arm joints.
 
-- `metadata.json`: model revision, configuration, units, nominal capture rate,
-  resolution and explicit simulation/calibration flags.
-- `frames.jsonl`: simulation timestamps, leader input, target and actual follower
-  angles, velocities, actuator forces, TCP, robot contacts, and camera poses and
-  intrinsics for each captured frame.
-- `wrist_rgb/*.png` and `overhead/*.png` (only overhead when wrist camera is off).
+The 3D target and **Solve target + move** are a position-only reach helper.
+Tool orientation is free; this helper is not the oriented docking planner and
+does not guarantee a collision-free path. The automatic changer uses precomputed
+oriented dock/pre-dock poses. Manual motion can still hit objects or the rack.
+The arm's five positioning joints cannot realize every arbitrary six-axis pose.
 
-Capture occurs approximately every 0.1 simulation seconds; use the recorded
-timestamps, rather than assuming exact wall-clock timing. Physics can run slower
-than real time on a busy machine. Recording pauses with physics. All images and
-joint state in one frame use the same simulation state. Recordings are ignored by
-Git and never uploaded automatically.
+**Apply setup + reset** changes camera, assumed actuator ceiling and load
+parameters while retaining the current tool type. It resets the world. Changing
+the dropdown by itself does not teleport a different tool onto the wrist.
 
-This is an inspectable experiment format, **not a LeRobot training dataset**.
-This version does not connect to servos, record physical cameras, train a policy,
-or deploy one. The real workflow is demonstrated by the official
-[LeRobot imitation-learning guide](https://huggingface.co/docs/lerobot/il_robots):
-teleoperate → collect aligned images/actions → train → evaluate. We will implement
-that bridge after the camera/tool interface is settled.
+## Vision and recording
 
-## What the model assumes
+Wrist and overhead views are MuJoCo-rendered RGB, 320×240 at nominally 10 Hz of
+simulation time. The wrist camera is an undecided 32 mm module with assumed FOV
+and optical pose; physical calibration remains necessary.
 
-- Stock link geometry, mass and inertia come from upstream. Its motor dynamics
-  are approximate. This fork sets experimental position gains to kp=80 and
-  kv=2.7, uses implicit integration at 500 Hz, and slews commands at 45°/s.
-- The 1.60 Nm default ceiling approximates the upstream 16.5 kg·cm stall figure
-  at 6V. It is not a continuous operating rating or a measured servo model.
-  The upstream XML uses 3.35 Nm, which is not used as the default here.
-- Camera and mount add the upstream 15 g + 20 g. Tool concepts add 70 g
-  (spatula) or 65 g (whisk), before an optional test payload.
-- Tools are assumed rigidly attached to the stock gripper frame. This does not
-  simulate retention, slippage or a working quick-change mechanism. The stock
-  jaw remains present. No custom tool holder is approved for printing yet.
-- Mesh collisions use convex hulls. This can close real cavities and distort
-  gripper contacts. The small fixed base uses an approximate box; the adjacent
-  base/shoulder pair is excluded because the proxy overlaps at the joint.
-  Other links still collide with the proxy. Cable collisions are absent.
-- Trigger travel is provisional in the upstream leader model. The leader's
-  trigger is mapped by normalized range to follower jaw travel. This is not
-  the calibrated LeRobot 0–100 gripper convention.
-- No flexible parts, liquids, cooking, heat, material stress, cable loads,
-  electronics, motor temperature or food-contact validation are modeled.
+**Record** saves `metadata.json`, `frames.jsonl` and camera PNGs in
+`Simulation/Workbench/runs/`. Format `so-arm-workbench/2` records **five arm
+angles**, a separate tool command/observation, actual active tool, change phase,
+rack capture, synthetic sensors, motor torque, contacts and camera transforms.
+It intentionally differs from v1's six-angle arm/gripper record. Use timestamps;
+wall-clock performance can be slower than simulation time. Files are never
+uploaded automatically and are ignored by Git.
 
-## Change and verify
+**Save pose + camera snapshot** captures one synchronized state. **Export 3D
+preview** saves the scene to `Build/workbench-preview.png`. No tool is connected
+to a physical USB/serial adapter. There is no trained policy or native LeRobot
+dataset exporter in this version.
 
-`Simulation/Workbench/engine.py` contains model construction, physics, contacts
-and IK. `app.py` contains the UI, rendering and recording. Adjust camera/tool
-concepts here without overwriting upstream files. Actual mechanical changes must
-also update STEP/STL geometry, collision geometry, mass, inertia, TCP and vision
-frames; a visual-only change does not validate a printable modification.
+## Evidence and limitations
+
+The arm includes gravity, inertia, limits, motor torque saturation, joint
+damping and command slew. Modules are separate free bodies. The articulated jaw,
+four-finger tendon proxies and rotating shaft have independent actuators.
+
+**Coupling and rack retention are ideal weld constraints.** Key/pin/gate contact,
+spring-contact mating force, flexible TPU material, actual lock sensors and
+electrical behavior are not physically simulated or measured. Sensor inputs and
+the rail decay are synthetic. Passing a digital cycle is not qualification of
+physical automatic changes. Printed mass and motor dynamics are estimates;
+1.60 Nm is an approximate stall ceiling, not a continuous duty rating.
+
+See [Tooling/README.md](Tooling/README.md), [research](Tooling/RESEARCH.md),
+[mechanical notes](Tooling/MECHANICAL.md), [electrical interface](Tooling/electronics/INTERFACE.md)
+and [physical acceptance](Tooling/ACCEPTANCE.md). New CAD is in `Build/Tooling/`.
+Stock A1 mini arm plates remain in `Build/A1mini/`.
 
 ```sh
-uv sync --group dev --python 3.12
+uv sync --group dev --group cad --python 3.12
+uv run --group cad python Tooling/cad/generate.py
 uv run pytest -q
-uv run python Simulation/Workbench/prepare_prints.py
 ```
-
-See [BUILD_PLAN.md](BUILD_PLAN.md) for the A1 mini package and the next design
-decisions. See [VALIDATION.md](VALIDATION.md) for this version's measured checks.

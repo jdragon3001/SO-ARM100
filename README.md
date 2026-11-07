@@ -1,8 +1,9 @@
-> **This fork: SO-101 camera and tool workbench.** Run a leader/follower physics
-> simulation, inspect wrist vision and tool-load concepts, and prepare stock
-> parts for a Bambu Lab A1 mini. Start with [WORKBENCH.md](WORKBENCH.md) and
-> [BUILD_PLAN.md](BUILD_PLAN.md). Custom tool adapters and cooking tasks remain
-> design work; the stock upstream documentation follows below.
+> **This fork: ATC-02 automatic interchangeable tools.** Run a leader/follower
+> simulation with four complete modules and a tool-change rack. Editable prototype
+> STEP/STL files fit a Bambu Lab A1 mini. Start with [WORKBENCH.md](WORKBENCH.md)
+> and [Tooling/README.md](Tooling/README.md). Digital changes use ideal couplings
+> and synthetic sensors; physical lock, connector and firmware qualification remain
+> bench work. The stock upstream documentation follows below.
 
 <div align="center">
 

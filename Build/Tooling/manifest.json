@@ -1,0 +1,1389 @@
+{
+  "version": "ATC-02",
+  "units": "mm",
+  "status": "FIT_PROTOTYPE_NOT_LOAD_QUALIFIED",
+  "mount_source": "STEP/SO101/Follower_Specific/Wrist_Roll_Follower_SO101.step",
+  "source_sha256": "b7f9d59f7991f425fff784eab07f0bf65471903dd6d6177e7cb109bebcd02b35",
+  "mount_holes_source_mm": [
+    [
+      4.94974746830577,
+      4.7315329889522,
+      5.94970645347859
+    ],
+    [
+      -4.94974746830584,
+      4.73153298895225,
+      5.94970645347859
+    ],
+    [
+      4.94974746830576,
+      -5.16796194765949,
+      5.94970645347859
+    ],
+    [
+      -4.94974746830589,
+      -5.16796194765947,
+      5.94970645347859
+    ]
+  ],
+  "mount_centre_source_mm": [
+    -5.0182080713057076e-14,
+    -0.2182144793536276,
+    5.94970645347859
+  ],
+  "hole_diameter_source_mm": 3.2,
+  "half_pitch_mm": 4.9497474683058,
+  "receiver_height_mm": 24.0,
+  "pin_diameter_mm": 3.0,
+  "pin_travel_mm": 7.0,
+  "clearance_per_side_mm": 0.25,
+  "receiver_insert_interference_mm3": 0,
+  "release_crank_radius_mm": 12,
+  "release_angle_degrees": 17,
+  "release_calculated_stroke_mm": 7.0169209133456825,
+  "rack_gate_travel_mm": 20,
+  "docks": {
+    "gripper": {
+      "position_m": [
+        0.24967526504084836,
+        0.1961747566102504,
+        0.21265001393050226
+      ],
+      "rotation": [
+        [
+          0.4458219388620582,
+          0.6607276416229407,
+          0.6038888825145408
+        ],
+        [
+          0.34882206530465354,
+          -0.7495505799763748,
+          0.5625807451501296
+        ],
+        [
+          0.8243579110955812,
+          -0.04016107135605085,
+          -0.5646424733950351
+        ]
+      ],
+      "pedestal_origin_m": [
+        0.24967526504084836,
+        0.1961747566102504,
+        0
+      ],
+      "dock_q_rad": [
+        -0.75,
+        0.3,
+        -0.6,
+        0.9,
+        0.0
+      ]
+    },
+    "soft_gripper": {
+      "position_m": [
+        0.317915969321439,
+        0.07107748058635513,
+        0.21265001393050212
+      ],
+      "rotation": [
+        [
+          0.5584797657892124,
+          0.22048936593097784,
+          0.7996779293661794
+        ],
+        [
+          0.0923817385534364,
+          -0.9745622236978446,
+          0.2041912988424212
+        ],
+        [
+          0.8243579110955807,
+          -0.04016107135605075,
+          -0.5646424733950353
+        ]
+      ],
+      "pedestal_origin_m": [
+        0.317915969321439,
+        0.07107748058635513,
+        0
+      ],
+      "dock_q_rad": [
+        -0.25,
+        0.3,
+        -0.6,
+        0.9,
+        0.0
+      ]
+    },
+    "spatula": {
+      "position_m": [
+        0.3178279924735285,
+        -0.0714220437966542,
+        0.21265001393050204
+      ],
+      "rotation": [
+        [
+          0.5344022683884069,
+          -0.27373239637635743,
+          0.7996779293661798
+        ],
+        [
+          -0.1866768597214306,
+          -0.9609670460122917,
+          -0.2041912988424197
+        ],
+        [
+          0.8243579110955808,
+          -0.04016107135605028,
+          -0.5646424733950359
+        ]
+      ],
+      "pedestal_origin_m": [
+        0.3178279924735285,
+        -0.0714220437966542,
+        0
+      ],
+      "dock_q_rad": [
+        0.25,
+        0.3,
+        -0.6,
+        0.9,
+        0.0
+      ]
+    },
+    "stirrer": {
+      "position_m": [
+        0.2494328742977851,
+        -0.19643496312516107,
+        0.21265001393050195
+      ],
+      "rotation": [
+        [
+          0.3794844577554368,
+          -0.7009349212996875,
+          0.6038888825145415
+        ],
+        [
+          -0.4200304521534023,
+          -0.7120936205655362,
+          -0.562580745150128
+        ],
+        [
+          0.8243579110955807,
+          -0.04016107135604985,
+          -0.5646424733950358
+        ]
+      ],
+      "pedestal_origin_m": [
+        0.2494328742977851,
+        -0.19643496312516107,
+        0
+      ],
+      "dock_q_rad": [
+        0.75,
+        0.3,
+        -0.6,
+        0.9,
+        0.0
+      ]
+    }
+  },
+  "parts": {
+    "receiver": {
+      "step": "Build/Tooling/parts/receiver.step",
+      "stl": "Build/Tooling/parts/receiver.stl",
+      "print_stl": "Build/Tooling/print/receiver.stl",
+      "material": "PLA/PETG fit prototype",
+      "prototype": true,
+      "volume_mm3": 30213.532481343635,
+      "bounds_mm": [
+        [
+          -21.0,
+          -21.0,
+          0.0
+        ],
+        [
+          39.0,
+          21.0,
+          24.0000001
+        ]
+      ],
+      "printable_component": true,
+      "bed_fit": true,
+      "solids": 1,
+      "watertight": true,
+      "sha256": "bebdca72677704a90664ed5fe8a5f26e518e79e13bdbcd1239123774b36bd2ed",
+      "estimated_print_g": 20.60562915227636
+    },
+    "pin_housing_cover": {
+      "step": "Build/Tooling/parts/pin_housing_cover.step",
+      "stl": "Build/Tooling/parts/pin_housing_cover.stl",
+      "print_stl": "Build/Tooling/print/pin_housing_cover.stl",
+      "material": "PLA/PETG fit prototype",
+      "prototype": true,
+      "volume_mm3": 432.67549714457357,
+      "bounds_mm": [
+        [
+          -11.5,
+          -6.0,
+          0.0
+        ],
+        [
+          11.5,
+          6.0,
+          2.0
+        ]
+      ],
+      "printable_component": true,
+      "bed_fit": true,
+      "solids": 1,
+      "watertight": true,
+      "sha256": "9fd97050edb7ed9d606ae5c25018f18bde113cd2b337b651c9049ed6586c9b29",
+      "estimated_print_g": 0.2950846890525992
+    },
+    "pin_collar": {
+      "step": "Build/Tooling/parts/pin_collar.step",
+      "stl": "Build/Tooling/parts/pin_collar.stl",
+      "print_stl": "Build/Tooling/print/pin_collar.stl",
+      "material": "PLA/PETG fit prototype",
+      "prototype": true,
+      "volume_mm3": 120.06895088044548,
+      "bounds_mm": [
+        [
+          -4.0,
+          -2.7,
+          0.0
+        ],
+        [
+          4.0,
+          5.5,
+          3.0
+        ]
+      ],
+      "printable_component": true,
+      "bed_fit": true,
+      "solids": 1,
+      "watertight": true,
+      "sha256": "8328804e9362725a561174a1988910db7cb15f3105155b1bf3d1ab4a67369603",
+      "estimated_print_g": 0.08188702450046384
+    },
+    "test_plug": {
+      "step": "Build/Tooling/parts/test_plug.step",
+      "stl": "Build/Tooling/parts/test_plug.stl",
+      "print_stl": "Build/Tooling/print/test_plug.stl",
+      "material": "PLA/PETG fit prototype",
+      "prototype": true,
+      "volume_mm3": 21552.242219021042,
+      "bounds_mm": [
+        [
+          -61.0,
+          -21.0,
+          -9.0000001
+        ],
+        [
+          61.0,
+          21.0,
+          6.0
+        ]
+      ],
+      "printable_component": true,
+      "bed_fit": true,
+      "solids": 1,
+      "watertight": true,
+      "sha256": "4da0414841aacb140c5c28c8d7c62f46b8566fb48efbead80f17ba212c51254d",
+      "estimated_print_g": 14.698629193372353
+    },
+    "gripper_body": {
+      "step": "Build/Tooling/parts/gripper_body.step",
+      "stl": "Build/Tooling/parts/gripper_body.stl",
+      "print_stl": "Build/Tooling/print/gripper_body.stl",
+      "material": "PLA/PETG fit prototype",
+      "prototype": true,
+      "volume_mm3": 78098.90658390819,
+      "bounds_mm": [
+        [
+          -61.0,
+          -24.000000100001223,
+          -9.0000001
+        ],
+        [
+          61.0,
+          28.000000100000033,
+          110.425294413425
+        ]
+      ],
+      "printable_component": true,
+      "bed_fit": true,
+      "solids": 1,
+      "watertight": true,
+      "sha256": "67c4f389d313a59ac27c2d553a1bf0b272fe1384dbc27931d5f52b722abe165e",
+      "estimated_print_g": 53.26345429022539
+    },
+    "gripper_jaw_1": {
+      "step": "Build/Tooling/parts/gripper_jaw_1.step",
+      "stl": "Build/Tooling/parts/gripper_jaw_1.stl",
+      "print_stl": "Build/Tooling/print/gripper_jaw_1.stl",
+      "material": "PLA/PETG fit prototype",
+      "prototype": true,
+      "volume_mm3": 20691.456722274,
+      "bounds_mm": [
+        [
+          -12.300000100495923,
+          -82.00000381501624,
+          -24.0000017494106
+        ],
+        [
+          10.0000001,
+          10.0,
+          24.000001749181703
+        ]
+      ],
+      "printable_component": true,
+      "bed_fit": true,
+      "solids": 1,
+      "watertight": true,
+      "sha256": "6ac60c5cccc4a71897d1b5f8fbaf0c8f075ac3e34bfa83d57877e0aee03ad059",
+      "estimated_print_g": 14.11157348459087
+    },
+    "four_finger_palm": {
+      "step": "Build/Tooling/parts/four_finger_palm.step",
+      "stl": "Build/Tooling/parts/four_finger_palm.stl",
+      "print_stl": "Build/Tooling/print/four_finger_palm.stl",
+      "material": "PLA/PETG fit prototype",
+      "prototype": true,
+      "volume_mm3": 64518.290651016105,
+      "bounds_mm": [
+        [
+          -61.0,
+          -30.0,
+          -9.0000001
+        ],
+        [
+          61.0,
+          30.0,
+          46.0000001
+        ]
+      ],
+      "printable_component": true,
+      "bed_fit": true,
+      "solids": 1,
+      "watertight": true,
+      "sha256": "1571c665091984cda701100567c003452d80cbe58bc81a2859bc1487da1d3aed",
+      "estimated_print_g": 44.00147422399298
+    },
+    "four_finger_lid": {
+      "step": "Build/Tooling/parts/four_finger_lid.step",
+      "stl": "Build/Tooling/parts/four_finger_lid.stl",
+      "print_stl": "Build/Tooling/print/four_finger_lid.stl",
+      "material": "PLA/PETG fit prototype",
+      "prototype": true,
+      "volume_mm3": 6380.713278945968,
+      "bounds_mm": [
+        [
+          -27.5,
+          -19.5,
+          0.0
+        ],
+        [
+          27.5,
+          19.5,
+          3.0
+        ]
+      ],
+      "printable_component": true,
+      "bed_fit": true,
+      "solids": 1,
+      "watertight": true,
+      "sha256": "944eeea0cc4b8020bcc235e745b0f46d23e4a7899be11e2b062fc55ad641ac3c",
+      "estimated_print_g": 4.35164645624115
+    },
+    "equalizer_guard": {
+      "step": "Build/Tooling/parts/equalizer_guard.step",
+      "stl": "Build/Tooling/parts/equalizer_guard.stl",
+      "print_stl": "Build/Tooling/print/equalizer_guard.stl",
+      "material": "PLA/PETG fit prototype",
+      "prototype": true,
+      "volume_mm3": 5272.853115783874,
+      "bounds_mm": [
+        [
+          -27.5,
+          -19.5,
+          0.0
+        ],
+        [
+          27.5,
+          19.5,
+          12.0
+        ]
+      ],
+      "printable_component": true,
+      "bed_fit": true,
+      "solids": 1,
+      "watertight": true,
+      "sha256": "fcbcd0637a6449babf6f67ae507be5fab7ec9b2d9d0b74ce771bd915a8ccc750",
+      "estimated_print_g": 3.596085824964603
+    },
+    "soft_finger_print_four": {
+      "step": "Build/Tooling/parts/soft_finger_print_four.step",
+      "stl": "Build/Tooling/parts/soft_finger_print_four.stl",
+      "print_stl": "Build/Tooling/print/soft_finger_print_four.stl",
+      "material": "TPU 95A flexure prototype",
+      "prototype": true,
+      "volume_mm3": 3985.2085277861356,
+      "bounds_mm": [
+        [
+          -6.0,
+          -7.0,
+          0.0
+        ],
+        [
+          6.0,
+          7.0,
+          65.0
+        ]
+      ],
+      "printable_component": true,
+      "bed_fit": true,
+      "solids": 1,
+      "watertight": true,
+      "sha256": "3d1f43b1c19fa5dc1f74d1c49a336fb0c3d01340b492bafccc0061d081e87dbd",
+      "estimated_print_g": 2.717912215950145
+    },
+    "tendon_equalizer_primary": {
+      "step": "Build/Tooling/parts/tendon_equalizer_primary.step",
+      "stl": "Build/Tooling/parts/tendon_equalizer_primary.stl",
+      "print_stl": "Build/Tooling/print/tendon_equalizer_primary.stl",
+      "material": "PLA/PETG fit prototype",
+      "prototype": true,
+      "volume_mm3": 523.0977895553303,
+      "bounds_mm": [
+        [
+          -13.0,
+          -3.5,
+          0.0
+        ],
+        [
+          13.0,
+          3.5,
+          3.0
+        ]
+      ],
+      "printable_component": true,
+      "bed_fit": true,
+      "solids": 1,
+      "watertight": true,
+      "sha256": "cdf4cdc789207e53ef1ae352a27006721003192645605476d04426ae6984b59b",
+      "estimated_print_g": 0.35675269247673536
+    },
+    "tendon_equalizer_secondary": {
+      "step": "Build/Tooling/parts/tendon_equalizer_secondary.step",
+      "stl": "Build/Tooling/parts/tendon_equalizer_secondary.stl",
+      "print_stl": "Build/Tooling/print/tendon_equalizer_secondary.stl",
+      "material": "PLA/PETG fit prototype",
+      "prototype": true,
+      "volume_mm3": 355.0977895553304,
+      "bounds_mm": [
+        [
+          -9.0,
+          -3.5,
+          0.0
+        ],
+        [
+          9.0,
+          3.5,
+          3.0
+        ]
+      ],
+      "printable_component": true,
+      "bed_fit": true,
+      "solids": 1,
+      "watertight": true,
+      "sha256": "36a07f1dff958153860b307f66ac106ddcb1773aff7986226904f8af7acb8edc",
+      "estimated_print_g": 0.24217669247673534
+    },
+    "tendon_spool": {
+      "step": "Build/Tooling/parts/tendon_spool.step",
+      "stl": "Build/Tooling/parts/tendon_spool.stl",
+      "print_stl": "Build/Tooling/print/tendon_spool.stl",
+      "material": "PLA/PETG fit prototype",
+      "prototype": true,
+      "volume_mm3": 971.4843349734275,
+      "bounds_mm": [
+        [
+          -9.0,
+          -9.0,
+          0.0
+        ],
+        [
+          9.0,
+          9.0,
+          7.0
+        ]
+      ],
+      "printable_component": true,
+      "bed_fit": true,
+      "solids": 1,
+      "watertight": true,
+      "sha256": "71b8f2a7f4b1325b533b491129f9754e850b4f32bd201339a7d0335f157a167a",
+      "estimated_print_g": 0.6625523164518775
+    },
+    "spatula_holder": {
+      "step": "Build/Tooling/parts/spatula_holder.step",
+      "stl": "Build/Tooling/parts/spatula_holder.stl",
+      "print_stl": "Build/Tooling/print/spatula_holder.stl",
+      "material": "PLA/PETG fit prototype",
+      "prototype": true,
+      "volume_mm3": 33143.348757507774,
+      "bounds_mm": [
+        [
+          -61.0,
+          -21.0,
+          -9.0000001
+        ],
+        [
+          61.0,
+          21.0,
+          49.0
+        ]
+      ],
+      "printable_component": true,
+      "bed_fit": true,
+      "solids": 1,
+      "watertight": true,
+      "sha256": "9f016c9bc8ee1aa6d57a88c92ddfff4194eaab5aae6d715f8c59fa147467e32c",
+      "estimated_print_g": 22.603763852620304
+    },
+    "spatula_clamp": {
+      "step": "Build/Tooling/parts/spatula_clamp.step",
+      "stl": "Build/Tooling/parts/spatula_clamp.stl",
+      "print_stl": "Build/Tooling/print/spatula_clamp.stl",
+      "material": "PLA/PETG fit prototype",
+      "prototype": true,
+      "volume_mm3": 3686.1753500150453,
+      "bounds_mm": [
+        [
+          -13.0,
+          -2.5000000000000004,
+          0.0
+        ],
+        [
+          13.0,
+          2.5000000000000004,
+          30.0
+        ]
+      ],
+      "printable_component": true,
+      "bed_fit": true,
+      "solids": 1,
+      "watertight": true,
+      "sha256": "57252c8bffe287e0550647aa8784132ad6aeb69e78091e394e4bc33f88035297",
+      "estimated_print_g": 2.5139715887102607
+    },
+    "stirrer_housing": {
+      "step": "Build/Tooling/parts/stirrer_housing.step",
+      "stl": "Build/Tooling/parts/stirrer_housing.stl",
+      "print_stl": "Build/Tooling/print/stirrer_housing.stl",
+      "material": "PLA/PETG fit prototype",
+      "prototype": true,
+      "volume_mm3": 55135.609803786225,
+      "bounds_mm": [
+        [
+          -61.0,
+          -21.0,
+          -9.0000001
+        ],
+        [
+          61.0,
+          21.0,
+          61.0
+        ]
+      ],
+      "printable_component": false,
+      "bed_fit": true,
+      "solids": 1,
+      "watertight": true,
+      "sha256": "1a63624df482acdeec284e1916df3026f3eb4ce4dfbd48dc13e7646e84603083",
+      "estimated_print_g": 37.60248588618221
+    },
+    "stirrer_front_shell": {
+      "step": "Build/Tooling/parts/stirrer_front_shell.step",
+      "stl": "Build/Tooling/parts/stirrer_front_shell.stl",
+      "print_stl": "Build/Tooling/print/stirrer_front_shell.stl",
+      "material": "PLA/PETG fit prototype",
+      "prototype": true,
+      "volume_mm3": 16840.174222020694,
+      "bounds_mm": [
+        [
+          -14.5,
+          -12.5,
+          6.0
+        ],
+        [
+          14.5,
+          6.490628035480972e-16,
+          61.0
+        ]
+      ],
+      "printable_component": true,
+      "bed_fit": true,
+      "solids": 1,
+      "watertight": true,
+      "sha256": "c33f59a4aabd09011b3a3098bb90b4253d75b8c67398d890e9604fd540aa8785",
+      "estimated_print_g": 11.484998819418113
+    },
+    "stirrer_back_shell": {
+      "step": "Build/Tooling/parts/stirrer_back_shell.step",
+      "stl": "Build/Tooling/parts/stirrer_back_shell.stl",
+      "print_stl": "Build/Tooling/print/stirrer_back_shell.stl",
+      "material": "PLA/PETG fit prototype",
+      "prototype": true,
+      "volume_mm3": 38295.435555904245,
+      "bounds_mm": [
+        [
+          -61.0,
+          -21.0,
+          -9.0000001
+        ],
+        [
+          61.0,
+          21.0,
+          61.0
+        ]
+      ],
+      "printable_component": true,
+      "bed_fit": true,
+      "solids": 1,
+      "watertight": true,
+      "sha256": "a7a89a86f8d9063d3d9848e68a5c23a565b01d97711fda93caa53ce86f5e859e",
+      "estimated_print_g": 26.117487049126698
+    },
+    "stirrer_lid": {
+      "step": "Build/Tooling/parts/stirrer_lid.step",
+      "stl": "Build/Tooling/parts/stirrer_lid.stl",
+      "print_stl": "Build/Tooling/print/stirrer_lid.stl",
+      "material": "PLA/PETG fit prototype",
+      "prototype": true,
+      "volume_mm3": 2106.2933686659912,
+      "bounds_mm": [
+        [
+          -14.5,
+          -12.5,
+          0.0
+        ],
+        [
+          14.5,
+          12.5,
+          3.0
+        ]
+      ],
+      "printable_component": true,
+      "bed_fit": true,
+      "solids": 1,
+      "watertight": true,
+      "sha256": "8ba77389c310dac1d1c5f647f69c36b87bef7258aeb2a1226646240372d0bc65",
+      "estimated_print_g": 1.436492077430206
+    },
+    "shaft_coupling_fit_coupon": {
+      "step": "Build/Tooling/parts/shaft_coupling_fit_coupon.step",
+      "stl": "Build/Tooling/parts/shaft_coupling_fit_coupon.stl",
+      "print_stl": "Build/Tooling/print/shaft_coupling_fit_coupon.stl",
+      "material": "PLA/PETG fit prototype",
+      "prototype": true,
+      "volume_mm3": 1018.9213749360271,
+      "bounds_mm": [
+        [
+          -5.0000001,
+          -5.0000001,
+          -1e-07
+        ],
+        [
+          5.0000001,
+          5.0000001,
+          16.0000001
+        ]
+      ],
+      "printable_component": true,
+      "bed_fit": true,
+      "solids": 1,
+      "watertight": true,
+      "sha256": "06db1fc5b41e04ce1f2372d01ed32db64fc8d5b434e43602c22b64fecfb06dd7",
+      "estimated_print_g": 0.6949043777063705
+    },
+    "camera_bracket_32mm": {
+      "step": "Build/Tooling/parts/camera_bracket_32mm.step",
+      "stl": "Build/Tooling/parts/camera_bracket_32mm.stl",
+      "print_stl": "Build/Tooling/print/camera_bracket_32mm.stl",
+      "material": "PLA/PETG fit prototype",
+      "prototype": true,
+      "volume_mm3": 7209.8655029555985,
+      "bounds_mm": [
+        [
+          -18.0,
+          16.0,
+          7.0
+        ],
+        [
+          18.0,
+          62.0,
+          27.0
+        ]
+      ],
+      "printable_component": true,
+      "bed_fit": true,
+      "solids": 1,
+      "watertight": true,
+      "sha256": "fe0506887b0e4ea8275d6da6bdde26427bd9398e0f6c2fa1c53e0e62a2083bf3",
+      "estimated_print_g": 4.917128273015718
+    },
+    "socket_coupon_15": {
+      "step": "Build/Tooling/parts/socket_coupon_15.step",
+      "stl": "Build/Tooling/parts/socket_coupon_15.stl",
+      "print_stl": "Build/Tooling/print/socket_coupon_15.stl",
+      "material": "PLA/PETG fit prototype",
+      "prototype": true,
+      "volume_mm3": 7600.702128197774,
+      "bounds_mm": [
+        [
+          -16.0000001,
+          -16.0,
+          0.0
+        ],
+        [
+          16.0000001,
+          16.0,
+          12.0000001
+        ]
+      ],
+      "printable_component": true,
+      "bed_fit": true,
+      "solids": 1,
+      "watertight": true,
+      "sha256": "b0be7c7b41fcf34625049704b36f6266d6933eb2827ba029d9cd85f3c62ca8fe",
+      "estimated_print_g": 5.183678851430883
+    },
+    "socket_coupon_25": {
+      "step": "Build/Tooling/parts/socket_coupon_25.step",
+      "stl": "Build/Tooling/parts/socket_coupon_25.stl",
+      "print_stl": "Build/Tooling/print/socket_coupon_25.stl",
+      "material": "PLA/PETG fit prototype",
+      "prototype": true,
+      "volume_mm3": 7519.973975446588,
+      "bounds_mm": [
+        [
+          -16.0000001,
+          -16.0,
+          0.0
+        ],
+        [
+          16.0000001,
+          16.0,
+          12.0000001
+        ]
+      ],
+      "printable_component": true,
+      "bed_fit": true,
+      "solids": 1,
+      "watertight": true,
+      "sha256": "ebd5b7de9ea06bd356ea4d24f07ce56dad9da4987c57b24c1345c67be4a17d4e",
+      "estimated_print_g": 5.128622251254573
+    },
+    "socket_coupon_35": {
+      "step": "Build/Tooling/parts/socket_coupon_35.step",
+      "stl": "Build/Tooling/parts/socket_coupon_35.stl",
+      "print_stl": "Build/Tooling/print/socket_coupon_35.stl",
+      "material": "PLA/PETG fit prototype",
+      "prototype": true,
+      "volume_mm3": 7438.523848860824,
+      "bounds_mm": [
+        [
+          -16.0000001,
+          -16.0,
+          0.0
+        ],
+        [
+          16.0000001,
+          16.0,
+          12.0000001
+        ]
+      ],
+      "printable_component": true,
+      "bed_fit": true,
+      "solids": 1,
+      "watertight": true,
+      "sha256": "86f8d3ee2438b8a8db6dd3e08ae971a43fe0bf0d662b07d7a34ea9548f67f682",
+      "estimated_print_g": 5.0730732649230825
+    },
+    "dock_gripper": {
+      "step": "Build/Tooling/parts/dock_gripper.step",
+      "stl": "Build/Tooling/parts/dock_gripper.stl",
+      "print_stl": "Build/Tooling/print/dock_gripper.stl",
+      "material": "PLA/PETG fit prototype",
+      "prototype": true,
+      "volume_mm3": 133847.66748211754,
+      "bounds_mm": [
+        [
+          -47.7984950784487,
+          -38.0,
+          0.0
+        ],
+        [
+          40.947853092445406,
+          45.53890503576041,
+          270.5448376332745
+        ]
+      ],
+      "printable_component": false,
+      "bed_fit": false,
+      "solids": 1,
+      "watertight": true,
+      "sha256": "e7bd1628ca96d7ecefd892c9504568898e7f7689aa588215400acd621dd74da1",
+      "estimated_print_g": 91.28410922280418
+    },
+    "dock_gripper_lower_1": {
+      "step": "Build/Tooling/parts/dock_gripper_lower_1.step",
+      "stl": "Build/Tooling/parts/dock_gripper_lower_1.stl",
+      "print_stl": "Build/Tooling/print/dock_gripper_lower_1.stl",
+      "material": "PLA/PETG fit prototype",
+      "prototype": true,
+      "volume_mm3": 89398.7940949217,
+      "bounds_mm": [
+        [
+          -38.0,
+          -38.0,
+          0.0
+        ],
+        [
+          38.0,
+          43.0,
+          120.0
+        ]
+      ],
+      "printable_component": true,
+      "bed_fit": true,
+      "solids": 1,
+      "watertight": true,
+      "sha256": "c03362cc28a0ee65a3c9c24a4fd3e1da7d923073259ccb9e44ce27e477635bd9",
+      "estimated_print_g": 60.9699775727366
+    },
+    "dock_gripper_upper_1": {
+      "step": "Build/Tooling/parts/dock_gripper_upper_1.step",
+      "stl": "Build/Tooling/parts/dock_gripper_upper_1.stl",
+      "print_stl": "Build/Tooling/print/dock_gripper_upper_1.stl",
+      "material": "PLA/PETG fit prototype",
+      "prototype": true,
+      "volume_mm3": 12300.324447521683,
+      "bounds_mm": [
+        [
+          -47.7984950784487,
+          -31.295772775537884,
+          120.0
+        ],
+        [
+          -8.092560182381051,
+          3.095349250738444,
+          178.21675159056932
+        ]
+      ],
+      "printable_component": true,
+      "bed_fit": true,
+      "solids": 1,
+      "watertight": true,
+      "sha256": "6aebfa41cf01814e90314e9b0db8ee8e847908ff1586464eaddcab03b8922da3",
+      "estimated_print_g": 8.388821273209789
+    },
+    "dock_gripper_upper_2": {
+      "step": "Build/Tooling/parts/dock_gripper_upper_2.step",
+      "stl": "Build/Tooling/parts/dock_gripper_upper_2.stl",
+      "print_stl": "Build/Tooling/print/dock_gripper_upper_2.stl",
+      "material": "PLA/PETG fit prototype",
+      "prototype": true,
+      "volume_mm3": 32148.54893967429,
+      "bounds_mm": [
+        [
+          2.133562074101869,
+          11.873887225784014,
+          120.0
+        ],
+        [
+          40.947853092445406,
+          45.53890503576041,
+          270.5448376332745
+        ]
+      ],
+      "printable_component": true,
+      "bed_fit": true,
+      "solids": 1,
+      "watertight": true,
+      "sha256": "60d96dc4f71309fc7469414e62b951d780131d2c1f652b29652f8957e27c73cc",
+      "estimated_print_g": 21.92531037685787
+    },
+    "dock_soft_gripper": {
+      "step": "Build/Tooling/parts/dock_soft_gripper.step",
+      "stl": "Build/Tooling/parts/dock_soft_gripper.stl",
+      "print_stl": "Build/Tooling/print/dock_soft_gripper.stl",
+      "material": "PLA/PETG fit prototype",
+      "prototype": true,
+      "volume_mm3": 133759.39598664767,
+      "bounds_mm": [
+        [
+          -46.17050776890843,
+          -38.0,
+          0.0
+        ],
+        [
+          45.841389631477504,
+          43.0,
+          270.5448376332743
+        ]
+      ],
+      "printable_component": false,
+      "bed_fit": false,
+      "solids": 1,
+      "watertight": true,
+      "sha256": "39324a2e22af1b1f742cabfab32a80cb403da9e306fcf9a1f4359711b808cba1",
+      "estimated_print_g": 91.22390806289371
+    },
+    "dock_soft_gripper_lower_1": {
+      "step": "Build/Tooling/parts/dock_soft_gripper_lower_1.step",
+      "stl": "Build/Tooling/parts/dock_soft_gripper_lower_1.stl",
+      "print_stl": "Build/Tooling/print/dock_soft_gripper_lower_1.stl",
+      "material": "PLA/PETG fit prototype",
+      "prototype": true,
+      "volume_mm3": 89398.79409492172,
+      "bounds_mm": [
+        [
+          -38.0,
+          -38.0,
+          0.0
+        ],
+        [
+          41.51445469460374,
+          43.0,
+          120.0
+        ]
+      ],
+      "printable_component": true,
+      "bed_fit": true,
+      "solids": 1,
+      "watertight": true,
+      "sha256": "f727de53fc9a28caab6b6d87f57d28d06b019ca7d15f57db3c9117d4557e06b0",
+      "estimated_print_g": 60.96997757273661
+    },
+    "dock_soft_gripper_upper_1": {
+      "step": "Build/Tooling/parts/dock_soft_gripper_upper_1.step",
+      "stl": "Build/Tooling/parts/dock_soft_gripper_upper_1.stl",
+      "print_stl": "Build/Tooling/print/dock_soft_gripper_upper_1.stl",
+      "material": "PLA/PETG fit prototype",
+      "prototype": true,
+      "volume_mm3": 32102.93338643798,
+      "bounds_mm": [
+        [
+          16.37922599948344,
+          -5.060713217056829,
+          120.0
+        ],
+        [
+          45.841389631477504,
+          30.461657139448022,
+          270.5448376332743
+        ]
+      ],
+      "printable_component": true,
+      "bed_fit": true,
+      "solids": 1,
+      "watertight": true,
+      "sha256": "a6d81f6642be5f3f77c04790bfce3d86b777d1b5cfa7cf026ce2abd9d8aaa0d5",
+      "estimated_print_g": 21.89420056955071
+    },
+    "dock_soft_gripper_upper_2": {
+      "step": "Build/Tooling/parts/dock_soft_gripper_upper_2.step",
+      "stl": "Build/Tooling/parts/dock_soft_gripper_upper_2.stl",
+      "print_stl": "Build/Tooling/print/dock_soft_gripper_upper_2.stl",
+      "material": "PLA/PETG fit prototype",
+      "prototype": true,
+      "volume_mm3": 12257.668505287933,
+      "bounds_mm": [
+        [
+          -46.17050776890843,
+          -15.222704457934826,
+          120.0
+        ],
+        [
+          -16.38486643897967,
+          18.88975462840862,
+          178.2167515905692
+        ]
+      ],
+      "printable_component": true,
+      "bed_fit": true,
+      "solids": 1,
+      "watertight": true,
+      "sha256": "56f9112445a3d041fa516e0d41b3fd60afd08461a0c5d1b50ee03e4d86a1a362",
+      "estimated_print_g": 8.359729920606371
+    },
+    "dock_spatula": {
+      "step": "Build/Tooling/parts/dock_spatula.step",
+      "stl": "Build/Tooling/parts/dock_spatula.stl",
+      "print_stl": "Build/Tooling/print/dock_spatula.stl",
+      "material": "PLA/PETG fit prototype",
+      "prototype": true,
+      "volume_mm3": 133748.33777826102,
+      "bounds_mm": [
+        [
+          -41.45034179607805,
+          -38.0,
+          0.0
+        ],
+        [
+          49.02877185556449,
+          43.0,
+          270.5448376332742
+        ]
+      ],
+      "printable_component": false,
+      "bed_fit": false,
+      "solids": 1,
+      "watertight": true,
+      "sha256": "3396f66cf8156ed31af0ac5f734afbdfada113496beba85e525f3c620b2fc90f",
+      "estimated_print_g": 91.21636636477403
+    },
+    "dock_spatula_lower_1": {
+      "step": "Build/Tooling/parts/dock_spatula_lower_1.step",
+      "stl": "Build/Tooling/parts/dock_spatula_lower_1.stl",
+      "print_stl": "Build/Tooling/print/dock_spatula_lower_1.stl",
+      "material": "PLA/PETG fit prototype",
+      "prototype": true,
+      "volume_mm3": 89398.7940949217,
+      "bounds_mm": [
+        [
+          -38.0,
+          -38.0,
+          0.0
+        ],
+        [
+          40.19019233755944,
+          43.0,
+          120.0
+        ]
+      ],
+      "printable_component": true,
+      "bed_fit": true,
+      "solids": 1,
+      "watertight": true,
+      "sha256": "0161c5b17701c22eec78cf66b3e94198f2cb913fd070b05c387e2efd5d4526e7",
+      "estimated_print_g": 60.9699775727366
+    },
+    "dock_spatula_upper_1": {
+      "step": "Build/Tooling/parts/dock_spatula_upper_1.step",
+      "stl": "Build/Tooling/parts/dock_spatula_upper_1.stl",
+      "print_stl": "Build/Tooling/print/dock_spatula_upper_1.stl",
+      "material": "PLA/PETG fit prototype",
+      "prototype": true,
+      "volume_mm3": 12250.501665608277,
+      "bounds_mm": [
+        [
+          -41.45034179607805,
+          -3.652061227930736,
+          120.0
+        ],
+        [
+          -14.643473228841806,
+          35.46138573323024,
+          178.21675159056912
+        ]
+      ],
+      "printable_component": true,
+      "bed_fit": true,
+      "solids": 1,
+      "watertight": true,
+      "sha256": "923c10b153cde88aef188530ed0ce2d07f934b56df422aa0caf225a1216a5bf0",
+      "estimated_print_g": 8.354842135944846
+    },
+    "dock_spatula_upper_2": {
+      "step": "Build/Tooling/parts/dock_spatula_upper_2.step",
+      "stl": "Build/Tooling/parts/dock_spatula_upper_2.stl",
+      "print_stl": "Build/Tooling/print/dock_spatula_upper_2.stl",
+      "material": "PLA/PETG fit prototype",
+      "prototype": true,
+      "volume_mm3": 32099.04201773161,
+      "bounds_mm": [
+        [
+          23.8773601909507,
+          -24.18651579728812,
+          120.0
+        ],
+        [
+          49.02877185556449,
+          14.55357744443,
+          270.5448376332742
+        ]
+      ],
+      "printable_component": true,
+      "bed_fit": true,
+      "solids": 1,
+      "watertight": true,
+      "sha256": "9f08fbc94e735e134060f93ad9fa7b2db34dfc44adaef35582c2d02c6bf9632a",
+      "estimated_print_g": 21.89154665609296
+    },
+    "dock_stirrer": {
+      "step": "Build/Tooling/parts/dock_stirrer.step",
+      "stl": "Build/Tooling/parts/dock_stirrer.stl",
+      "print_stl": "Build/Tooling/print/dock_stirrer.stl",
+      "material": "PLA/PETG fit prototype",
+      "prototype": true,
+      "volume_mm3": 133418.7431017008,
+      "bounds_mm": [
+        [
+          -38.0,
+          -39.500725311233154,
+          0.0
+        ],
+        [
+          46.82688176914165,
+          47.055617133879295,
+          270.5448376332741
+        ]
+      ],
+      "printable_component": false,
+      "bed_fit": false,
+      "solids": 1,
+      "watertight": true,
+      "sha256": "e99cdfc7731b93b799d3a745adfb5477bb20ba3fb041972bfe6bb49eb70989a6",
+      "estimated_print_g": 90.99158279535995
+    },
+    "dock_stirrer_lower_1": {
+      "step": "Build/Tooling/parts/dock_stirrer_lower_1.step",
+      "stl": "Build/Tooling/parts/dock_stirrer_lower_1.stl",
+      "print_stl": "Build/Tooling/print/dock_stirrer_lower_1.stl",
+      "material": "PLA/PETG fit prototype",
+      "prototype": true,
+      "volume_mm3": 88985.79576327158,
+      "bounds_mm": [
+        [
+          -38.0,
+          -38.0,
+          0.0
+        ],
+        [
+          38.0,
+          43.0,
+          120.0
+        ]
+      ],
+      "printable_component": true,
+      "bed_fit": true,
+      "solids": 1,
+      "watertight": true,
+      "sha256": "0cdd0c9de595e8b1f4c49aad5bcc6bf7a075c667c689bb4ea99f94355be7c157",
+      "estimated_print_g": 60.68831271055123
+    },
+    "dock_stirrer_upper_1": {
+      "step": "Build/Tooling/parts/dock_stirrer_upper_1.step",
+      "stl": "Build/Tooling/parts/dock_stirrer_upper_1.stl",
+      "print_stl": "Build/Tooling/print/dock_stirrer_upper_1.stl",
+      "material": "PLA/PETG fit prototype",
+      "prototype": true,
+      "volume_mm3": 12273.68611624992,
+      "bounds_mm": [
+        [
+          -33.196367498288474,
+          6.702624425641135,
+          120.0
+        ],
+        [
+          0.7012892054454452,
+          47.055617133879295,
+          178.216751590569
+        ]
+      ],
+      "printable_component": true,
+      "bed_fit": true,
+      "solids": 1,
+      "watertight": true,
+      "sha256": "86ab37a8fd4d0b7f75b3d26cfe1a046d82a0bef580d6c341b5628643aabaf2cc",
+      "estimated_print_g": 8.370653931282448
+    },
+    "dock_stirrer_upper_2": {
+      "step": "Build/Tooling/parts/dock_stirrer_upper_2.step",
+      "stl": "Build/Tooling/parts/dock_stirrer_upper_2.stl",
+      "print_stl": "Build/Tooling/print/dock_stirrer_upper_2.stl",
+      "material": "PLA/PETG fit prototype",
+      "prototype": true,
+      "volume_mm3": 32159.261222179706,
+      "bounds_mm": [
+        [
+          14.128303133051663,
+          -39.500725311233154,
+          120.0
+        ],
+        [
+          46.82688176914165,
+          0.012206492698198623,
+          270.5448376332741
+        ]
+      ],
+      "printable_component": true,
+      "bed_fit": true,
+      "solids": 1,
+      "watertight": true,
+      "sha256": "f2877c296f48c0802708cd55f804a64e8c072c912f142fc5cb8f4b7a02f55948",
+      "estimated_print_g": 21.93261615352656
+    },
+    "dock_release_fork": {
+      "step": "Build/Tooling/parts/dock_release_fork.step",
+      "stl": "Build/Tooling/parts/dock_release_fork.stl",
+      "print_stl": "Build/Tooling/print/dock_release_fork.stl",
+      "material": "PLA/PETG fit prototype",
+      "prototype": true,
+      "volume_mm3": 1157.2831889245022,
+      "bounds_mm": [
+        [
+          -11.0,
+          -20.0,
+          0.0
+        ],
+        [
+          11.0,
+          4.0,
+          4.0
+        ]
+      ],
+      "printable_component": true,
+      "bed_fit": true,
+      "solids": 1,
+      "watertight": true,
+      "sha256": "46d2b252013d5008cd68f275ce5732df6196227cf968b05dca4c6a18b13044b6",
+      "estimated_print_g": 0.7892671348465105
+    },
+    "dock_retaining_gate": {
+      "step": "Build/Tooling/parts/dock_retaining_gate.step",
+      "stl": "Build/Tooling/parts/dock_retaining_gate.stl",
+      "print_stl": "Build/Tooling/print/dock_retaining_gate.stl",
+      "material": "PLA/PETG fit prototype",
+      "prototype": true,
+      "volume_mm3": 4685.706937801625,
+      "bounds_mm": [
+        [
+          -61.0,
+          -32.0,
+          -3.0
+        ],
+        [
+          61.0,
+          8.0,
+          -0.2999999999999998
+        ]
+      ],
+      "printable_component": true,
+      "bed_fit": true,
+      "solids": 1,
+      "watertight": true,
+      "sha256": "06f0093f63ac4ff4184f4587114e53bd5c63e28fb5dab39e97741c8d7d46c6fa",
+      "estimated_print_g": 3.1956521315807085
+    },
+    "dock_servo_cradle": {
+      "step": "Build/Tooling/parts/dock_servo_cradle.step",
+      "stl": "Build/Tooling/parts/dock_servo_cradle.stl",
+      "print_stl": "Build/Tooling/print/dock_servo_cradle.stl",
+      "material": "PLA/PETG fit prototype",
+      "prototype": true,
+      "volume_mm3": 13880.530462061279,
+      "bounds_mm": [
+        [
+          -53.8499074366074,
+          -53.900000000000105,
+          -30.1909655896632
+        ],
+        [
+          -25.849907236607397,
+          -16.99999989999999,
+          26.2000001
+        ]
+      ],
+      "printable_component": true,
+      "bed_fit": true,
+      "solids": 1,
+      "watertight": true,
+      "sha256": "ba9c6e3fa80e99eff95e1f1aa69fe6b5cf4304137211f4d617ca77420cfcd2b5",
+      "estimated_print_g": 9.466521775125791
+    },
+    "dock_servo_crank": {
+      "step": "Build/Tooling/parts/dock_servo_crank.step",
+      "stl": "Build/Tooling/parts/dock_servo_crank.stl",
+      "print_stl": "Build/Tooling/print/dock_servo_crank.stl",
+      "material": "PLA/PETG fit prototype",
+      "prototype": true,
+      "volume_mm3": 2210.5581087535556,
+      "bounds_mm": [
+        [
+          -16.0,
+          -16.0,
+          0.0
+        ],
+        [
+          16.0,
+          16.0,
+          3.0
+        ]
+      ],
+      "printable_component": true,
+      "bed_fit": true,
+      "solids": 1,
+      "watertight": true,
+      "sha256": "35bd62c4ca76bea3bbca8fc6b34cbb4fec33583b7b5c17fdbc5a4b8be7e30b51",
+      "estimated_print_g": 1.5076006301699252
+    },
+    "dock_post_splice_print_eight": {
+      "step": "Build/Tooling/parts/dock_post_splice_print_eight.step",
+      "stl": "Build/Tooling/parts/dock_post_splice_print_eight.stl",
+      "print_stl": "Build/Tooling/print/dock_post_splice_print_eight.stl",
+      "material": "PLA/PETG fit prototype",
+      "prototype": true,
+      "volume_mm3": 11413.811958466878,
+      "bounds_mm": [
+        [
+          -10.0,
+          -13.0,
+          0.0
+        ],
+        [
+          10.0,
+          13.0,
+          40.0
+        ]
+      ],
+      "printable_component": true,
+      "bed_fit": true,
+      "solids": 1,
+      "watertight": true,
+      "sha256": "380d4ae582351e2cbb77351944c2f8a82cc30d3d4e46030efc3609215e3ff3a8",
+      "estimated_print_g": 7.784219755674411
+    },
+    "contact_carrier_fit_coupon": {
+      "step": "Build/Tooling/parts/contact_carrier_fit_coupon.step",
+      "stl": "Build/Tooling/parts/contact_carrier_fit_coupon.stl",
+      "print_stl": "Build/Tooling/print/contact_carrier_fit_coupon.stl",
+      "material": "PLA/PETG fit prototype",
+      "prototype": true,
+      "volume_mm3": 434.14514045818305,
+      "bounds_mm": [
+        [
+          -12.5,
+          -3.5,
+          0.0
+        ],
+        [
+          12.5,
+          3.5,
+          3.0
+        ]
+      ],
+      "printable_component": true,
+      "bed_fit": true,
+      "solids": 1,
+      "watertight": true,
+      "sha256": "e0e9f5421a0aa7b0b82c21119bd24be897070f2f1bc981a286bf9bc0b6851cc0",
+      "estimated_print_g": 0.29608698579248083
+    }
+  }
+}
